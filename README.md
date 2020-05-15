@@ -10,6 +10,9 @@ Franco Colavitta,
 Demian Walton,
 31 años, estudiante para Contador Público, cambie de rubro hacia el desarrollo de software, hago el curso para ampliar mis conocimientos.
 
+Karen Fernandez,
+28 años, mamá de una nena. Actualmente Tester QA queríendo hacer la transición a desarrollo en IT. 
+
 DigitalMark
 
 Comercialización de Pc Armadas, Componentes, Gabinetes, Accesorios y Más - Garantía Asegurada. 
