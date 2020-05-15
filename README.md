@@ -10,8 +10,8 @@ Atención personalizada tanto para empresas como a particulares.
 
 Sitios de referencia
 
-www.compumundo.com.ar (Primer referente de venta de insumos informaticos)
-www.mercadolibre.com.ar ( Mayor Ecommerce de Argentina)
+www.compumundo.com.ar (Primer referente de venta de insumos informaticos).
+www.mercadolibre.com.ar ( Mayor Ecommerce de Argentina).
 www.exxitjardin.com.ar/
 www.delta.com.ar/
 www.gruponucleo.com.ar/
