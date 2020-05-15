@@ -1,13 +1,13 @@
 # grupo_4_DigitalMark
 Trabajo integrador en el marco de DigitalHouse
 
-Diego Gonçalvez
+Diego Gonçalvez,
 50 años, Contador Público, Padre y Esposo, haciendo mi transformación digital. Me identifico con esta frase: "Tus pensamientos crean tu mundo". 
 
-Franco Colavitta
+Franco Colavitta,
 31 años, Arquitecto, trabajo en el área de mantenimiento e infraestructura de edificios comunales del Gobierno de la Ciudad.
 
-Demian Walton
+Demian Walton,
 31 años, estudiante para Contador Público, cambie de rubro hacia el desarrollo de software, hago el curso para ampliar mis conocimientos.
 
 DigitalMark
