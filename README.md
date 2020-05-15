@@ -5,6 +5,7 @@ DigitalMark
 
 Comercialización de Pc Armadas, Componentes, Gabinetes, Accesorios y Más - Garantía Asegurada. 
 La Mayor Variedad. Garantías Oficiales. Mejor Precio del Mercado. Envío a Todo el País. Primeras marcas: Nvidia, Intel, Amd.
+
 Atención personalizada tanto para empresas como a particulares.
 
 
