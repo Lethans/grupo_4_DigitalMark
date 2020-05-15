@@ -31,6 +31,6 @@ www.exxitjardin.com.ar/
 
 www.delta.com.ar/
 
-compragamer.com/armatupc/
+www.compragamer.com/
 
 Las ultimas 3 las elegimos por ser paginas intuitivas, tener diseño atractivo y por facilidad de uso el carrito de compras.
