@@ -1,6 +1,8 @@
 # DigitalMark
 Trabajo integrador en el marco de DigitalHouse
 ___
+Trello:
+https://trello.com/b/2c7ZLtWl/digitalmark
 
 + ## ___Tematica principal___
 
