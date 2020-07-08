@@ -1,0 +1,289 @@
+<head>
+    <link href="./css/createADM.css" rel="stylesheet">
+
+    <style>
+        .modal-content {
+            background-color: #24303c;
+            color: white;
+            border-radius: 0px;
+        }
+
+        /* .form-control {
+            border: 0;
+            background-color: white;
+            border-radius: 0px;
+        } */
+    </style>
+
+</head>
+​
+
+​
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#product-create">
+    Crear Producto
+</button> -->
+​
+<!-- Modal -->
+<div class="modal fade" id="product-createADM" tabindex="-1" role="dialog" aria-labelledby="product-createADM"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Crear Producto</h5>
+                <a href="#" style="float: right; text-decoration: none;">Usuario: Juan Perez<button type="button"
+                        style="color: white;" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body aligment">
+                <form action="/product/save" method="post" enctype="multipart/form-data">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link adm-text" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                role="tab" aria-controls="pills-home" aria-selected="true">Descripción</a>
+                            <!--Botón descripción-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link adm-text" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                role="tab" aria-controls="pills-profile" aria-selected="false">Fotos</a>
+                            <!--Botón fotos-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link adm-text" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                role="tab" aria-controls="pills-contact" aria-selected="false">Ficha Técnica</a>
+                            <!--Botón ficha técnica-->
+                        </li>
+                    </ul>
+
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div class="tab-content" id="pills-tabContent">
+
+                            <!--Desarrollo formulario-->
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
+                                <div class="form-row">
+
+                                    <div class="form-group col-12">
+
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Nombre del producto</label>
+                                            <input type="text" class="form-control clase1"
+                                                id="exampleFormControlTextarea1"
+                                                placeholder="Ingresá nombre del producto">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Descripción de producto</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                placeholder="Ingresá descripción"></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect2">Stock</label>
+                                            <input type="number" class="form-control" id="exampleFormControlTextarea1"
+                                                placeholder="Ingresá número">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="currency-field">Precio</label>
+                                            <input type="text" class="form-control" name="currency-field"
+                                                id="currency-field" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value=""
+                                                data-type="currency" placeholder="$1,000,000.00">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect2">Tarjeta de crédito</label>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    Visa
+                                                </label>
+                                            </div>
+
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="defaultCheck1">
+                                                <label class="form-check-label" for="defaultCheck1">
+                                                    American Express
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect2">Cuotas</label>
+                                                <input type="number" class="form-control"
+                                                    id="exampleFormControlTextarea1" placeholder="Ingresá número">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect2">Envío</label>
+
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="defaultCheck1">
+                                                    <label class="form-check-label" for="defaultCheck1">
+                                                        A domicilio
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="defaultCheck1">
+                                                    <label class="form-check-label" for="defaultCheck1">
+                                                        Retira por sucursal
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Desarrollo fotos-->
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                aria-labelledby="pills-profile-tab">
+                                <div class="form-row">
+
+                                    <div class="form-group col-12">
+
+
+                                        <div class="col-sm-6">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-preview thumbnail" data-trigger="fileinput"
+                                                    style="line-height: 170px;">
+                                                    <img alt="profile image" class="img-responsive" width="100px"
+                                                        src="../img/camara.png">
+                                                </div>
+                                                <div>
+                                                    <span><input type="file"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-preview thumbnail" data-trigger="fileinput"
+                                                    style="line-height: 170px;">
+                                                    <img alt="profile image" class="img-responsive" width="100px"
+                                                        src="../img/camara.png">
+                                                </div>
+                                                <div>
+                                                    <span><input type="file"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-preview thumbnail" data-trigger="fileinput"
+                                                    style="line-height: 170px;">
+                                                    <img alt="profile image" class="img-responsive" width="100px"
+                                                        src="../img/camara.png">
+                                                </div>
+                                                <div>
+                                                    <span><input type="file"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-preview thumbnail" data-trigger="fileinput"
+                                                    style="line-height: 170px;">
+                                                    <img alt="profile image" class="img-responsive" width="100px"
+                                                        src="../img/camara.png">
+                                                </div>
+                                                <div>
+                                                    <span><input type="file"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Desarrollo ficha técnica-->
+                            <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                aria-labelledby="pills-contact-tab">
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Marca</label>
+                                            <input type="text" class="form-control clase1"
+                                                id="exampleFormControlTextarea1" placeholder="Ingresá marca">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Modelo</label>
+                                            <input type="text" class="form-control clase1"
+                                                id="exampleFormControlTextarea1" placeholder="Ingresá modelo">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Procesador</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>1.1GHz</option>
+                                                <option>1.4GHz</option>
+                                                <option>1.6GHz</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Memoria Ram</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>2 GB</option>
+                                                <option>4 GB</option>
+                                                <option>8 GB</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Disco Rígido</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>240GB</option>
+                                                <option>480GB</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect1">Pantalla</label>
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>10.1 "</option>
+                                                <option>14.1 "</option>
+                                                <option>15.6 "</option>
+                                            </select>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="float: right">Guardar</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+​
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="js/bootstrap.min.js"></script> -->
+​

@@ -1,0 +1,19 @@
+body {
+    background-color: #f5f5f5;
+    text-decoration: none;
+  }
+
+  .breadcrumb {
+
+    background-color: #24303c;
+  
+  }
+
+  h4.price{
+    color: black;
+    font-size: 19px;
+  }
+
+  @media (min-width:992px){
+
+  }

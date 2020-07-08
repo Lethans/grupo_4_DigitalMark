@@ -1,0 +1,59 @@
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title p-login" id="exampleModalLabel">Registrate</h5>
+                <div><button
+                        type="button" style="color: white;" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button></div>
+            </div>
+            <div class="modal-body" style="text-align:center">
+
+                <!--Register-->
+
+                <section class="col-12 col-md-8 col-lg-12">
+
+                    <form action="user" method="post">
+
+                        <div><label class="datos">Nombre</label></div>
+
+                        <div><input class="controls" type="text" name="nombre" id="nombre"
+                                placeholder="Como figura en tu documento">
+                        </div>
+
+                        <div><label class="datos">Apellido</label></div>
+
+                        <div><input class="controls" type="text" name="apellido" id="apellido"
+                                placeholder="Como figura en tu documento"></div>
+
+                        <div><label class="datos">Email</label></div>
+
+                        <div><input class="controls" type="email" name="email" id="email"
+                                placeholder="digitalmark@digitalmark.com">
+                        </div>
+
+                        <div><label class="datos">Contraseña</label></div>
+
+                        <div><input class="controls" type="password" name="contraseña" id="contraseña"
+                                placeholder="Usá entre 6 y 20 caracteres"></div>
+
+                        <div><label class="datos">Repetir contraseña</label></div>
+
+                        <div><input class="controls" type="password" name="repetir contraseña" id="repetir contraseña"
+                                placeholder="*************"></div>
+
+                        <div><label class="terminos"><br><input type="checkbox"> Estoy de
+                                acuerdo con <a href="#" class="a-login">Términos y condiciones</a></label><br></div>
+
+                        <div><input class="botons" type="submit" value="Registrar"></div>
+
+                    </form>
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>

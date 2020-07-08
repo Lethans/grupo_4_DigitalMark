@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="./css/navbar.css">
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+<!-- Topbar-->
+<div class="topbar">
+
+  <div class="topbar-column">
+    <a class="hidden-md-down" href="mailto:support@digitalmark.com">support@digitalmark.com.ar</a>
+    <a class="hidden-md-down" href="tel:00331697720">0800 333 7483</a>
+  </div>
+
+  <div class="topbar-column">
+    <a class="social-button sb-facebook" href="https://www.facebook.com" target="_blank">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </a>
+    <a class="social-button sb-twitter" href="https://twitter.com/" target="_blank">
+      <ion-icon name="logo-twitter"></ion-icon>
+    </a>
+    <a class="social-button sb-instagram" href="https://www.instagram.com/" target="_blank">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+    <a class="social-button sb-pinterest" href="https://ar.pinterest.com/" target="_blank">
+      <ion-icon name="logo-pinterest"></ion-icon>
+    </a>
+  </div>
+</div>
+
+<!-- Navbar-->
+<div class="sticky-top">
+  <header class="navbar">
+
+
+    <div class="site-branding">
+      <div class="inner dropdown">
+
+        <a class="offcanvas-toggle menu-toggle dropdown-toggle" href="" role="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="ham"
+            src="./icons/hamburguesa.svg"></a>
+
+        <!-- Site Logo--><a class="site-logo"><img src="./img/logo.png" alt="DigitalMark"></a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+          <ul class="hamburguer" type="none">
+            <li class="texto-ham"><a data-toggle="modal" data-target="#product-createADM" href="">ADMINISTRADOR</a>
+            </li>
+            <li class="texto-ham"><a href="/error">ERROR</a></li>
+            <li class="texto-ham"><a href="/categorias">Computadoras</a></li>
+            <li class="texto-ham"><a href="/categorias">Componentes</a></li>
+            <li class="texto-ham"><a href="/categorias">Notebooks</a></li>
+            <li class="texto-ham"><a href="/categorias">Monitores</a></li>
+            <li class="texto-ham"><a href="/categorias">Conectividad</a></li>
+            <li class="texto-ham"><a href="/categorias">Accesorios</a></li>
+            <li class="texto-ham"><a href="/categorias">Almacenamiento</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Main Navigation-->
+    <!-- Toolbar-->
+    <div class="toolbar">
+      <div class="inner">
+        <div class="tools">
+
+          <!-- <div class="search">
+                  <i class="icon-search">
+                    <ion-icon name="search-outline"></ion-icon>
+                  </i>
+                </div> -->
+
+          <div class="search hover-toolbar">
+            <i class="icon-search">
+              <ion-icon style="margin-top: 7px;" name="search-outline"></ion-icon>
+            </i>
+          </div>
+
+          <div class="account">
+            <a  class="hover-toolbar"data-toggle="modal" data-target="#loginModal" href="">
+              <i class="icon-head">
+                <ion-icon name="person-outline"></ion-icon>
+              </i>
+            </a>
+          </div>
+
+          <div class="cart">
+            <a class="hover-toolbar" href="" data-toggle="modal" data-target="#product-create">
+              <i class="icon-bag">
+                <ion-icon class="wallet" name="wallet-outline"></ion-icon>
+              </i>
+              <span class="count">3</span>
+              <span class="subtotal">$289.68</span>
+            </a>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<%- include('../partials/modalLogin')%>
+<%- include('../partials/modalRegister')%>
+
+<%- include('../partials/modalCart')%>
+<%- include('../partials/modalAdmin')%>
+
+<%- include('../partials/modalPrivacyPolicy')%>
+<%- include('../partials/modalTermsAndConditions')%>

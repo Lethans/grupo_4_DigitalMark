@@ -1,0 +1,272 @@
+<head>
+  <link href="./css/modalCart.css" rel="stylesheet">
+
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .container {
+      max-width: 960px;
+    }
+
+    .lh-condensed {
+      line-height: 1.25;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="form-validation.css" rel="stylesheet">
+</head>
+
+
+
+
+
+<div class="modal fade" id="product-create" tabindex="-1" role="dialog" aria-labelledby="product-create"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #24303c;">
+        <h5 class="modal-title" id="exampleModalLongTitle" style="color: white;">Carrito de compras</h5>
+        <!-- <a style="float: right; text-decoration: none;">Usuario: Carlos Navbar</a>-->
+        <button type="button" class="close" style="color: white;" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="container modal-carrito-body">
+
+        <div class="row">
+          <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted" style="padding-top: 20px;">Tu carrito</span>
+              <span class="text-muted" style="padding-top: 20px;">3</span>
+            </h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Memoria RAM</h6>
+                  <small class="text-muted">2GB Skill</small>
+                </div>
+                <span class="text-muted">$6000</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Auriculares</h6>
+                  <small class="text-muted">NewApple</small>
+                </div>
+                <span class="text-muted">$10.000</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Mousse</h6>
+                  <small class="text-muted">Inalámbrico SuperGenius</small>
+                </div>
+                <span class="text-muted">$2000</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between bg-light">
+                <div class="text-success">
+                  <h6 class="my-0">Código promocional</h6>
+                  <small>ABC9966</small>
+                </div>
+                <span class="text-success">-$2600</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total (ARS)</span>
+                <strong>$15.400</strong>
+              </li>
+            </ul>
+
+            <form class="card p-2">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Código promo">
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-secondary">Cargar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-8 order-md-1" style="padding-top: 20px;">
+            <h4 class="mb-3 cart-text">Datos del comprador</h4>
+            <form class="needs-validation" novalidate>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName">Nombre</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="" value="Carlos" required>
+                  <div class="invalid-feedback">
+                    Campo requerido.
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="lastName">Apellido</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="" value="Navbar" required>
+                  <div class="invalid-feedback">
+                    Campo requerido.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="username">Usuario</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                  </div>
+                  <input type="text" class="form-control" id="username" placeholder="carlos-navbar" required>
+                  <div class="invalid-feedback" style="width: 100%;">
+                    Campo requerido.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email">Email <span class="text-muted"></span></label>
+                <input type="email" class="form-control" id="email" placeholder="carlosnavbar@bootstrap.com">
+                <div class="invalid-feedback">
+                  Campo requerido.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="address">Dirección</label>
+                <input type="text" class="form-control" id="address" placeholder="Avenida Corrientes 0 esq 9 de Julio"
+                  required>
+                <div class="invalid-feedback">
+                  Campo requerido.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="address2">Número/Depto <span class="text-muted">(Opcional)</span></label>
+                <input type="text" class="form-control" id="address2" placeholder="16A">
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 mb-3">
+                  <label for="country">País</label>
+                  <select class="custom-select d-block w-100" id="country" required>
+                    <option value="">Elegí...</option>
+                    <option>Argentina</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Campo requerido.
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="state">Provincia</label>
+                  <select class="custom-select d-block w-100" id="state" required>
+                    <option value="">Elegí...</option>
+                    <option>Ciudad de Buenos Aires</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Campo requerido.
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="zip">Código Postal</label>
+                  <input type="text" class="form-control" id="zip" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Campo requerido.
+                  </div>
+                </div>
+              </div>
+              <hr class="mb-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="same-address">
+                <label class="custom-control-label" for="same-address">La dirección de envío y facturación es la
+                  misma</label>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="save-info">
+                <label class="custom-control-label" for="save-info">Guardar esta información para la próxima
+                  vez</label>
+              </div>
+              <hr class="mb-4">
+
+              <h4 class="mb-3 cart-text">Pago</h4>
+
+              <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                  <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                  <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="debit">Tarjeta de débito</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="paypal">PayPal</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="cc-name">Nombre de la tarjeta</label>
+                  <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                  <small class="text-muted">
+                    Nombre completo como se muestra en la tarjeta</small>
+                  <div class="invalid-feedback">
+                    Campo requerido.
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cc-number">Número de tarjeta de crédito</label>
+                  <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Campo requerido.
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 mb-3">
+                  <label for="cc-expiration">Expiración</label>
+                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Campo requerido.
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label for="cc-cvv">CVV</label>
+                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                  <div class="invalid-feedback">
+                    Campo requerido.
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 order-md-1"></div>
+          <button class="btn btn-primary btn-lg btn-block" type="submit"
+            style="margin: 20px; text-align: center;">Continuar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="form-validation.js"></script>
+
+
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>
+  window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
+</script> -->
+<!-- <script src="../assets/dist/js/bootstrap.bundle.js"></script> -->
