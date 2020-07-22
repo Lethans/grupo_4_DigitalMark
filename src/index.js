@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const methodOverride = require('method-override');
 
 
 //Archivos estaticos para express.
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 //Motor de plantillas
-app.set('view engine', 'ejs');
+app.set('view engine','ejs');
+//URL encode  - Para que nos pueda llegar la información desde el formulario al req.body
+app.use(express.urlencoded({ extended: false }));
 
 //URL encode  - Agarra la informacion del formulario con req.body
 app.use(express.urlencoded({ extended: false }));
@@ -23,9 +26,8 @@ const webRoutes = require('./router/web');
 const productRoutes = require('./router/products');
 app.use(webRoutes);
 app.use(productRoutes);
+const adminRoutes = require('./router/admin');
+app.use(adminRoutes);
+app.use(methodOverride('_method'));
 
-app.listen(3000, 'localhost', () => console.log('Servidor corriendo en el puerto 3000'));
-
-let pepe = [];
-pepe.push("asd");
-
+app.listen(2000, 'localhost', () => console.log('Servidor corriendo en el puerto 2000'));
