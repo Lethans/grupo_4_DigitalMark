@@ -38,13 +38,15 @@
         <h2 class="display-12"></h2>
       </article>
 
-      <table class="table" style="background-color: rgb(36, 35, 35); color:white">
+      <table class="table col-12" style="background-color: rgb(36, 35, 35); color:white;">
         <thead>
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Modelo</th>
+            <th scope="col">Marca</th>
             <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
             <th scope="col">Ver</th>
             <th scope="col">Editar</th>
             <th scope="col">Borrar</th>
@@ -60,7 +62,9 @@
             <td><%=notebook.id%></td>
             <td><%=notebook.nombre%></td>
             <td><%=notebook.modelo%></td>
+            <td><%=notebook.marca%></td>
             <td><%=notebook.precio%></td>
+            <td><%=notebook.stock%></td>
             <td><a href="/detalles/<%= notebook.id%>">
                 <ion-icon name="eye-outline"></ion-icon>
               </a></td>

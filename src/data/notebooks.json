@@ -1,28 +1,29 @@
 [
   {
-    "id": "1",
     "nombre": "IdeaPad 5i 15 - Graphite Grey",
+    "descripcionCorta": "Se adapta a tu forma de vida.Procesamiento Intel Core™ de 10ma generación .Pantalla 15.6” FHD táctil opcional con bordes estrechos para una visualización grandiosa. Tapa de privacidad en la cámara web y lector de huellas digitales opcional. Altavoces Dolby Audio™ orientados al usuario. Incluye 1 puerto USB-C & soporta Rapid Charge para que siempre tengas batería. Algunos puertos y características pueden ser opcionales; colores sujetos a disponibilidad.",
+    "descripcionLarga": "",
+    "stock": "4",
+    "currency-field": [
+      "",
+      ""
+    ],
+    "cuotas": "",
     "marca": "Lenovo",
     "modelo": "81YK00FLAR",
     "procesador": "Intel Core i7-1065G7 Processor ( 1,30GHz 8MB )",
     "memoriaRam": "8.0GB DDR4-3200 DDR4 Soldado 3200MHz",
     "discoRigido": "512GB SSD PCIe NVMe",
     "pantalla": "De 15.6” FHD (1920x1080), IPS, antirreflejos, 300 nits, 16:9, 100% sRGB",
-    "sistemaOperativo": "Windows 10 Home Single Language 64",
-    "memoriaIntegrada": "Si",
-    "salidaHdmi": "HDMI 1.4b",
-    "puertoRed": "No",
-    "salidaVga": "No",
-    "descripcionCorta": "Se adapta a tu forma de vida.Procesamiento Intel Core™ de 10ma generación .Pantalla 15.6” FHD táctil opcional con bordes estrechos para una visualización grandiosa. Tapa de privacidad en la cámara web y lector de huellas digitales opcional. Altavoces Dolby Audio™ orientados al usuario. Incluye 1 puerto USB-C & soporta Rapid Charge para que siempre tengas batería. Algunos puertos y características pueden ser opcionales; colores sujetos a disponibilidad.",
-    "descripcionLarga": "Seguridad estricta. Lo último que necesitas es un hacker que aparezca en tu vida a través de la cámara web; es por eso que la laptop IdeaPad 5 está equipada con un protector de privacidad física que bloquea la cámara web cuando no quieras que te vean. Y con un lector de huellas digitales opcional en el botón de encendido (no disponible en todos los modelos), puedes configurar tu IdeaPad para que ni siquiera se active a menos que detecte tu firma biométrica. Acaba con las fronteras. Ingresa en el mundo de tus películas y series favoritas con una pantalla diseñada hasta el último milímetro que maximiza tu experiencia visual y te ofrece más por el mismo dinero. Llamamos a esto “relación de área activa” o la cantidad de pantalla en comparación con el tamaño de los bordes circundantes, y la IdeaPad 5 tiene una increíble relación del 90%. Un toque de distinción. Esta no es la típica laptop de plástico o metal frío que llevas de un lado a otro: es un accesorio de moda. La IdeaPad 5 se ha diseñado poniendo especial atención en los detalles, lo que queda patente en la suavidad al tacto de la superficie de esta PC, con una opción de colores increíbles (sujetos a disponibilidad). Infinidad de opciones. La IdeaPad 5 incluye multitud de opciones, como un puerto USB-C con suministro de energía para cargar tus dispositivos directamente desde la laptop y Rapid Charge opcional para cargar la batería lo más rápido posible. Y con unidades opcionales SSD rápidas y abundantes opciones de memoria, esta PC es más que una laptop común.",
-    "precio": "$ 110.999",
-    "oldPrice": "$ 116.999",
-    "descuento": "0",
-    "imagen": "notebook1.jpg",
-    "stock": "4",
-    "destacado": false
+    "sistemaOperativo": "",
+    "memoriaIntegrada": "",
+    "salidaHdmi": "",
+    "puertoRed": "",
+    "salidaVga": "",
+    "oldimagen": "",
+    "id": "1"
   },
-    {
+  {
     "id": "2",
     "nombre": "Spectre x360 ",
     "marca": "HP",
@@ -45,7 +46,7 @@
     "stock": "6",
     "destacado": false
   },
-    {
+  {
     "id": "3",
     "nombre": "XPS",
     "marca": "Dell",
@@ -68,7 +69,7 @@
     "stock": "2",
     "destacado": false
   },
-    {
+  {
     "id": "4",
     "nombre": "Huawei MateBook 13",
     "marca": "Samsung",
@@ -91,7 +92,7 @@
     "stock": "1",
     "destacado": false
   },
-    {
+  {
     "id": "5",
     "nombre": "MacBook Pro 16",
     "marca": "Apple",
@@ -114,7 +115,7 @@
     "stock": "4",
     "destacado": false
   },
-      {
+  {
     "id": "6",
     "nombre": "Alienware Area 51m",
     "marca": "Dell",
@@ -137,7 +138,7 @@
     "stock": "5",
     "destacado": false
   },
-      {
+  {
     "id": "7",
     "nombre": "Surface Laptop 3",
     "marca": "Acer",
@@ -160,7 +161,7 @@
     "stock": "2",
     "destacado": true
   },
-      {
+  {
     "id": "8",
     "nombre": "XPS 15 2-in-1",
     "marca": "Dell",
@@ -183,7 +184,7 @@
     "stock": "6",
     "destacado": true
   },
-      {
+  {
     "id": "9",
     "nombre": "G5",
     "marca": "Dell",
@@ -206,7 +207,7 @@
     "stock": "3",
     "destacado": true
   },
-      {
+  {
     "id": "10",
     "nombre": "Chromebook Flip",
     "marca": "Asus",
@@ -229,7 +230,7 @@
     "stock": "2",
     "destacado": true
   },
-      {
+  {
     "id": "11",
     "nombre": "VivoBook",
     "marca": "Asus",
@@ -252,7 +253,7 @@
     "stock": "1",
     "destacado": true
   },
-      {
+  {
     "id": "12",
     "nombre": "Spectre Folio",
     "marca": "HP",
