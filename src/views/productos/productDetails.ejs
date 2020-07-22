@@ -1,22 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/productDetails.css">
-  <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
 
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/productDetails.css">
 
-
+  <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
 
   <title>DM - Detalle de producto</title>
 </head>
 
 <body>
-
-  <%- include('../partials/navBar')%>
 
 
   <!-- Modal -->
@@ -34,9 +31,8 @@
 
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="/" style="text-decoration: none;">Inicio</a></li>
-              <li class="breadcrumb-item"><a href="/categorias" style="text-decoration: none;">Notebooks y PC</a></li>
-              <li class="breadcrumb-item"><a href="/categorias" style="text-decoration: none;">Notebooks</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Notebook 2en1 EXO TW7 Intel Atom</li>
+              <li class="breadcrumb-item"><a href="/categorias/<%= selectedNotebook.marca%>" style="text-decoration: none;"><%= selectedNotebook.marca%></a></li>
+              <li class="breadcrumb-item active" aria-current="page"><%= selectedNotebook.nombre%></li>
             </ol>
 
             <div class="btn-group">
@@ -49,18 +45,18 @@
         <div class="card-body store-body row">
 
           <ul class="thumbnails-list">
-            <li class="thumbnails-item"><img class="img-fluid" src="./img/1.jpg" alt=""></li>
-            <li class="thumbnails-item"><img class="img-fluid" src="./img/2.jpg" alt=""></li>
-            <li class="thumbnails-item"><img class="img-fluid" src="./img/3.jpg" alt=""></li>
+            <li class="thumbnails-item"><img class="img-fluid" src="/img/<%= selectedNotebook.imagen%>" alt=""></li>
+            <li class="thumbnails-item"><img class="img-fluid" src="/img/<%= selectedNotebook.imagen%>" alt=""></li>
+            <li class="thumbnails-item"><img class="img-fluid" src="/img/<%= selectedNotebook.imagen%>" alt=""></li>
           </ul>
 
           <div class="product-gallery-featured col-md-5 col-12 text-center px-0">
-            <img class="img-fluid" src="./img/1.jpg" alt="">
+            <img class="img-fluid" src="/img/<%= selectedNotebook.imagen%>" alt="">
           </div>
 
           <div class="product-payment col-md-5 col-12">
-            <h4 class="product-title">Notebook 2en1 EXO TW7 Intel Atom</h4>
-            <h2 class="product-price display-4">$32.999</h2>
+            <h4 class="product-title"><%= selectedNotebook.nombre%></h4>
+            <h2 class="product-price display-4"><%= selectedNotebook.precio%></h2>
             <p class="text-success"><i class="fa fa-credit-card"></i>Pagá con todos los medios</p>
             <p class="mb-0"><i class="fa fa-truck"></i>Retiro ¡GRATIS! <a href="#" style="text-decoration: none;">Ver
                 sucursales</a></p>
@@ -78,13 +74,13 @@
             <h2 style="margin-bottom: 40px;">Especificaciones</h2>
             <dl class="row mb-4">
               <dt class="col-sm-5">Marca</dt>
-              <dd class="col-sm-7">EXO</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.marca%></dd>
               <dt class="col-sm-5">Modelo</dt>
-              <dd class="col-sm-7">Red</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.modelo%></dd>
               <dt class="col-sm-5">Procesador</dt>
-              <dd class="col-sm-7">1.1GHz</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.procesador%></dd>
               <dt class="col-sm-5">Memoria Ram</dt>
-              <dd class="col-sm-7">2 GB</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.memoriaRam%></dd>
             </dl>
           </div>
 
@@ -92,13 +88,13 @@
             <h2 style="margin-bottom: 40px;"><br></h2>
             <dl class="row mb-4">
               <dt class="col-sm-5">Disco Rígido</dt>
-              <dd class="col-sm-7">240GB</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.discoRigido%></dd>
               <dt class="col-sm-5">Pantalla</dt>
-              <dd class="col-sm-7">15.6 "</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.pantalla%></dd>
               <dt class="col-sm-5">Sistema Operativo</dt>
-              <dd class="col-sm-7">Windows 10</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.sistemaOperativo%></dd>
               <dt class="col-sm-5">Memoria Integrada</dt>
-              <dd class="col-sm-7">SI</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.memoriaIntegrada%></dd>
             </dl>
           </div>
 
@@ -106,13 +102,13 @@
             <h2 style="margin-bottom: 40px;"><br></h2>
             <dl class="row mb-4">
               <dt class="col-sm-5">Wi-Fi</dt>
-              <dd class="col-sm-7">SI</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.memoriaIntegrada%></dd>
               <dt class="col-sm-5">Salida HDMI</dt>
-              <dd class="col-sm-7">SI</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.salidaHdmi%></dd>
               <dt class="col-sm-5">Puerto de Red</dt>
-              <dd class="col-sm-7">SI</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.puertoRed%></dd>
               <dt class="col-sm-5">Salida VGA</dt>
-              <dd class="col-sm-7">NO</dd>
+              <dd class="col-sm-7"><%= selectedNotebook.salidaVga%></dd>
             </dl>
           </div>
 
@@ -131,10 +127,9 @@
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <script src="js/bootstrap.min.js"></script>
- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> 
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
 
- <%- include('../partials/footer')%>
 </body>
 ​
 

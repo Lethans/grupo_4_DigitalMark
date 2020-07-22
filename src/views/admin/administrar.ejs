@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <style>
+    .modal-content {
+      background-color: #24303c;
+      color: white;
+      border-radius: 0px;
+    }
+  </style>
+
+</head>
+
+<body style="background-color: rgb(36, 35, 35); color:white">
+  <main class="container" style="background-color: rgb(36, 35, 35); color:white">
+
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Crear Producto</h5>
+      <a href="#" style="float: right; text-decoration: none;">Usuario: Juan Perez
+    </div>
+
+    <article>
+      <a href='/administrar/create'><button type="button" class="btn btn-primary"
+          style="margin-top: 10px;">Agregar</button></a>
+      <a href='/'><button type="button" class="btn btn-primary"
+          style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;">Volver</button></a>
+    </article>
+
+    <!--Administrador de productos-->
+    <section class="row">
+      <article class="col-12">
+        <h2 class="display-12"></h2>
+      </article>
+
+      <table class="table" style="background-color: rgb(36, 35, 35); color:white">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Ver</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Borrar</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <% notebooks.forEach(notebook => { %>
+
+          <tr>
+
+            <td><%=notebook.id%></td>
+            <td><%=notebook.nombre%></td>
+            <td><%=notebook.modelo%></td>
+            <td><%=notebook.precio%></td>
+            <td><a href="/detalles/<%= notebook.id%>">
+                <ion-icon name="eye-outline"></ion-icon>
+              </a></td>
+            <td><a href="/administrar/edit/<%= notebook.id%>">
+                <ion-icon name="pencil-outline"></ion-icon>
+              </a></td>
+            <td><a href="/administrar/delete/<%= notebook.id%>">
+                <ion-icon name="trash-outline"></ion-icon>
+              </a></td>
+
+          </tr>
+
+
+          <% }); %>
+
+        </tbody>
+      </table>
+
+    </section>
+
+  </main>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+
+</html>
