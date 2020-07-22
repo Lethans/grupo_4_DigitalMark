@@ -2,14 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/productCategory.css">
-    <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
 
-
-
+    <%- include('../partials/headContent')%>
+    <link rel="stylesheet" href="/css/productCategory.css">
 
     <title>DM - Categorías</title>
 </head>
@@ -21,41 +16,30 @@
     <!--<div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">-->
 
 
-    <div class="container">
         <div class="row">
             <div class="col">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Categorías</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Notebooks</li>
+                        <li class="breadcrumb-item active" aria-current="page">Marcas</li>
                     </ol>
                 </nav>
             </div>
         </div>
-    </div>
-    <div class="container">
         <div class="row">
             <div class="col-12 col-sm-3">
                 <div class="card bg-light mb-3">
-                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Categorias
+                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Marcas
                     </div>
                     <ul class="list-group category_block">
-                        <li class="list-group-item"><a href="#" style="text-decoration: none;">Notebooks</a>
+                        <% for(let i= 0; i < marcas.length; i++){ %>
+                        <li class="list-group-item"><a href="/categorias/<%=marcas[i].nombre%>"
+                                style="text-decoration: none;"><%=marcas[i].nombre%></a>
                         </li>
-                        <li class="list-group-item"><a href="#"
-                                style="text-decoration: none;">Accesorios</a>
-                        </li>
-                        <li class="list-group-item"><a href="#" style="text-decoration: none;">Disco
-                                rígidos</a>
-                        </li>
-                        <li class="list-group-item"><a href="#" style="text-decoration: none;">Memoria
-                                Ram</a>
-                        </li>
-
+                        <% } %>
                     </ul>
                 </div>
-                <div class="card bg-light mb-3">
+                <!-- <div class="card bg-light mb-3">
                     <div class="card-header bg-success text-white text-uppercase">Producto destacado</div>
                     <div class="card-body">
                         <img class="img-fluid" src="../img/notebook1.jpg" />
@@ -66,21 +50,23 @@
                             <h4 class="price">$50.999</h4>
                         </p>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="col">
                 <div class="row">
+                    <% if(selectedBrand == undefined){ %>
+                    <% for(let i= 0; i < notebooks.length; i++){ %>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="card">
-                            <img class="card-img-top" src="../img/notebook2.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="/detalles" title="Ver producto"
-                                        style="text-decoration: none;">Notebook</a></h4>
-                                <p class="card-text">EXO SMART PRO Q5-H5288</p>
+                                <h4 class="card-title"><a href="/detalles/<%= notebooks[i].id%>" title="Ver producto"
+                                        style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
+                                <p class="card-text"><%= notebooks[i].marca%></p>
                                 <div class="row">
                                     <div class="col">
                                         <p>
-                                            <h4 class="price">$69.999</h4>
+                                            <h4 class="price"><%= notebooks[i].precio%></h4>
                                         </p>
                                     </div>
                                     <div class="col">
@@ -90,107 +76,34 @@
                             </div>
                         </div>
                     </div>
+                    <% } %>
+                    <% }else{ %>
+                    <% for(let i= 0; i < notebooks.length; i++){ %>
+                    <% if(selectedBrand == notebooks[i].marca){ %>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="card">
-                            <img class="card-img-top" src="../img/notebook3.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="/detalles" title="Ver producto"
-                                        style="text-decoration: none;">Notebook</a></h4>
-                                <p class="card-text">Acer NITRO 5 i5-8300H</p>
+                                <h4 class="card-title"><a href="/detalles/<%= notebooks[i].id%>" title="Ver producto"
+                                        style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
+                                <p class="card-text"><%= notebooks[i].marca%></p>
                                 <div class="row">
                                     <div class="col">
                                         <p>
-                                            <h4 class="price">$74.999</h4>
+                                            <h4 class="price"><%= notebooks[i].precio%></h4>
                                         </p>
                                     </div>
                                     <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Comprar</a>
+                                        <a href="" class="btn btn-success btn-block">Comprar</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="../img/notebook4.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="/detalles" title="Ver producto"
-                                        style="text-decoration: none;">Notebook</a></h4>
-                                <p class="card-text">HP 14-ck0047la Intel Core i3</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>
-                                            <h4 class="price">$74.999</h4>
-                                        </p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Comprar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="../img/notebook5.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="/detalles" title="Ver producto"
-                                        style="text-decoration: none;">Notebook</a></h4>
-                                <p class="card-text">2en1 EXO TW7 Intel Atom</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>
-                                            <h4 class="price">$32.999</h4>
-                                        </p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Comprar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="../img/notebook5.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="/detalles" title="Ver producto"
-                                        style="text-decoration: none;">Notebook</a></h4>
-                                <p class="card-text">2en1 EXO Atom Intel Core i5</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>
-                                            <h4 class="price">$41.999</h4>
-                                        </p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Comprar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="../img/notebook2.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="/detalles" title="Ver producto"
-                                        style="text-decoration: none;">Notebook</a></h4>
-                                <p class="card-text">en1 EXO Atom Intel Core i20</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>
-                                            <h4 class="price">$41.999</h4>
-                                        </p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#" class="btn btn-success btn-block">Comprar</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <% } %>
+                    <% } %>
+                    <% } %>
+                    
                     <div class="col-12">
                         <nav aria-label="...">
                             <ul class="pagination" style="padding-top: 20px;">
@@ -212,9 +125,9 @@
             </div>
 
         </div>
-    </div>
 
     <%- include('../partials/footer')%>
+    <%- include('../partials/boostrapScripts')%>
 
 </body>
 

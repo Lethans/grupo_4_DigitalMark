@@ -1,0 +1,107 @@
+<div id="multi-item-outstanding" class="carousel slide carousel-multi-item carrusel-home" data-ride="carousel">
+    <% let totalOutstandingNotebooks = 0; %>
+    <% let fistSlide = 0; %>
+    <% let offersId = []; %>
+
+
+
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+        <!--First slide-->
+        <div class="carousel-item active">
+
+            <div class="row">
+                <% for(let i= 0; i < notebooks.length; i++){ %>
+                <% if (notebooks[i].destacado == true ){totalOutstandingNotebooks += 1 } %>
+
+                <% if (notebooks[i].destacado == true && fistSlide < 3){ %>
+                <%  fistSlide += 1%>
+                <%  offersId.push(notebooks[i].id)%>
+                <div class="col-md-4 col-sm-6">
+                    <div class="product-grid6">
+                        <div class="product-image6">
+                            <a href="/detalles/<%= notebooks[i].id%>" class="imageCardCarrusel">
+                                <img class="pic-1" src="../img/<%= notebooks[i].imagen%>">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#"><%= notebooks[i].nombre%></a></h3>
+                            <div class="price">
+                                <%= notebooks[i].precio%>
+                                <% if (notebooks[i].stock <= 3){ %>
+                                <span class="stock">Ultimas <%= notebooks[i].stock%> unidades</span>
+                                <% } %>
+                            </div>
+                        </div>
+                        <ul class="social">
+                            <li><a href="/detalles/<%= notebooks[i].id%>" data-tip="Quick View"><i
+                                        class="fa fa-search"></i></a></li>
+                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+        <!--/.First slide-->
+
+        <!--Second slide-->
+        <% if (totalOutstandingNotebooks > 3){ %>
+        <% let totalSecondOfferNotebooks = 0; %>
+        <div class="carousel-item">
+            <div class="row">
+                <% for(let i= 0; i < notebooks.length; i++){ %>
+                <% if (notebooks[i].destacado == true && totalSecondOfferNotebooks < 3 && !offersId.includes(notebooks[i].id) ){ %>
+                <%  totalSecondOfferNotebooks += 1 %>
+                <div class="col-md-4 col-sm-6">
+                    <div class="product-grid6">
+                        <div class="product-image6">
+                            <a href="/detalles/<%= notebooks[i].id%>" class="imageCardCarrusel">
+                                <img class="pic-1" src="../img/<%= notebooks[i].imagen%>">
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#"><%= notebooks[i].nombre%></a></h3>
+                            <div class="price">
+                                <%= notebooks[i].precio%>
+                                <% if (notebooks[i].stock <= 3){ %>
+                                <span class="stock">
+                                    <% if (notebooks[i].stock == 1){ %>
+                                    Ultima unidad
+                                    <% }else{ %>
+                                    Ultimas <%= notebooks[i].stock%> unidades</span>
+                                <% } %>
+                                <% } %>
+                            </div>
+                        </div>
+                        <ul class="social">
+                            <li><a href="/detalles/<%= notebooks[i].id %>" data-tip="Quick View"><i
+                                        class="fa fa-search"></i></a></li>
+                            <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+        <!--/.Second slide-->
+    </div>
+    <!--/.Slides-->
+    <% if (totalOutstandingNotebooks > 3){ %>
+    <!--Controls-->
+    <div class="controls-top align-items-center justify-content-center" style="display: flex;">
+        <a class="btn-floating" href="#multi-item-outstanding" data-slide="prev">
+            <i>
+                <ion-icon class="next-prev" name="arrow-back-outline"></ion-icon>
+            </i></a>
+        <a class="btn-floating" href="#multi-item-outstanding" data-slide="next">
+            <i>
+                <ion-icon class="next-prev" name="arrow-forward-outline"></ion-icon>
+            </i></a>
+    </div>
+    <% } %>
+    <!--/.Controls-->
+</div>

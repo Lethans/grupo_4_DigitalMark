@@ -3,9 +3,9 @@ const router = express.Router();
 const path = require('path');
 
 
-const controllersWeb = require(path.resolve(__dirname, '..', 'controllers', 'controllersProducts'));
+const controllersProducts = require(path.resolve(__dirname, '..', 'controllers', 'controllersProducts'));
 //Rutas
-router.get('/detalles', controllersWeb.productsDetails);
+router.get('/detalles/:id', controllersProducts.productsDetails);
 
 
 module.exports = router;
