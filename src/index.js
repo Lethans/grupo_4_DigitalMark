@@ -4,7 +4,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 
 
-//Archivos estaticos para express.
+//Archivos estaticos para express. asd
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 //Motor de plantillas
