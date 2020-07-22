@@ -61,7 +61,7 @@ module.exports = {
         res.render(path.resolve(__dirname, '..','views','admin','edit'), {notebookEditar});
     },
     update: (req,res) =>{
-        let notebooks =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','notebooks.json')));
+        let notebooks =  JSON.parse(fs.readFileSync(path.resolve(__dirname,'..','data','notebooks.json')));//revisar
         req.body.id = req.params.id;
         req.body.imagen = req.file ? req.file.filename : req.body.oldImagen;
         let notebooksUpdate = notebooks.map(notebook => {
