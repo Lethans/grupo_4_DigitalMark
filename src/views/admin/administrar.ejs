@@ -5,7 +5,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
 
   <style>
     .modal-content {
@@ -18,7 +18,7 @@
 </head>
 
 <body style="background-color: rgb(36, 35, 35); color:white">
-  <main class="container" style="background-color: rgb(36, 35, 35); color:white">
+  <main class="container-fluid" style="background-color: rgb(36, 35, 35); color:white">
 
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLongTitle">Crear Producto</h5>
@@ -50,36 +50,96 @@
             <th scope="col">Ver</th>
             <th scope="col">Editar</th>
             <th scope="col">Borrar</th>
+            <th scope="col">Actualizar</th>
           </tr>
         </thead>
 
         <tbody>
-
+          <% if (notebooks != undefined){%>
           <% notebooks.forEach(notebook => { %>
-
           <tr>
+            <form action="/administrar/edit/<%=notebook.id%>?_method=PUT
+                " method="POST" enctype="multipart/form-data">
 
-            <td><%=notebook.id%></td>
-            <td><%=notebook.nombre%></td>
-            <td><%=notebook.modelo%></td>
-            <td><%=notebook.marca%></td>
-            <td><%=notebook.precio%></td>
-            <td><%=notebook.stock%></td>
-            <td><a href="/detalles/<%= notebook.id%>">
-                <ion-icon name="eye-outline"></ion-icon>
-              </a></td>
-            <td><a href="/administrar/edit/<%= notebook.id%>">
-                <ion-icon name="pencil-outline"></ion-icon>
-              </a></td>
-            <td><a href="/administrar/delete/<%= notebook.id%>">
-                <ion-icon name="trash-outline"></ion-icon>
-              </a></td>
-
+              <td><%=notebook.id%></td>
+              <td contenteditable='true'>
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="nombre"
+                  placeholder="" value="<%=notebook.nombre%>">
+              </td>
+              <td contenteditable='true'>
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="modelo"
+                  placeholder="" value="<%=notebook.modelo%>">
+              </td>
+              <td contenteditable='true'>
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="marca"
+                  placeholder="" value="<%=notebook.marca%>">
+              </td>
+              <td contenteditable='true'>
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="precio"
+                  placeholder="" value="<%=notebook.precio%>">
+              </td>
+              <td contenteditable='true'>
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
+                  placeholder="" value="<%=notebook.stock%>">
+              </td>
+              <td><a href="/detalles/<%= notebook.id%>">
+                  <ion-icon name="eye-outline"></ion-icon>
+                </a></td>
+              <td><a href="/administrar/edit/<%= notebook.id%>">
+                  <ion-icon name="pencil-outline"></ion-icon>
+                </a></td>
+              <td><a href="/administrar/delete/<%= notebook.id%>">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </a></td>
+              <td style="text-align: center;"><button class="btn btn-success" type="submit">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                </button></td>
+            </form>
           </tr>
-
-
           <% }); %>
-
+          <% }else{%>
+            <% notebooksActualizar.forEach(notebook => { %>
+              <tr>
+                <form action="/administrar/edit/<%=notebook.id%>?_method=PUT
+                    " method="POST" enctype="multipart/form-data">
+    
+                  <td><%=notebook.id%></td>
+                  <td contenteditable='true'>
+                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="nombre"
+                      placeholder="" value="<%=notebook.nombre%>">
+                  </td>
+                  <td contenteditable='true'>
+                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="modelo"
+                      placeholder="" value="<%=notebook.modelo%>">
+                  </td>
+                  <td contenteditable='true'>
+                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="marca"
+                      placeholder="" value="<%=notebook.marca%>">
+                  </td>
+                  <td contenteditable='true'>
+                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="precio"
+                      placeholder="" value="<%=notebook.precio%>">
+                  </td>
+                  <td contenteditable='true'>
+                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
+                      placeholder="" value="<%=notebook.stock%>">
+                  </td>
+                  <td><a href="/detalles/<%= notebook.id%>">
+                      <ion-icon name="eye-outline"></ion-icon>
+                    </a></td>
+                  <td><a href="/administrar/edit/<%= notebook.id%>">
+                      <ion-icon name="pencil-outline"></ion-icon>
+                    </a></td>
+                  <td><a href="/administrar/delete/<%= notebook.id%>">
+                      <ion-icon name="trash-outline"></ion-icon>
+                    </a></td>
+                  <td style="text-align: center;"><button class="btn btn-success" type="submit">
+                      <ion-icon name="checkmark-outline"></ion-icon>
+                    </button></td>
+                </form>
+              </tr>
+              <% }); %>
+          <% }%>
         </tbody>
       </table>
 

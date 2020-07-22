@@ -27,10 +27,10 @@
         </div>
 
         <form action="/administrar/edit/<%=notebookEditar.id%>?_method=PUT
-            " method="POST" enctype="multipart/form-data" >
+            " method="POST" enctype="multipart/form-data">
 
             <div>
-                <button type="submit" class="btn btn-primary"
+                <button class="btn btn-primary"
                     style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;">Actualizar</button>
                 <a href='/administrar'><button type="button" class="btn btn-primary"
                         style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;">Volver</button></a>
@@ -52,13 +52,15 @@
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Descripción corta</label>
-                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" placeholder="Ingresá descripción" name="descripcionCorta"
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Ingresá descripción" name="descripcionCorta"
                             value="<%=notebookEditar.descripcionCorta%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Descripción larga</label>
-                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" placeholder="Ingresá descripción" name="descripcionLarga"
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Ingresá descripción" name="descripcionLarga"
                             value="<%=notebookEditar.descripcionLarga%>">
                     </div>
 
@@ -71,15 +73,15 @@
                     <div class="form-group">
                         <label for="currency-field">Precio</label>
                         <input type="text" class="form-control" name="currency-field" id="currency-field"
-                            data-type="currency" placeholder="$1,000,000.00"
+                            pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" placeholder="$1,000,000.00"
                             name="precio" value="<%=notebookEditar.precio%>">
                     </div>
 
                     <div class="form-group">
                         <label for="currency-field">Precio anterior</label>
                         <input type="text" class="form-control" name="currency-field" id="currency-field"
-                            data-type="currency" placeholder="$1,000,000.00"
-                            name="oldPrice" value="<%=notebookEditar.oldPrice%>">
+                            data-type="currency" placeholder="$1,000,000.00" name="oldPrice"
+                            value="<%=notebookEditar.oldPrice%>">
                     </div>
 
                     <div class="form-group">
@@ -127,61 +129,70 @@
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Modelo</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                        placeholder="Ingresá modelo" name="modelo" value="<%=notebookEditar.modelo%>">
+                            placeholder="Ingresá modelo" name="modelo" value="<%=notebookEditar.modelo%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Procesador</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá nombre del producto" name="procesador" value="<%=notebookEditar.procesador%>">
+                            placeholder="Ingresá nombre del producto" name="procesador"
+                            value="<%=notebookEditar.procesador%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Memoria Ram</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá nombre del producto" name="memoriaRam" value="<%=notebookEditar.memoriaRam%>">
+                            placeholder="Ingresá nombre del producto" name="memoriaRam"
+                            value="<%=notebookEditar.memoriaRam%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Disco Rígido</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá nombre del producto" name="discoRigido" value="<%=notebookEditar.discoRigido%>">
+                            placeholder="Ingresá nombre del producto" name="discoRigido"
+                            value="<%=notebookEditar.discoRigido%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Pantalla</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá nombre del producto" name="pantalla" value="<%=notebookEditar.pantalla%>">
+                            placeholder="Ingresá nombre del producto" name="pantalla"
+                            value="<%=notebookEditar.pantalla%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Sistema Operativo</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá nombre del producto" name="sistemaOperativo" value="<%=notebookEditar.sistemaOperativo%>">
+                            placeholder="Ingresá nombre del producto" name="sistemaOperativo"
+                            value="<%=notebookEditar.sistemaOperativo%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Memoria Integrada</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá nombre del producto" name="memoriaIntegrada" value="<%=notebookEditar.memoriaIntegrada%>">
+                            placeholder="Ingresá nombre del producto" name="memoriaIntegrada"
+                            value="<%=notebookEditar.memoriaIntegrada%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Salida HDMI</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá nombre del producto" name="salidaHdmi" value="<%=notebookEditar.salidaHdmi%>">
+                            placeholder="Ingresá nombre del producto" name="salidaHdmi"
+                            value="<%=notebookEditar.salidaHdmi%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Puerto de red</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá nombre del producto" name="puertoRed" value="<%=notebookEditar.puertoRed%>">
+                            placeholder="Ingresá nombre del producto" name="puertoRed"
+                            value="<%=notebookEditar.puertoRed%>">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Salida VGA</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá nombre del producto" name="salidaVga" value="<%=notebookEditar.salidaVga%>">
+                            placeholder="Ingresá nombre del producto" name="salidaVga"
+                            value="<%=notebookEditar.salidaVga%>">
                     </div>
 
                 </div>
@@ -196,19 +207,19 @@
 
                     <form method="post" enctype="multipart/form-data">
 
-                         <!--Aquí solicito la imagen-->
-                <div class="custom-file">
-                    <figure class="form-group">
-                      <img class="w-100" src="/images/<%= notebookEditar.imagen%>"
-                        alt="notebook <%= notebookEditar.nombre%>">
-                    </figure>
-                    <input type="hidden" name="oldimagen" value="<%= notebookEditar.imagen%>">
-                    <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
-                    <input type="file" name="imagen" value="<%= notebookEditar.imagen%>">
-                    <!--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imagen" required value=""> 
+                        <!--Aquí solicito la imagen-->
+                        <div class="custom-file">
+                            <figure class="form-group">
+                                <img class="w-100" src="/images/<%= notebookEditar.imagen%>"
+                                    alt="notebook <%= notebookEditar.nombre%>">
+                            </figure>
+                            <input type="hidden" name="oldimagen" value="<%= notebookEditar.imagen%>">
+                            <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
+                            <input type="file" name="imagen" value="<%= notebookEditar.imagen%>">
+                            <!--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imagen" required value=""> 
   
                                       <label class="custom-file-label" for="inputGroupFile01">Seleccione una imagen...</label>-->
-                  </div>
+                        </div>
 
                     </form>
 
@@ -228,8 +239,8 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+</script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+</script>
 <script src="js/bootstrap.min.js"></script>
