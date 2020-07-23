@@ -15,38 +15,39 @@
 
     <!--<div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">-->
 
+    <main class="container-fluid">
 
-    <div class="row">
-        <div class="col">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a class="hyperlink" href="/">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                        <% if(selectedBrand == undefined){ %>
-                        Marcas
-                        <% }else{%>
-                        <%= selectedBrand%>
-                        <% }%>
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="hyperlink" href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <% if(selectedBrand == undefined){ %>
+                            Marcas
+                            <% }else{%>
+                            <%= selectedBrand%>
+                            <% }%>
 
-                    </li>
-                </ol>
-            </nav>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-sm-5 col-md-3 col-lg-2">
-            <div class="card bg-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Marcas
-                </div>
-                <ul class="list-group category_block">
-                    <% for(let i= 0; i < marcas.length; i++){ %>
-                    <li class="list-group-item"><a class="hyperlink" href="/categorias/<%=marcas[i].nombre%>"
-                            style="text-decoration: none;"><%=marcas[i].nombre%></a>
-                    </li>
-                    <% } %>
-                </ul>
+                        </li>
+                    </ol>
+                </nav>
             </div>
-            <!-- <div class="card bg-light mb-3">
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-5 col-md-3 col-lg-2">
+                <div class="card bg-light mb-3">
+                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Marcas
+                    </div>
+                    <ul class="list-group category_block">
+                        <% for(let i= 0; i < marcas.length; i++){ %>
+                        <li class="list-group-item"><a class="hyperlink" href="/categorias/<%=marcas[i].nombre%>"
+                                style="text-decoration: none;"><%=marcas[i].nombre%></a>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+                <!-- <div class="card bg-light mb-3">
                     <div class="card-header bg-success text-white text-uppercase">Producto destacado</div>
                     <div class="card-body">
                         <img class="img-fluid" src="../img/notebook1.jpg" />
@@ -58,81 +59,83 @@
                         </p>
                     </div>
                 </div> -->
-        </div>
-        <div class="col">
-            <div class="row">
-                <% if(selectedBrand == undefined){ %>
-                <% for(let i= 0; i < notebooks.length; i++){ %>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title"><a class="hyperlink" href="/detalles/<%= notebooks[i].id%>" title="Ver producto"
-                                    style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
-                            <p class="card-text"><%= notebooks[i].marca%></p>
-                            <div class="row">
-                                <div class="col">
-                                    <p>
-                                        <h4 class="price"><%= notebooks[i].precio%></h4>
-                                    </p>
-                                </div>
-                                <div class="col">
-                                    <a href="" class="btn btn-success btn-block">Comprar</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <% } %>
-                <% }else{ %>
-                <% for(let i= 0; i < notebooks.length; i++){ %>
-                <% if(selectedBrand == notebooks[i].marca){ %>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card">
-                        <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title"><a class="hyperlink" href="/detalles/<%= notebooks[i].id%>" title="Ver producto"
-                                    style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
-                            <p class="card-text"><%= notebooks[i].marca%></p>
-                            <div class="row">
-                                <div class="col">
-                                    <p>
-                                        <h4 class="price"><%= notebooks[i].precio%></h4>
-                                    </p>
-                                </div>
-                                <div class="col">
-                                    <a href="" class="btn btn-success btn-block">Comprar</a>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <% if(selectedBrand == undefined){ %>
+                    <% for(let i= 0; i < notebooks.length; i++){ %>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title"><a class="hyperlink" href="/detalles/<%= notebooks[i].id%>"
+                                        title="Ver producto"
+                                        style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
+                                <p class="card-text"><%= notebooks[i].marca%></p>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>
+                                            <h4 class="price"><%= notebooks[i].precio%></h4>
+                                        </p>
+                                    </div>
+                                    <div class="col">
+                                        <a href="" class="btn btn-success btn-block">Comprar</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <% } %>
-                <% } %>
-                <% } %>
+                    <% } %>
+                    <% }else{ %>
+                    <% for(let i= 0; i < notebooks.length; i++){ %>
+                    <% if(selectedBrand == notebooks[i].marca){ %>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title"><a class="hyperlink" href="/detalles/<%= notebooks[i].id%>"
+                                        title="Ver producto"
+                                        style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
+                                <p class="card-text"><%= notebooks[i].marca%></p>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>
+                                            <h4 class="price"><%= notebooks[i].precio%></h4>
+                                        </p>
+                                    </div>
+                                    <div class="col">
+                                        <a href="" class="btn btn-success btn-block">Comprar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                    <% } %>
+                    <% } %>
 
-                <div class="col-12">
-                    <nav aria-label="...">
-                        <ul class="pagination" style="padding-top: 20px;">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Anterior</a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Próximo</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <div class="col-12">
+                        <nav aria-label="...">
+                            <ul class="pagination" style="padding-top: 20px;">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Próximo</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
+
         </div>
-
-    </div>
-
+    </main>
     <%- include('../partials/footer')%>
     <%- include('../partials/boostrapScripts')%>
 
