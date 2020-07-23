@@ -2,7 +2,7 @@ body {
   background-color: #f5f5f5;
   text-decoration: none;
 }
-
+  
 .list-group {
   text-decoration: none;
 }
@@ -116,4 +116,8 @@ body {
   .card-header {
     background-color: #24303c;
   }
+}
+
+a {
+  text-decoration: none;
 }

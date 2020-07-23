@@ -1,38 +1,47 @@
 [
   {
     "id": "1",
-    "nombre": "Acer"
+    "nombre": "Acer",
+    "logo": "acer.svg"
   },
     {
       "id": "2",
-      "nombre": "Alienware"
+      "nombre": "Compaq",
+      "logo": "compaq.svg"
   },
     {
       "id": "3",
-      "nombre": "Apple"
+      "nombre": "Apple",
+      "logo": "apple.svg"
   },
     {
       "id": "4",
-      "nombre": "Asus"
+      "nombre": "Asus",
+      "logo": "asus.svg"
   },
     {
       "id": "5",
-      "nombre": "Dell"
+      "nombre": "Dell",
+      "logo": "dell.svg"
   },
       {
         "id": "6",
-        "nombre": "HP"
+        "nombre": "HP",
+        "logo": "hp.svg"
   },
       {
         "id": "7",
-        "nombre": "Lenovo"
+        "nombre": "Lenovo",
+        "logo": "lenovo.svg"
   },
       {
         "id": "8",
-        "nombre": "Razer"
+        "nombre": "Microsoft",
+        "logo": "lenovo.svg"
   },
       {
         "id": "9",
-        "nombre": "Samsung"
+        "nombre": "Samsung",
+        "logo": "samsung.svg"
   }
 ]

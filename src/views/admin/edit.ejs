@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- Icono pagina -->
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
 
     <style>
         .modal-content {
@@ -15,6 +17,7 @@
         }
     </style>
 
+<title><%=notebookEditar.nombre%></title>
 </head>
 
 <body style="background-color: rgb(36, 35, 35);">
@@ -72,16 +75,14 @@
 
                     <div class="form-group">
                         <label for="currency-field">Precio</label>
-                        <input type="text" class="form-control" name="currency-field" id="currency-field"
-                            pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" data-type="currency" placeholder="$1,000,000.00"
-                            name="precio" value="<%=notebookEditar.precio%>">
+                        <input type="text" class="form-control" name="precio" id="currency-field" data-type="currency"
+                            placeholder="$1,000,000.00" name="precio" value="<%=notebookEditar.precio%>">
                     </div>
 
                     <div class="form-group">
                         <label for="currency-field">Precio anterior</label>
-                        <input type="text" class="form-control" name="currency-field" id="currency-field"
-                            data-type="currency" placeholder="$1,000,000.00" name="oldPrice"
-                            value="<%=notebookEditar.oldPrice%>">
+                        <input type="text" class="form-control" name="oldPrice" id="currency-field" data-type="currency"
+                            placeholder="$1,000,000.00" name="oldPrice" value="<%=notebookEditar.oldPrice%>">
                     </div>
 
                     <div class="form-group">
@@ -210,10 +211,10 @@
                         <!--Aquí solicito la imagen-->
                         <div class="custom-file">
                             <figure class="form-group">
-                                <img class="w-100" src="/images/<%= notebookEditar.imagen%>"
+                                <img class="w-100" src="/img/<%= notebookEditar.imagen%>"
                                     alt="notebook <%= notebookEditar.nombre%>">
                             </figure>
-                            <input type="hidden" name="oldimagen" value="<%= notebookEditar.imagen%>">
+                            <!-- <input type="hidden" name="oldImagen" value="<%= notebookEditar.imagen%>"> -->
                             <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
                             <input type="file" name="imagen" value="<%= notebookEditar.imagen%>">
                             <!--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imagen" required value=""> 

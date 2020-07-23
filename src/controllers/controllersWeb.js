@@ -10,7 +10,8 @@ let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'm
 module.exports = {
     index: function (req, res) {
         res.render(path.resolve(__dirname, '..', 'views', 'web', 'index'), {
-            notebooks
+            notebooks,
+            marcas
         });
     },
     category: function (req, res) {
@@ -22,7 +23,9 @@ module.exports = {
             }
         });
         res.render(path.resolve(__dirname, '..', 'views', 'web', 'category'), {
-            selectedBrand,notebooks,marcas
+            selectedBrand,
+            notebooks,
+            marcas
         });
     },
     error: function (req, res) {

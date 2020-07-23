@@ -5,6 +5,8 @@ const fs = require('fs');
 module.exports = {
     productsDetails: (req, res) => {
         let notebooks = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json')));
+        let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'marcas.json')));
+
         let selectedNotebook = "";
         notebooks.forEach(notebook => {
             if (notebook.id == req.params.id) {
@@ -12,7 +14,7 @@ module.exports = {
             }
         });
         res.render(path.resolve(__dirname, '..', 'views', 'productos', 'productDetails'), {
-            selectedNotebook
+            selectedNotebook,marcas
         });
     },
 }

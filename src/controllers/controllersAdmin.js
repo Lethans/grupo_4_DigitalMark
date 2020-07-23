@@ -67,30 +67,31 @@ module.exports = {
     },
     update: (req, res) => {
         let notebooks = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json')));
-        let prueba = notebooks.find(notebook => notebook.id == req.params.id);
+        let notebookOriginal = notebooks.find(notebook => notebook.id == req.params.id);
         req.body.id = req.params.id;
         //Esto es para que si viene vacio la info de ese campo, no se borre y se guarde la que ya existia
-        req.params.procesador == undefined ? req.body.procesador = prueba.procesador : req.body.procesador = req.params.procesador;
-        req.params.memoriaRam == undefined ? req.body.memoriaRam = prueba.memoriaRam : req.body.memoriaRam = req.params.memoriaRam;
-        req.params.discoRigido == undefined ? req.body.discoRigido = prueba.discoRigido : req.body.discoRigido = req.params.discoRigido;
-        req.params.pantalla == undefined ? req.body.pantalla = prueba.pantalla : req.body.pantalla = req.params.pantalla;
-        req.params.sistemaOperativo == undefined ? req.body.sistemaOperativo = prueba.sistemaOperativo : req.body.sistemaOperativo = req.params.sistemaOperativo;
-        req.params.memoriaIntegrada == undefined ? req.body.memoriaIntegrada = prueba.memoriaIntegrada : req.body.memoriaIntegrada = req.params.memoriaIntegrada;
-        req.params.salidaHdmi == undefined ? req.body.salidaHdmi = prueba.salidaHdmi : req.body.salidaHdmi = req.params.salidaHdmi;
-        req.params.puertoRed == undefined ? req.body.puertoRed = prueba.puertoRed : req.body.puertoRed = req.params.puertoRed;
-        req.params.salidaVga == undefined ? req.body.salidaVga = prueba.salidaVga : req.body.salidaVga = req.params.salidaVga;
-        req.params.descripcionCorta == undefined ? req.body.descripcionCorta = prueba.descripcionCorta : req.body.descripcionCorta = req.params.descripcionCorta;
-        req.params.descripcionLarga == undefined ? req.body.descripcionLarga = prueba.descripcionLarga : req.body.descripcionLarga = req.params.descripcionLarga;
-        req.params.oldPrice == undefined ? req.body.oldPrice = prueba.oldPrice : req.body.oldPrice = req.params.oldPrice;
-        req.params.descuento == undefined ? req.body.descuento = prueba.descuento : req.body.descuento = req.params.descuento;
-        req.params.imagen == undefined ? req.body.imagen = prueba.imagen : req.body.imagen = req.params.imagen;
-        req.params.destacado == undefined ? req.body.destacado = prueba.destacado : req.body.destacado = req.params.destacado;
+        req.params.procesador == undefined ? req.body.procesador = notebookOriginal.procesador : req.body.procesador = req.params.procesador;
+        req.params.memoriaRam == undefined ? req.body.memoriaRam = notebookOriginal.memoriaRam : req.body.memoriaRam = req.params.memoriaRam;
+        req.params.discoRigido == undefined ? req.body.discoRigido = notebookOriginal.discoRigido : req.body.discoRigido = req.params.discoRigido;
+        req.params.pantalla == undefined ? req.body.pantalla = notebookOriginal.pantalla : req.body.pantalla = req.params.pantalla;
+        req.params.sistemaOperativo == undefined ? req.body.sistemaOperativo = notebookOriginal.sistemaOperativo : req.body.sistemaOperativo = req.params.sistemaOperativo;
+        req.params.memoriaIntegrada == undefined ? req.body.memoriaIntegrada = notebookOriginal.memoriaIntegrada : req.body.memoriaIntegrada = req.params.memoriaIntegrada;
+        req.params.salidaHdmi == undefined ? req.body.salidaHdmi = notebookOriginal.salidaHdmi : req.body.salidaHdmi = req.params.salidaHdmi;
+        req.params.puertoRed == undefined ? req.body.puertoRed = notebookOriginal.puertoRed : req.body.puertoRed = req.params.puertoRed;
+        req.params.salidaVga == undefined ? req.body.salidaVga = notebookOriginal.salidaVga : req.body.salidaVga = req.params.salidaVga;
+        req.params.descripcionCorta == undefined ? req.body.descripcionCorta = notebookOriginal.descripcionCorta : req.body.descripcionCorta = req.params.descripcionCorta;
+        req.params.descripcionLarga == undefined ? req.body.descripcionLarga = notebookOriginal.descripcionLarga : req.body.descripcionLarga = req.params.descripcionLarga;
+        req.params.oldPrice == undefined ? req.body.oldPrice = notebookOriginal.oldPrice : req.body.oldPrice = req.params.oldPrice;
+        req.params.descuento == undefined ? req.body.descuento = notebookOriginal.descuento : req.body.descuento = req.params.descuento;
+        req.params.destacado == undefined ? req.body.destacado = notebookOriginal.destacado : req.body.destacado = req.params.destacado;
 
-        req.body.imagen = req.file ? req.file.filename : req.body.oldImagen;
+        req.file != undefined ? req.body.imagen = req.file.filename : req.body.imagen = notebookOriginal.imagen;
+        
+
         let notebooksUpdate = notebooks.map(notebook => {
             if (notebook.id == req.body.id) {
                 return notebook = req.body;
-                
+
             }
             return notebook;
         });
@@ -98,7 +99,6 @@ module.exports = {
         //Guardar o reemplazar nuestro archivo JSON
         fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json'), notebooksActualizar);
         res.redirect('/administrar');
-
     }
 
 

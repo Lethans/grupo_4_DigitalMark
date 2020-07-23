@@ -5,7 +5,9 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Icono pagina -->
+  <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
 
   <style>
     .modal-content {
@@ -13,7 +15,41 @@
       color: white;
       border-radius: 0px;
     }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      vertical-align: middle;
+    }
+
+    .tacho {
+
+      color: rgb(172, 41, 41);
+      font-size: 30px;
+    }
+
+    .ver {
+      font-size: 20px;
+      padding: 5px;
+      border: 2px solid white;
+      border-radius: 50%;
+
+    }
+
+    .editar {
+      font-size: 20px;
+      border: 2px solid white;
+      border-radius: 50%;
+      padding: 5px;
+    }
+
+    .actualizar {
+      color: white;
+      padding: 0% 5px;
+    }
   </style>
+
+<title>Administrar productos</title>
 
 </head>
 
@@ -47,6 +83,7 @@
             <th scope="col">Marca</th>
             <th scope="col">Precio</th>
             <th scope="col">Stock</th>
+            <th scope="col">Destacado</th>
             <th scope="col">Ver</th>
             <th scope="col">Editar</th>
             <th scope="col">Borrar</th>
@@ -55,7 +92,6 @@
         </thead>
 
         <tbody>
-          <% if (notebooks != undefined){%>
           <% notebooks.forEach(notebook => { %>
           <tr>
             <form action="/administrar/edit/<%=notebook.id%>?_method=PUT
@@ -82,64 +118,28 @@
                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
                   placeholder="" value="<%=notebook.stock%>">
               </td>
+
+              <td>
+                <div style="text-align: center;" class="form-check">
+                  <input class="form-check-input" type="checkbox" id="defaultCheck1" name="destacado">
+                </div>
+              </td>
+
               <td><a href="/detalles/<%= notebook.id%>">
-                  <ion-icon name="eye-outline"></ion-icon>
+                  <ion-icon class="ver" name="eye-outline"></ion-icon>
                 </a></td>
               <td><a href="/administrar/edit/<%= notebook.id%>">
-                  <ion-icon name="pencil-outline"></ion-icon>
+                  <ion-icon class="editar" name="pencil-outline"></ion-icon>
                 </a></td>
               <td><a href="/administrar/delete/<%= notebook.id%>">
-                  <ion-icon name="trash-outline"></ion-icon>
+                  <ion-icon class="tacho" name="trash-outline"></ion-icon>
                 </a></td>
-              <td style="text-align: center;"><button class="btn btn-success" type="submit">
-                  <ion-icon name="checkmark-outline"></ion-icon>
+              <td style="text-align: center;"><button class="btn btn-success actualizar" type="submit">
+                  <ion-icon size="large" name="checkmark-outline"></ion-icon>
                 </button></td>
             </form>
           </tr>
           <% }); %>
-          <% }else{%>
-            <% notebooksActualizar.forEach(notebook => { %>
-              <tr>
-                <form action="/administrar/edit/<%=notebook.id%>?_method=PUT
-                    " method="POST" enctype="multipart/form-data">
-    
-                  <td><%=notebook.id%></td>
-                  <td contenteditable='true'>
-                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="nombre"
-                      placeholder="" value="<%=notebook.nombre%>">
-                  </td>
-                  <td contenteditable='true'>
-                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="modelo"
-                      placeholder="" value="<%=notebook.modelo%>">
-                  </td>
-                  <td contenteditable='true'>
-                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="marca"
-                      placeholder="" value="<%=notebook.marca%>">
-                  </td>
-                  <td contenteditable='true'>
-                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="precio"
-                      placeholder="" value="<%=notebook.precio%>">
-                  </td>
-                  <td contenteditable='true'>
-                    <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
-                      placeholder="" value="<%=notebook.stock%>">
-                  </td>
-                  <td><a href="/detalles/<%= notebook.id%>">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </a></td>
-                  <td><a href="/administrar/edit/<%= notebook.id%>">
-                      <ion-icon name="pencil-outline"></ion-icon>
-                    </a></td>
-                  <td><a href="/administrar/delete/<%= notebook.id%>">
-                      <ion-icon name="trash-outline"></ion-icon>
-                    </a></td>
-                  <td style="text-align: center;"><button class="btn btn-success" type="submit">
-                      <ion-icon name="checkmark-outline"></ion-icon>
-                    </button></td>
-                </form>
-              </tr>
-              <% }); %>
-          <% }%>
         </tbody>
       </table>
 
