@@ -10,6 +10,11 @@
   <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
 
   <style>
+    @font-face {
+      font-family: "test";
+      src: url("fonts/Lato-Regular.ttf");
+    }
+
     .modal-content {
       background-color: #24303c;
       color: white;
@@ -82,7 +87,9 @@
             <th scope="col">Modelo</th>
             <th scope="col">Marca</th>
             <th scope="col">Precio</th>
+            <th scope="col">Con descuento</th>
             <th scope="col">Stock</th>
+            <th scope="col">Cuotas</th>
             <th scope="col">Destacado</th>
             <th scope="col">Ver</th>
             <th scope="col">Editar</th>
@@ -103,25 +110,33 @@
                   placeholder="" value="<%=notebook.nombre%>">
               </td>
               <td contenteditable='true'>
-                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="modelo"
-                  placeholder="" value="<%=notebook.modelo%>">
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="model"
+                  placeholder="" value="<%=notebook.model%>">
               </td>
               <td contenteditable='true'>
                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="marca"
                   placeholder="" value="<%=notebook.marca%>">
               </td>
               <td contenteditable='true'>
-                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="precio"
-                  placeholder="" value="<%=notebook.precio%>">
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="oldPrice"
+                  placeholder="" value="<%=notebook.oldPrice%>">
+              </td>
+              <td contenteditable='true'>
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="price"
+                  placeholder="" value="<%=notebook.price%>">
               </td>
               <td contenteditable='true'>
                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
                   placeholder="" value="<%=notebook.stock%>">
               </td>
+              <td contenteditable='true'>
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="cuotas"
+                  placeholder="" value="<%=notebook.cuotas%>">
+              </td>
 
               <td>
                 <div style="text-align: center;" class="form-check">
-                  <input class="form-check-input" type="checkbox" id="defaultCheck1" name="destacado">
+                  <input class="form-check-input" type="checkbox" id="defaultCheck1" name="destacado" <%= notebook.destacado != false ? 'checked' : '' ;%>>
                 </div>
               </td>
 

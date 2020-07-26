@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headContent')%>
+
+    <link rel="shortcut icon" href="./icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/productDetailsNew.css">
+
+
+    <title>DM - <%= selectedNotebook.nombre%></title>
+
+</head>
+
+
+<body>
+    <%- include('../partials/navBar')%>
+
+    <div class="kQdamq">
+
+        <div>
+            <!-- aca va el txt  -->
+            <div id="crumbs">
+                <ul class="breadUl">
+                    <li class="breadLi"><a style="text-decoration: none;" class="breadLink" href="/"><i
+                                class="fa fa-home" aria-hidden="true"></i>
+                            HOME</i></a>
+                    </li>
+                    <li class="breadLi"><a style="text-decoration: none;" class="breadLink"
+                            href="/categorias/<%= selectedNotebook.marca%>"><%= selectedNotebook.marca%></a></li>
+                    <li class="breadLi"><a style="text-decoration: none;"
+                            class="breadLink"><%= selectedNotebook.nombre%></a></li>
+
+                </ul>
+            </div>
+
+            <div class="ekzajL">
+                <div class="kuFxHP">
+                    <div class="dikajD" data-test-id="carousel-product">
+                        <div class="jImIRv">
+                            <div>
+                                <div class="eYPzCj">
+                                    <div class="imagenSeleccionada"
+                                        style="cursor: crosshair; width: auto; height: auto; font-size: 0px; position: relative; user-select: none;">
+                                        <img src="/img/<%= selectedNotebook.imagen%>" alt="producto principal"
+                                            class="imgSmall"
+                                            style="width: 100%; height: auto; display: block; pointer-events: none;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="EwpjG"></div>
+                        </div>
+                        <div class="kBjKPR">
+                            <ul class="bvbhng">
+                                <li class="kmnLdc">
+                                    <img src="/img/<%= selectedNotebook.imagen%>" width="100" height="100"
+                                        alt="Seleccionar foto del producto"
+                                        style="cursor: pointer; border: 1px solid rgb(218, 218, 218);"></li>
+                                <li class="kmnLdc">
+                                    <img src="/img/<%= selectedNotebook.imagen%>" width="100" height="100"
+                                        alt="Seleccionar foto del producto"
+                                        style="cursor: pointer; border: 1px solid transparent;"></li>
+                                <li class="kmnLdc">
+                                    <img src="/img/<%= selectedNotebook.imagen%>" width="100" height="100"
+                                        alt="Seleccionar foto del producto"
+                                        style="cursor: pointer; border: 1px solid transparent;"></li>
+                                <li class="kmnLdc">
+                                    <img src="/img/<%= selectedNotebook.imagen%>" width="100" height="100"
+                                        alt="Seleccionar foto del producto"
+                                        style="cursor: pointer; border: 1px solid transparent;"></li>
+                            </ul><button style="display:none" type="button" hidden="" class="bNSwkN"><svg height="100%"
+                                    width="100%" viewBox="0 0 42.7 72" xmlns="http://www.w3.org/2000/svg"
+                                    class="kexurC">
+                                    <path d="M6.7,72l-4.7,0l35.8-36L2.1,0h4.7l35.9,36L6.7,72z" class="dHXNHM"></path>
+                                    <path d="M4,70l-3.8,0L34,36L0,1.8h3.8L38,36L4,70z" class="dUiQFL"></path>
+                                </svg></button><button type="button" class="hLBhlT" hidden=""
+                                style="display: none;"><svg height="100%" width="100%" viewBox="0 0 42.7 72"
+                                    xmlns="http://www.w3.org/2000/svg" class="kexurC">
+                                    <path d="M6.7,72l-4.7,0l35.8-36L2.1,0h4.7l35.9,36L6.7,72z" class="dHXNHM"></path>
+                                    <path d="M4,70l-3.8,0L34,36L0,1.8h3.8L38,36L4,70z" class="dUiQFL"></path>
+                                </svg></button>
+                            <ul class="dCHaFj">
+                                <li selected="" class="bTwOnF"><button type="button" tabindex="-1" selected=""
+                                        class="gvdRlX"></button>
+                                </li>
+                                <li class="bTwOnF"><button type="button" tabindex="-1" class="eOQwHZ"></button></li>
+                                <li class="bTwOnF"><button type="button" tabindex="-1" class="eOQwHZ"></button></li>
+                                <li class="bTwOnF"><button type="button" tabindex="-1" class="eOQwHZ"></button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div data-test-id="product-info" class="iXQPHx"><a
+                            data-event="fvg.productDetail.click-top-brand-link"
+                            href="/categorias/<%= selectedNotebook.marca%>">
+                            <div class="SOAJX">
+                                <h2 class="brand-title"><%= selectedNotebook.marca%></h2>
+                            </div>
+                        </a>
+                        <h1 class="hgskVG"><%= selectedNotebook.nombre%></h1>
+                        <div class="ebTKzB">
+                            <% if (selectedNotebook.price != selectedNotebook.oldPrice){ %>
+                            <div class="cQbOue">
+                                <span class="cjtKut"> <%= selectedNotebook.oldPrice%></span>
+                                <span style="height:0;width:4px"> </span>
+                                <% if (selectedNotebook.descuento != "0"){ %>
+                                <span class="eCOhTX"><%= selectedNotebook.descuento%></span>
+                                <% } %>
+                            </div>
+                            <% } %>
+                            <span class="jgVMrx">
+                                <%= selectedNotebook.price%></span>
+
+                        </div>
+                        <!-- <div>
+                            <article class="jDEHKk">
+                                <div data-test-id="payment-tooltip" class="IAHDW">
+                                    <div class="paddingContainer">
+                                        <h1>¡Aprovechá nuestras promociones bancarias!</h1>
+                                        <div class="gnUhWq">
+                                            <div class="gGIukj">
+                                                <div class="content"><img
+                                                        src=""
+                                                        width="64" height="auto" alt="Opción de pago"></div>
+                                                <div class="interest">
+                                                    <p>18 cuotas de $ 2.975,20</p>
+                                                    <p class="interestDetail">Precio financiado: $ 53.553,64 - CFT
+                                                        25.78% - TEA 21.1%</p>
+                                                </div>
+                                            </div>
+                                            <div class="gGIukj">
+                                                <div class="content"><img
+                                                        src=""
+                                                        width="64" height="auto" alt="Opción de pago"></div>
+                                                <div class="interest">
+                                                    <p>12 cuotas de $ 4.218,59</p>
+                                                    <p class="interestDetail">Precio financiado: $ 50.623,04 - CFT
+                                                        25.19% - TEA 20.56%</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><a class="iLHYzA" role="button" data-test-id="button-open-modal-payment"
+                                        data-event="fvg.productDetail.click-view-payment-methods">Ver cuotas y todos los
+                                        medios de pago<svg xmlns="http://www.w3.org/2000/svg" width="13" height="22"
+                                            viewBox="0 0 13 22">
+                                            <path fill="none" fill-rule="evenodd" stroke="#000" stroke-width="2"
+                                                d="M1 1l10 10L1 21"></path>
+                                        </svg></a>
+                                </div>
+                            </article>
+                        </div> -->
+                        <div class="dJGluu"><a data-event="fvg.productDetail.click-purchase-button" href="#"
+                                data-test-id="product-buy-button" class="dYHnXG">Comprar</a>
+                        </div>
+                        <div data-test-id="product-delivery" class="cZZyGm">
+                            <div id="1" class="cceQAN"><svg class="KeIUP" id="truck" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 42 28">
+                                    <style>
+
+                                    </style>
+                                    <path class="st0" d="M0-1h42v28H0V-1z"></path>
+                                    <path class="st0" d="M-1-9h44v44H-1V-9z"></path>
+                                    <path class="st1"
+                                        d="M1.7.5v22.3h38.7v-8.7l-4.4-9h-9.6V3c0-1.4-1.1-2.5-2.5-2.5H1.7z"></path>
+                                    <path class="st2"
+                                        d="M40.8 23.3H1.2V0h22.7c.8 0 1.6.3 2.1.9.6.6.9 1.3.9 2.1v1.7h9.4l4.6 9.3v9.3zm-38.6-1h37.7v-8.1l-4.2-8.6h-9.8V3c0-.5-.2-1-.6-1.4-.4-.4-.9-.6-1.5-.6H2.2v21.3z">
+                                    </path>
+                                    <g transform="translate(0 5.833)">
+                                        <path class="st2" d="M37.3 2.3L39.7 7h-8.2V2.3h5.8zM25.7 0h1.2v17.5h-1.2V0z">
+                                        </path>
+                                        <path class="st1"
+                                            d="M26.3 17v-2.5H1.8c-.7 0-1.2.6-1.2 1.2 0 .7.6 1.2 1.2 1.2h24.5z"></path>
+                                        <path class="st2"
+                                            d="M26.8 17.5h-25c-1 0-1.8-.8-1.8-1.7S.8 14 1.8 14h25.1v3.5zM1.8 15c-.5 0-.8.3-.8.8 0 .4.3.7.8.7h24.1V15H1.8z">
+                                        </path>
+                                        <path class="st1"
+                                            d="M26.2 14.5V17h14.1c.7 0 1.2-.6 1.2-1.2 0-.7-.6-1.2-1.2-1.2H26.2z"></path>
+                                        <path class="st2"
+                                            d="M40.3 17.5H25.7V14h14.6c1 0 1.7.8 1.7 1.8s-.8 1.7-1.7 1.7zm-13.6-1h13.6c.4 0 .7-.3.7-.7 0-.4-.3-.8-.7-.8H26.7v1.5z">
+                                        </path>
+                                        <circle class="st1" cx="8.8" cy="16.9" r="4.8"></circle>
+                                        <path class="st2"
+                                            d="M8.8 22.2c-2.9 0-5.2-2.4-5.2-5.2s2.4-5.2 5.2-5.2S14 14 14 16.9s-2.4 5.3-5.2 5.3zm0-9.5c-2.3 0-4.2 1.9-4.2 4.2s1.9 4.2 4.2 4.2 4.2-1.9 4.2-4.2-1.9-4.2-4.2-4.2z">
+                                        </path>
+                                        <g>
+                                            <circle class="st1" cx="33.2" cy="16.9" r="4.8"></circle>
+                                            <path class="st2"
+                                                d="M33.2 22.2c-2.9 0-5.2-2.4-5.2-5.2s2.4-5.2 5.2-5.2 5.2 2.4 5.2 5.2-2.3 5.2-5.2 5.2zm0-9.5c-2.3 0-4.2 1.9-4.2 4.2s1.9 4.2 4.2 4.2 4.2-1.9 4.2-4.2-1.8-4.2-4.2-4.2z">
+                                            </path>
+                                        </g>
+                                        <circle class="st2" cx="8.8" cy="16.9" r="1.8"></circle>
+                                        <circle class="st2" cx="33.2" cy="16.9" r="1.8"></circle>
+                                    </g>
+                                </svg>
+                                <hgroup class="jJrDVk">
+                                    <p class="title">Envío a domicilio</p><span class="linkDropdown">Calcular costo de
+                                        envio<svg class="fIPIYo" xmlns="http://www.w3.org/2000/svg" width="13"
+                                            height="22" viewBox="0 0 13 22">
+                                            <path fill="none" fill-rule="evenodd" stroke="#000" stroke-width="2"
+                                                d="M1 1l10 10L1 21"></path>
+                                        </svg></span>
+                                    <div class="HomeDeliveryOption__Dropdown-diq4w9-1 ezYFPz">
+                                        <div class="jtavYL">
+                                            <p>Ingresá código postal (sólo números)</p>
+                                            <form class="fiaaOi"><input type="number" value="" placeholder="Ej: 1414"
+                                                    class="hWAYQz"><button class="kwpAyN">Calcular</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </hgroup>
+                            </div>
+                            <div id="2" data-event="fvg.productDetail.click-view-pick-up-stores" class="cceQAN"><svg
+                                    class="GqHzf" id="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 32">
+                                    <path
+                                        d="M19 17H6.9c-.3 0-.5.2-.5.5v9.1c0 .3.2.5.5.5H19c.3 0 .5-.2.5-.5v-9.1c0-.3-.2-.5-.5-.5zm-.5 9.2H7.4V18h11.2v8.2h-.1z">
+                                    </path>
+                                    <path
+                                        d="M36.3 6.6l-3-6.1c-.1-.2-.3-.3-.4-.3H3.8c-.2 0-.4.1-.4.3l-3 6.1c0 .1-.1.1-.1.2v1.5c0 2 1.2 3.9 3 4.7v18.2c0 .3.2.5.5.5h28.9c.3 0 .5-.2.5-.5V13c1.8-.8 3-2.7 3-4.7V6.9c.1-.1.1-.2.1-.3zM35 6.4h-6.4l-1.3-5.1h5.1L35 6.4zm-7.3 4.9c-1 1.5-2.7 2.5-4.4 2.7-1.7.1-3.3-.5-4.5-1.7V7.4h8.9v3.9zM8.9 7.4h8.9v4.8c-1.2 1.3-2.7 1.9-4.4 1.7-1.8-.1-3.4-1.1-4.5-2.7V7.4zm8.9-6.1v5.1H9l1.3-5.1h7.5zm8.5 0l1.3 5.1h-8.8V1.3h7.5zm-22.2 0h5.1L8 6.4H1.6l2.5-5.1zM1.3 8.4v-1h6.6v3.8c-1.3 1.2-2.7 1.5-4.1.9-1.5-.6-2.5-2.1-2.5-3.7zm21.3 22.3V18h6.6v12.7h-6.6zm7.6 0V17.5c0-.3-.2-.5-.5-.5h-7.6c-.3 0-.5.2-.5.5v13.2H4.3V13.3c1.4.3 2.8-.1 4-1.2 1.2 1.6 3 2.6 5 2.8h.5c1.7 0 3.3-.7 4.5-1.8 1.4 1.3 3.2 2 5 1.8 1.9-.2 3.8-1.2 5-2.8 1.2 1 2.6 1.4 4 1.2v17.4h-2.1zm5.1-22.3c0 1.6-1 3.2-2.5 3.8-.1 0-.1.1-.2.1-.9.3-2.3.4-3.9-1V7.4h6.6v1z">
+                                    </path>
+                                    <path d="M26.7 24.4c-.4 0-.8.3-.8.8 0 .4.3.8.8.8s.8-.3.8-.8c-.1-.5-.4-.8-.8-.8">
+                                    </path>
+                                    <path class="st0" d="M-4-6h44v44H-4V-6z"></path>
+                                </svg>
+                                <hgroup class="jJrDVk">
+                                    <p class="title">Retiro GRATIS en sucursal</p><span class="linkDropdown">Ver
+                                        sucursales disponibles<svg xmlns="http://www.w3.org/2000/svg" width="13"
+                                            height="22" viewBox="0 0 13 22">
+                                            <path fill="none" fill-rule="evenodd" stroke="#000" stroke-width="2"
+                                                d="M1 1l10 10L1 21"></path>
+                                        </svg></span>
+                                    <p class="content link" data-test-id="button-open-modal-delivery-options"></p>
+                                </hgroup>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-test-id="product-extended-description" class="emyGfc">
+                <div class="KXQCQ"><a href="/categorias/<%= selectedNotebook.marca%>">
+                        <div class="LKvzQ SOAJX">
+                            <h2 class="brand-title"><%= selectedNotebook.marca%></h2>
+                        </div>
+                    </a>
+                    <h1 data-available="44999" class="dzSAdp">
+                        <%= selectedNotebook.nombre%></h1>
+
+                    <div class="bVxZEy">
+                        <h1 class="iYjgEj">Especificaciones técnicas</h1>
+                        <ul class="gXgRBX">
+                            <li class="eiLBHU">
+                                <h1 class="groupTitle">Procesador</h1>
+                                <div class="content">
+                                    <div class="fPnaTX">
+                                        <div class="specName">Procesador</div>
+                                        <div class="specValue"><%= selectedNotebook.procesador%></div>
+                                    </div>
+                                    <div class="dUFjuS">
+                                        <div class="specName">Mod. procesador</div>
+                                        <div class="specValue"><%= selectedNotebook.modProcesador%></div>
+                                    </div>
+                                    <div class="fPnaTX">
+                                        <div class="specName">Velocidad CPU</div>
+                                        <div class="specValue"><%= selectedNotebook.cpuSpeed%></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="eiLBHU">
+                                <h1 class="groupTitle">Memoria</h1>
+                                <div class="content">
+                                    <div class="fPnaTX">
+                                        <div class="specName">Disco rígido</div>
+                                        <div class="specValue"><%= selectedNotebook.rigido%></div>
+                                    </div>
+                                    <div class="dUFjuS">
+                                        <div class="specName">Disco SSD</div>
+                                        <div class="specValue"><%= selectedNotebook.ssd%></div>
+                                    </div>
+                                    <div class="fPnaTX">
+                                        <div class="specName">Memoria ram</div>
+                                        <div class="specValue"><%= selectedNotebook.ram%></div>
+                                    </div>
+                                    <div class="dUFjuS">
+                                        <div class="specName">Tipo de disco</div>
+                                        <div class="specValue"><%= selectedNotebook.diskType%></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="eiLBHU">
+                                <h1 class="groupTitle">Sistema Operativo</h1>
+                                <div class="content">
+                                    <div class="fPnaTX">
+                                        <div class="specName">Sistema operativo</div>
+                                        <div class="specValue"><%= selectedNotebook.system%></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="eiLBHU">
+                                <h1 class="groupTitle">Imagen</h1>
+                                <div class="content">
+                                    <div class="fPnaTX">
+                                        <div class="specName">Tamaño de pantalla</div>
+                                        <div class="specValue"><%= selectedNotebook.screenSize%></div>
+                                    </div>
+                                    <div class="dUFjuS">
+                                        <div class="specName">Resolución de pantalla</div>
+                                        <div class="specValue"><%= selectedNotebook.resolution%></div>
+                                    </div>
+                                    <div class="fPnaTX">
+                                        <div class="specName">Pantalla táctil</div>
+                                        <div class="specValue"><%= selectedNotebook.touchScreen%></div>
+                                    </div>
+                                    <div class="dUFjuS">
+                                        <div class="specName">Tecnología de pantalla</div>
+                                        <div class="specValue"><%= selectedNotebook.typeScreen%></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="eiLBHU">
+                                <h1 class="groupTitle">Conectividad</h1>
+                                <div class="content">
+                                    <div class="fPnaTX">
+                                        <div class="specName">Wi-Fi</div>
+                                        <div class="specValue"><%= selectedNotebook.wifi%></div>
+                                    </div>
+                                    <div class="dUFjuS">
+                                        <div class="specName">Puertos usb</div>
+                                        <div class="specValue"><%= selectedNotebook.usbQuantity%></div>
+                                    </div>
+                                    <div class="fPnaTX">
+                                        <div class="specName">Bluetooth</div>
+                                        <div class="specValue"><%= selectedNotebook.bluetooth%></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="eiLBHU">
+                                <h1 class="groupTitle">Detalles</h1>
+                                <div class="content">
+                                    <div class="fPnaTX">
+                                        <div class="specName">Teclado numérico</div>
+                                        <div class="specValue"><%= selectedNotebook.numericKeyboard%></div>
+                                    </div>
+                                    <div class="dUFjuS">
+                                        <div class="specName">Unidad cd / dvd</div>
+                                        <div class="specValue"><%= selectedNotebook.cdDvd%></div>
+                                    </div>
+                                    <div class="fPnaTX">
+                                        <div class="specName">Graba cd</div>
+                                        <div class="specValue"><%= selectedNotebook.burnCd%></div>
+                                    </div>
+                                    <div class="dUFjuS">
+                                        <div class="specName">Graba dvd</div>
+                                        <div class="specValue"><%= selectedNotebook.burnDvd%></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="eiLBHU">
+                                <h1 class="groupTitle">Dimensiones</h1>
+                                <div class="content">
+                                    <div class="fPnaTX">
+                                        <div class="specName">Camara</div>
+                                        <div class="specValue"><%= selectedNotebook.camara%></div>
+                                    </div>
+                                    <div class="dUFjuS">
+                                        <div class="specName">Medidas</div>
+                                        <div class="specValue"><%= selectedNotebook.size%></div>
+                                    </div>
+                                    <div class="fPnaTX">
+                                        <div class="specName">Peso</div>
+                                        <div class="specValue"><%= selectedNotebook.weight%></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="eiLBHU">
+                                <h1 class="groupTitle">Batería</h1>
+                                <div class="content">
+                                    <div class="fPnaTX">
+                                        <div class="specName">Batería</div>
+                                        <div class="specValue"><%= selectedNotebook.batery%></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="jsyrck">
+                                <h1 class="groupTitle">Modelo y origen</h1>
+                                <div class="content">
+                                    <div class="fPnaTX">
+                                        <div class="specName">Modelo</div>
+                                        <div class="specValue"><%= selectedNotebook.model%></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-test-id="product-description" class="jSfZEH">
+                        <h1>Descripción</h1>
+                        <div class="bXUyJq"><span class="description">
+                                <h3>Diseño</h3>
+                                <div class="innerContent">
+                                    <p><span style="background-color: transparent; color: rgb(0, 0, 0);">Lorem ipsum
+                                            dolor, sit amet consectetur adipisicing elit. Obcaecati praesentium debitis
+                                            delectus molestiae voluptatibus hic perferendis assumenda impedit, aperiam
+                                            aliquid eius maiores aut saepe porro cumque explicabo harum! Nostrum
+                                            perferendis fugiat eum architecto explicabo. </span></p>
+                                </div>
+                            </span><span class="description">
+                                <h3>Desempeño</h3>
+                                <div class="innerContent">
+                                    <p><span style="background-color: transparent; color: rgb(0, 0, 0);">Lorem ipsum
+                                            dolor sit amet consectetur adipisicing elit. Qui ut eum quam totam
+                                            voluptatum architecto sequi, atque nihil in quisquam cupiditate eveniet?
+                                            Ipsam odit eligendi cum, officia, numquam laboriosam, quisquam fugit
+                                            recusandae iure deleniti iste! </span></p>
+                                </div>
+                            </span><span class="description">
+                                <h3>Pantalla</h3>
+                                <div class="innerContent">
+                                    <p><span style="background-color: transparent; color: rgb(0, 0, 0);">Lorem ipsum
+                                            dolor sit amet consectetur, adipisicing elit. Tempora, accusamus. Vero fugit
+                                            aut quos architecto quae debitis aliquid dolorum corporis. Distinctio
+                                            voluptates perspiciatis quia obcaecati, doloremque, saepe earum molestias
+                                            exercitationem, suscipit culpa officia dolor in.</span></p>
+                                </div>
+                            </span><span class="description">
+                                <h3>Conectividad</h3>
+                                <div class="innerContent">
+                                    <p><span style="background-color: transparent; color: rgb(0, 0, 0);">Lorem ipsum
+                                            dolor sit amet consectetur adipisicing elit. Doloremque libero omnis enim
+                                            temporibus? Iste animi facere repellendus sit amet, quo, dicta enim
+                                            laboriosam obcaecati at esse voluptas! Sapiente voluptates doloribus neque
+                                            asperiores molestiae voluptatum delectus!</span></p>
+                                </div>
+                            </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../partials/footer')%>
+    <%- include('../partials/boostrapScripts')%>
+
+</body>
+
+</html>
