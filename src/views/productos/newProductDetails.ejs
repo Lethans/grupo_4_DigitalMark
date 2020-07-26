@@ -148,8 +148,10 @@
                                 </div>
                             </article>
                         </div> -->
-                        <div class="dJGluu"><a data-event="fvg.productDetail.click-purchase-button" href="#"
-                                data-test-id="product-buy-button" class="dYHnXG">Comprar</a>
+                        <div class="dJGluu">
+                            <button>COMPRAR<span></span></button>
+                            <!-- <a data-event="fvg.productDetail.click-purchase-button" href="#"
+                                data-test-id="product-buy-button" class="dYHnXG">Comprar</a> -->
                         </div>
                         <div data-test-id="product-delivery" class="cZZyGm">
                             <div id="1" class="cceQAN"><svg class="KeIUP" id="truck" xmlns="http://www.w3.org/2000/svg"
@@ -272,7 +274,7 @@
                                     </div>
                                     <div class="dUFjuS">
                                         <div class="specName">Disco SSD</div>
-                                        <div class="specValue"><%= selectedNotebook.ssd%></div>
+                                        <div class="specValue"><%= selectedNotebook.ssd = true ? "Si":"No";%></div>
                                     </div>
                                     <div class="fPnaTX">
                                         <div class="specName">Memoria ram</div>
@@ -306,7 +308,8 @@
                                     </div>
                                     <div class="fPnaTX">
                                         <div class="specName">Pantalla táctil</div>
-                                        <div class="specValue"><%= selectedNotebook.touchScreen%></div>
+                                        <div class="specValue"><%= selectedNotebook.touchScreen = true ? "Si":"No";%>
+                                        </div>
                                     </div>
                                     <div class="dUFjuS">
                                         <div class="specName">Tecnología de pantalla</div>
@@ -319,7 +322,7 @@
                                 <div class="content">
                                     <div class="fPnaTX">
                                         <div class="specName">Wi-Fi</div>
-                                        <div class="specValue"><%= selectedNotebook.wifi%></div>
+                                        <div class="specValue"><%= selectedNotebook.wifi = true ? "Si":"No";%></div>
                                     </div>
                                     <div class="dUFjuS">
                                         <div class="specName">Puertos usb</div>
@@ -327,7 +330,8 @@
                                     </div>
                                     <div class="fPnaTX">
                                         <div class="specName">Bluetooth</div>
-                                        <div class="specValue"><%= selectedNotebook.bluetooth%></div>
+                                        <div class="specValue"><%= selectedNotebook.bluetooth = true ? "Si":"No";%>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -336,19 +340,20 @@
                                 <div class="content">
                                     <div class="fPnaTX">
                                         <div class="specName">Teclado numérico</div>
-                                        <div class="specValue"><%= selectedNotebook.numericKeyboard%></div>
+                                        <div class="specValue">
+                                            <%= selectedNotebook.numericKeyboard = true ? "Si":"No";%></div>
                                     </div>
                                     <div class="dUFjuS">
                                         <div class="specName">Unidad cd / dvd</div>
-                                        <div class="specValue"><%= selectedNotebook.cdDvd%></div>
+                                        <div class="specValue"><%= selectedNotebook.cdDvd = true ? "Si":"No";%></div>
                                     </div>
                                     <div class="fPnaTX">
                                         <div class="specName">Graba cd</div>
-                                        <div class="specValue"><%= selectedNotebook.burnCd%></div>
+                                        <div class="specValue"><%= selectedNotebook.burnCd = true ? "Si":"No";%></div>
                                     </div>
                                     <div class="dUFjuS">
                                         <div class="specName">Graba dvd</div>
-                                        <div class="specValue"><%= selectedNotebook.burnDvd%></div>
+                                        <div class="specValue"><%= selectedNotebook.burnDvd = true ? "Si":"No";%></div>
                                     </div>
                                 </div>
                             </li>
@@ -357,7 +362,7 @@
                                 <div class="content">
                                     <div class="fPnaTX">
                                         <div class="specName">Camara</div>
-                                        <div class="specValue"><%= selectedNotebook.camara%></div>
+                                        <div class="specValue"><%= selectedNotebook.camara = true ? "Si":"No";%></div>
                                     </div>
                                     <div class="dUFjuS">
                                         <div class="specName">Medidas</div>
