@@ -679,3 +679,16 @@ svg.hamburguerSvg {
 .active.plate5 .x {
     transition: transform 400ms 50ms;
 }
+
+.mainSearch-input {
+    border: none;
+    background-color: wheat;
+    box-shadow: none;
+    margin-left: 20px;
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 2em;
+    text-transform: capitalize;
+}
