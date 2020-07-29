@@ -1,5 +1,18 @@
 /*                  Topbar                */
 
+
+:root {
+    /* var() */
+    --main-bg-color: #24303C;
+    --contrast-bg-color: #3c242a;
+    --orange-color: #e78200;
+    --orange-neon: #FF9900;
+    --red-stock: #cb3234;
+    --blue-hyper: #007bff;
+
+}
+
+
 .topbar {
     display: table;
     position: relative;
@@ -155,19 +168,34 @@
 /* TEXTO BURGUER */
 ul.hamburguer {
     text-align: center;
-    padding-left: 15px;
+    padding: 0px;
 }
 
 
 .texto-ham {
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #444444;
     text-align: start;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: .05em;
+    padding: 5px 0 5px 10px;
     /* display: flex;
     flex-direction: column;
     justify-content: center;
     margin-right: 10px; */
+}
+
+.texto-ham:hover {
+    background-color: var(--blue-hyper);
+    padding-left: 20px;
+    color: white;
+}
+
+.noAddsA:hover {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* TEXTO BURGUER */
@@ -398,7 +426,8 @@ ul.hamburguer {
         margin-bottom: 10px;
     }
 }
-.inner-wrapper{
+
+.inner-wrapper {
     display: flex;
     justify-content: center;
 }
@@ -442,12 +471,6 @@ ul.hamburguer {
     font-size: 18px;
     color: white;
     margin-top: 5px;
-}
-
-h4 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    color: white;
 }
 
 .terminos {
