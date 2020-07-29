@@ -17,7 +17,29 @@
 
     <main class="container-fluid">
 
+
         <div class="row">
+            <div class="col-md-3 col-sm-5">
+
+                <div class="row">
+                    <div id="crumbs">
+                        <ul class="breadUl">
+                            <li class="breadLi">
+                                <a style="text-decoration: none;" class="breadLink first_bread" href="/">
+                                    <span class="fa fa-home">
+                                        HOME</span></a>
+                            </li>
+                            <li class="breadLi"><a style="text-decoration: none;" class="breadLink" href="">
+                                    <i class="fa" aria-hidden="true">
+                                        <% if(selectedBrand == undefined){ %>
+                                        Marcas
+                                        <% }else{%>
+                                        <%= selectedBrand%>
+                                        <% }%></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="row">
             <div class="col">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -33,82 +55,153 @@
                     </ol>
                 </nav>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-sm-5 col-md-3 col-lg-2">
-                <div class="card bg-light mb-3">
-                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Marcas
+        </div> -->
+
+
+
+                <div class="wrapper center-block hidden-xs">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading1">
+                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse1" aria-expanded="false"
+                                        aria-controls="collapse1"> Marcas</a> </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading1">
+                                <div class="panel-body">
+                                    <% for(let i= 0; i < marcas.length; i++){ %>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span
+                                                class="ml-10"><%=marcas[i].nombre%></span> </label>
+                                    </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading2">
+                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse2" aria-expanded="false"
+                                        aria-controls="collapse2"> Procesador </a> </h4>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading2">
+                                <div class="panel-body">
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Core i5</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Core i7</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Core i9</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading3">
+                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse3" aria-expanded="false"
+                                        aria-controls="collapse3"> Pantalla </a> </h4>
+                            </div>
+                            <div id="collapse3" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading3">
+                                <div class="panel-body">
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10"> > 12.9
+                                                Pulgadas</span>
+                                        </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">12 Pulgadas - 12.9
+                                                Pulgadas</span> </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">13 Pulgadas - 13.9
+                                                Pulgadas</span> </label> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading4">
+                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse4" aria-expanded="false"
+                                        aria-controls="collapse4"> Sistema Operativo </a> </h4>
+                            </div>
+                            <div id="collapse4" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading4">
+                                <div class="panel-body">
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Windows 7</span>
+                                        </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">windows 8</span>
+                                        </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Windows 10</span>
+                                        </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">MAC OS</span> </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="list-group category_block">
-                        <% for(let i= 0; i < marcas.length; i++){ %>
-                        <li class="list-group-item"><a class="hyperlink" href="/categorias/<%=marcas[i].nombre%>"
-                                style="text-decoration: none;"><%=marcas[i].nombre%></a>
-                        </li>
-                        <% } %>
-                    </ul>
+                    <div class="text-right refine"> <button class="btn btn-out btn-success btn-square"
+                            id="button-filter">Buscar</button> </div>
                 </div>
-                <!-- <div class="card bg-light mb-3">
-                    <div class="card-header bg-success text-white text-uppercase">Producto destacado</div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="../img/notebook1.jpg" />
-                        <h5 class="card-title"><a href="/detalles" title="Ver producto"
-                                style="text-decoration: none;">Notebook</a></h5>
-                        <p class="card-text">HP 14-CK0061la Intel Celeron</p>
-                        <p class="bloc_left_price">
-                            <h4 class="price">$50.999</h4>
-                        </p>
-                    </div>
-                </div> -->
             </div>
+
             <div class="col">
                 <div class="row">
                     <% if(selectedBrand == undefined){ %>
                     <% for(let i= 0; i < notebooks.length; i++){ %>
                     <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a class="hyperlink" href="/detalles/<%= notebooks[i].id%>"
-                                        title="Ver producto"
-                                        style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
-                                <p class="card-text"><%= notebooks[i].marca%></p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>
-                                            <h4 class="price"><%= notebooks[i].precio%></h4>
-                                        </p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="" class="btn btn-success btn-block">Comprar</a>
-                                    </div>
-                                </div>
+                        <figure class="snip1218">
+                            <div class="image"><img src="../img/<%= notebooks[i].imagen%>" alt="sample70" />
+                                <p>
+                                    <%= notebooks[i].descripcionCorta%>
+                                </p>
                             </div>
-                        </div>
+                            <figcaption>
+                                <h5 class="nameID" id="<%= notebooks[i].nombre%>"><%= notebooks[i].nombre%></h5>
+                                <h6><%= notebooks[i].model%></h6>
+                                <h6><%= notebooks[i].price%></h6>
+                                <ul class="social">
+                                    <li><a href="/detalles/<%=notebooks[i].id%>" data-tip="Preview"><i
+                                                class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Especificaciones"><i class="fa fa-shopping-cart"></i></a>
+                                    </li>
+                                </ul>
+                            </figcaption>
+                        </figure>
                     </div>
                     <% } %>
                     <% }else{ %>
                     <% for(let i= 0; i < notebooks.length; i++){ %>
                     <% if(selectedBrand == notebooks[i].marca){ %>
                     <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a class="hyperlink" href="/detalles/<%= notebooks[i].id%>"
-                                        title="Ver producto"
-                                        style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
-                                <p class="card-text"><%= notebooks[i].marca%></p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>
-                                            <h4 class="price"><%= notebooks[i].precio%></h4>
-                                        </p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="" class="btn btn-success btn-block">Comprar</a>
-                                    </div>
-                                </div>
+                        <figure class="snip1218">
+                            <div class="image"><img src="../img/<%= notebooks[i].imagen%>" alt="sample70" />
+                                <p>
+                                    <%= notebooks[i].descripcionCorta%>
+                                </p>
                             </div>
-                        </div>
+                            <figcaption>
+                                <h5 class="nameID" id="<%= notebooks[i].nombre%>"><%= notebooks[i].nombre%></h5>
+                                <h6><%= notebooks[i].model%></h6>
+                                <h6><%= notebooks[i].price%></h6>
+                                <ul class="social">
+                                    <li><a href="/detalles/<%=notebooks[i].id%>" data-tip="Preview"><i
+                                                class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Especificaciones"><i class="fa fa-shopping-cart"></i></a>
+                                    </li>
+                                </ul>
+                            </figcaption>
+                        </figure>
                     </div>
                     <% } %>
                     <% } %>

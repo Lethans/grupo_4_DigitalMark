@@ -8,6 +8,7 @@
     --crumbs-back: #F3F5FA;
     --text-color: #8093A7;
 }
+
 * {
     box-sizing: border-box;
     min-height: 0;
@@ -23,7 +24,7 @@ body {
 }
 
 body {
-     background-color: #F5F5F5;
+    background-color: #F5F5F5;
 }
 
 body,
@@ -2020,6 +2021,21 @@ a:focus {
     color: var(--text-color);
 }
 
+@media (max-width:600px) {
+    .breadLink {
+        padding: 30px 0px 0 50px;
+        font-size: 11px;
+    }
+
+    .first_bread {
+        padding-left: 10px;
+    }
+
+    .last_bread {
+        padding-right: 10px;
+    }
+}
+
 .breadLink:after {
     content: "";
     border-top: 40px solid transparent;
@@ -2050,8 +2066,13 @@ a:focus {
     display: none;
 }
 
+@media (min-width:601px) {
+    #crumbs ul li:last-child .breadLink {
+        padding-right: 40px;
+    }
+}
+
 #crumbs ul li:last-child .breadLink {
-    padding-right: 40px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -2078,41 +2099,42 @@ a {
     text-decoration: none;
     color: inherit;
 }
-button{
-    cursor:pointer;
-    height:50px;
-    line-height:50px;
-    font-size:18px;
-    letter-spacing:1px;
-    margin-bottom:20px;
+
+button {
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
     border: 0;
-    outline:0;
-    border-radius:8px;
-    background:#24303C;
-    overflow:hidden;
-    transition:.4s;
-    }
-    
-    button:nth-child(1){
-    color:#e78200;
-    border:2px solid;
-    }
-    
-    button:nth-child(1):hover{
-    background:#e78200;
-    color:#222121;
-    }
-    
-    button span{
-    display:flex;
-    width:700px;
-    height:10px;
-    background:#e5e5e5;
-    filter:blur(8px);
-    transform:rotate(110deg) translateX(10px) translateY(700px);
+    outline: 0;
+    border-radius: 8px;
+    background: #24303C;
+    overflow: hidden;
     transition: .4s;
-    }
-    
-    button:hover span{
-    transform:rotate(110deg) translateX(-80px) translateY(-140px);
-    }
+}
+
+button:nth-child(1) {
+    color: #e78200;
+    border: 2px solid;
+}
+
+button:nth-child(1):hover {
+    background: #e78200;
+    color: #222121;
+}
+
+button span {
+    display: flex;
+    width: 700px;
+    height: 10px;
+    background: #e5e5e5;
+    filter: blur(8px);
+    transform: rotate(110deg) translateX(10px) translateY(700px);
+    transition: .4s;
+}
+
+button:hover span {
+    transform: rotate(110deg) translateX(-80px) translateY(-140px);
+}

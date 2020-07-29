@@ -28,9 +28,6 @@
                             <h3 class="title"><a ><%= notebooks[i].nombre%></a></h3>
                             <div class="price">
                                 <%= notebooks[i].price%>
-                                <% if (notebooks[i].stock <= 3){ %>
-                                <span class="stock">Ultimas <%= notebooks[i].stock%> unidades</span>
-                                <% } %>
                             </div>
                         </div>
                         <ul class="social">
@@ -38,6 +35,17 @@
                                         class="fa fa-search"></i></a></li>
                             <li><a href="" data-tip="Añadir al Carrito"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
+                        <% if (notebooks[i].stock <= 3){ %>
+                            <span class="product-stock-label">
+                                <% if (notebooks[i].stock == 1){ %>
+                                Ultima unidad
+                                <% }else{ %>
+                                Ultimas <%= notebooks[i].stock%> unidades</span>
+                            <% } %>
+                            <% } %>
+                        <% if (notebooks[i].descuento != '0'){ %>
+                            <span class="product-discount-label">-<%= notebooks[i].descuento%>%</span>
+                            <% } %>
                     </div>
                 </div>
                 <% } %>
@@ -65,14 +73,6 @@
                             <h3 class="title"><a ><%= notebooks[i].nombre%></a></h3>
                             <div class="price">
                                 <%= notebooks[i].price%>
-                                <% if (notebooks[i].stock <= 3){ %>
-                                <span class="stock">
-                                    <% if (notebooks[i].stock == 1){ %>
-                                    Ultima unidad
-                                    <% }else{ %>
-                                    Ultimas <%= notebooks[i].stock%> unidades</span>
-                                <% } %>
-                                <% } %>
                             </div>
                         </div>
                         <ul class="social">
@@ -80,6 +80,17 @@
                                         class="fa fa-search"></i></a></li>
                             <li><a href="" data-tip="Añadir al Carrito"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
+                        <% if (notebooks[i].stock <= 3){ %>
+                            <span class="product-stock-label">
+                                <% if (notebooks[i].stock == 1){ %>
+                                Ultima unidad
+                                <% }else{ %>
+                                Ultimas <%= notebooks[i].stock%> unidades</span>
+                            <% } %>
+                            <% } %>
+                        <% if (notebooks[i].descuento != '0'){ %>
+                            <span class="product-discount-label">-<%= notebooks[i].descuento%>%</span>
+                            <% } %>
                     </div>
                 </div>
                 <% } %>

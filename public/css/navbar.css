@@ -515,7 +515,6 @@ ul.hamburguer {
 }
 
 h4 {
-    margin-top: 20px;
     margin-bottom: 15px;
     font-size: 22px;
     color: white;
@@ -535,7 +534,7 @@ h4 {
     color: white;
 }
 
-
+/* Header invisible cuando bajas */
 header {
     width: 100%;
     padding: 3rem 0;
@@ -570,4 +569,113 @@ header .invisible {
     to {
         top: -100;
     }
+}
+
+svg.hamburguerSvg {
+    height: 80px;
+    position: absolute;
+    width: 80px;
+    bottom: -5px;
+    left: -3px;
+}
+
+@media (max-width:768px) {
+    svg.hamburguerSvg {
+        top: -17px;
+        left: -17px;
+    }
+
+}
+
+
+
+.plates {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 160px;
+}
+
+.plate {
+    height: 48px;
+}
+
+.burger {
+    filter: url(#gooeyness);
+}
+
+.x {
+    transform: scale(0);
+    transition: transform 400ms;
+}
+
+.line {
+    fill: none;
+    stroke: black;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform-origin: 50%;
+    transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms, transform 500ms 200ms;
+}
+
+.x .line {
+    stroke-width: 5.5px;
+}
+
+.active .x {
+    transform: scale(1);
+    transition: transform 400ms 350ms;
+}
+
+/* Den femte rätten */
+.plate5 .line {
+    transition: stroke-dasharray 400ms 100ms, stroke-dashoffset 400ms 100ms, transform 400ms 100ms;
+}
+
+.plate5 .line1 {
+    stroke-dasharray: 40 40;
+}
+
+.plate5 .line2 {
+    stroke-dasharray: 21 39;
+}
+
+.plate5 .line3 {
+    stroke-dasharray: 21 39;
+}
+
+.plate5 .line4 {
+    stroke-dasharray: 40 40;
+}
+
+.plate5 .x {
+    transition: transform 400ms 50ms;
+}
+
+.active.plate5 .line {
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms, transform 400ms;
+}
+
+.active.plate5 .line1 {
+    stroke-dasharray: 1 40;
+    stroke-dashoffset: -33px;
+}
+
+.active.plate5 .line2 {
+    stroke-dasharray: 5 39;
+    stroke-dashoffset: -37px;
+}
+
+.active.plate5 .line3 {
+    stroke-dasharray: 5 39;
+    stroke-dashoffset: -37px;
+}
+
+.active.plate5 .line4 {
+    stroke-dasharray: 1 40;
+    stroke-dashoffset: -33px;
+}
+
+.active.plate5 .x {
+    transition: transform 400ms 50ms;
 }

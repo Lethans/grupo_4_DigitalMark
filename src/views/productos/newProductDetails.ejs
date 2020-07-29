@@ -22,14 +22,17 @@
             <!-- aca va el txt  -->
             <div id="crumbs">
                 <ul class="breadUl">
-                    <li class="breadLi"><a style="text-decoration: none;" class="breadLink" href="/"><i
-                                class="fa fa-home" aria-hidden="true"></i>
-                            HOME</i></a>
+                    <li class="breadLi">
+                        <a style="text-decoration: none;" class="breadLink first_bread" href="/">
+                            <span class="fa fa-home">
+                            HOME</span></a>
                     </li>
                     <li class="breadLi"><a style="text-decoration: none;" class="breadLink"
-                            href="/categorias/<%= selectedNotebook.marca%>"><%= selectedNotebook.marca%></a></li>
+                            href="/categorias/<%= selectedNotebook.marca%>">
+                            <i class="fa" aria-hidden="true">
+                                <%= selectedNotebook.marca%></i></a></li>
                     <li class="breadLi"><a style="text-decoration: none;"
-                            class="breadLink"><%= selectedNotebook.nombre%></a></li>
+                            class="breadLink last_bread"><i class="fa" aria-hidden="true"></i><%= selectedNotebook.nombre%></i></a></li>
 
                 </ul>
             </div>
