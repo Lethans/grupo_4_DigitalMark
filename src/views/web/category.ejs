@@ -155,8 +155,25 @@
                 </div>
             </div>
 
+
             <div class="col">
+
                 <div class="row">
+                    <div class="col-10"> </div>
+                    <div class="col-2">
+                        <div class='buttons'>
+                            <a id="firsBack" class="first-view unClickedBack">
+                                <ion-icon class="unClickedIcon" id="firsIcon" size="large" name="list-outline"></ion-icon>
+                            </a>
+                            <a id="secondBack" class="second-view unClickedBack">
+                                <ion-icon class="unClickedIcon" id="secondIcon" size="large" name="grid-outline"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="boxes" class="row">
                     <% if(selectedBrand == undefined){ %>
                     <% for(let i= 0; i < notebooks.length; i++){ %>
                     <div class="col-12 col-md-6 col-lg-4">
@@ -206,32 +223,138 @@
                     <% } %>
                     <% } %>
                     <% } %>
+                </div>
 
-                    <div class="col-12">
-                        <nav aria-label="...">
-                            <ul class="pagination" style="padding-top: 20px;">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Próximo</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                <div id="grido" class="hide gridCard">
+                    <% if(selectedBrand == undefined){ %>
+                    <% for(let i= 0; i < notebooks.length; i++){ %>
+
+                    <div class="card__box col-md-11 col-sm-12">
+                        <div class="card">
+                            <div class="card__img">
+                                <img class="card__img-preview" src="../img/<%= notebooks[i].imagen%>" alt="Image name">
+                            </div>
+                            <div class="card__content">
+                                <h4 class="card__title"><a
+                                        href="/detalles/<%=notebooks[i].id%>"><%= notebooks[i].nombre%></a></h4>
+                                <p class="card__text"><i class="fa"
+                                        aria-hidden="true"></i><%= notebooks[i].model%></p>
+                                <p class="card__description"><%= notebooks[i].descripcionLarga%></p>
+                                <div class="card__bottom">
+                                    <div class="options">
+                                        
+                                        <span class="date">
+                                            <i class="fa" aria-hidden="true"></i><%= notebooks[i].procesador%>
+                                        </span>
+                                        <span class="category"><i class="fa" aria-hidden="true"></i>
+                                            <%= notebooks[i].ram%></span>
+                                    </div>
+                                    <div class="card__price">
+                                        <%= notebooks[i].price%>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /card__box -->
+
+                    <% } %>
+                    <% }else{ %>
+                    <% for(let i= 0; i < notebooks.length; i++){ %>
+                    <% if(selectedBrand == notebooks[i].marca){ %>
+
+                    <div class="card__box col-md-11 col-sm-12">
+                        <div class="card">
+                            <div class="card__img">
+                                <img class="card__img-preview" src="../img/<%= notebooks[i].imagen%>" alt="Image name">
+                                <div class="card-img-overlay"><span
+                                        class="badge badge-pill badge-danger">Portrait</span> </div>
+                            </div>
+                            <div class="card__content">
+                                <h4 class="card__title"><a
+                                        href="/detalles/<%=notebooks[i].id%>"><%= notebooks[i].nombre%></a></h4>
+                                <p class="card__text"><i class="fa fa-map-marker"
+                                        aria-hidden="true"></i><%= notebooks[i].model%></p>
+                                <p class="card__description"><%= notebooks[i].descripcionLarga%></p>
+                                <div class="card__bottom">
+                                    <div class="options">
+                                        <span class="date">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14/02/2018
+                                        </span>
+                                        <span class="category"><i class="fa fa-tag" aria-hidden="true"></i>
+                                            Portrait</span>
+                                    </div>
+                                    <div class="card__price">
+                                        <%= notebooks[i].price%>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /card__box -->
+                    <% } %>
+                    <% } %>
+                    <% } %>
+                </div>
+
+
+                <div class="col-12">
+                    <nav aria-label="...">
+                        <ul class="pagination" style="padding-top: 20px;">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Próximo</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
 
         </div>
+
     </main>
     <%- include('../partials/footer')%>
     <%- include('../partials/boostrapScripts')%>
 
 </body>
+
+<script>
+    $('a').on('click', function () {
+        if ($(this).hasClass('first-view')) {
+            $('#grido').removeClass('hide');
+            $('#boxes').addClass('hide');
+
+            $('#firsIcon').removeClass('unClickedIcon');
+            $('#firsIcon').addClass('clickedIcon');
+            $('#secondIcon').removeClass('clickedIcon');
+            $('#secondIcon').addClass('unClickedIcon');
+
+            $('#firsBack').removeClass('unClickedBack');
+            $('#firsBack').addClass('clickedBack');
+            $('#secondBack').removeClass('clickedBack');
+            $('#secondBack').addClass('unClickedBack');
+
+
+        } else if ($(this).hasClass('second-view')) {
+            $('#boxes').removeClass('hide');
+            $('#grido').addClass('hide');
+
+            $('#firsIcon').removeClass('clickedIcon');
+            $('#firsIcon').addClass('unClickedIcon');
+            $('#secondIcon').removeClass('unClickedIcon');
+            $('#secondIcon').addClass('clickedIcon');
+
+            $('#firsBack').removeClass('clickedBack');
+            $('#firsBack').addClass('unClickedBack');
+            $('#secondBack').removeClass('unClickedBack');
+            $('#secondBack').addClass('clickedBack');
+        }
+    });
+</script>
 
 </html>

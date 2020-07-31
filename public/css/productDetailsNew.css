@@ -2100,7 +2100,7 @@ a {
     color: inherit;
 }
 
-button {
+.shiny {
     cursor: pointer;
     height: 50px;
     line-height: 50px;
@@ -2115,17 +2115,17 @@ button {
     transition: .4s;
 }
 
-button:nth-child(1) {
+.shiny:nth-child(1) {
     color: #e78200;
     border: 2px solid;
 }
 
-button:nth-child(1):hover {
+.shiny:nth-child(1):hover {
     background: #e78200;
     color: #222121;
 }
 
-button span {
+.shiny span {
     display: flex;
     width: 700px;
     height: 10px;
@@ -2135,6 +2135,6 @@ button span {
     transition: .4s;
 }
 
-button:hover span {
+.shiny:hover span {
     transform: rotate(110deg) translateX(-80px) translateY(-140px);
 }

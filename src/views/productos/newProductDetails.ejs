@@ -25,14 +25,14 @@
                     <li class="breadLi">
                         <a style="text-decoration: none;" class="breadLink first_bread" href="/">
                             <span class="fa fa-home">
-                            HOME</span></a>
+                                HOME</span></a>
                     </li>
                     <li class="breadLi"><a style="text-decoration: none;" class="breadLink"
                             href="/categorias/<%= selectedNotebook.marca%>">
                             <i class="fa" aria-hidden="true">
                                 <%= selectedNotebook.marca%></i></a></li>
-                    <li class="breadLi"><a style="text-decoration: none;"
-                            class="breadLink last_bread"><i class="fa" aria-hidden="true"></i><%= selectedNotebook.nombre%></i></a></li>
+                    <li class="breadLi"><a style="text-decoration: none;" class="breadLink last_bread"><i class="fa"
+                                aria-hidden="true"></i><%= selectedNotebook.nombre%></i></a></li>
 
                 </ul>
             </div>
@@ -71,24 +71,6 @@
                                     <img src="/img/<%= selectedNotebook.imagen%>" width="100" height="100"
                                         alt="Seleccionar foto del producto"
                                         style="cursor: pointer; border: 1px solid transparent;"></li>
-                            </ul><button style="display:none" type="button" hidden="" class="bNSwkN"><svg height="100%"
-                                    width="100%" viewBox="0 0 42.7 72" xmlns="http://www.w3.org/2000/svg"
-                                    class="kexurC">
-                                    <path d="M6.7,72l-4.7,0l35.8-36L2.1,0h4.7l35.9,36L6.7,72z" class="dHXNHM"></path>
-                                    <path d="M4,70l-3.8,0L34,36L0,1.8h3.8L38,36L4,70z" class="dUiQFL"></path>
-                                </svg></button><button type="button" class="hLBhlT" hidden=""
-                                style="display: none;"><svg height="100%" width="100%" viewBox="0 0 42.7 72"
-                                    xmlns="http://www.w3.org/2000/svg" class="kexurC">
-                                    <path d="M6.7,72l-4.7,0l35.8-36L2.1,0h4.7l35.9,36L6.7,72z" class="dHXNHM"></path>
-                                    <path d="M4,70l-3.8,0L34,36L0,1.8h3.8L38,36L4,70z" class="dUiQFL"></path>
-                                </svg></button>
-                            <ul class="dCHaFj">
-                                <li selected="" class="bTwOnF"><button type="button" tabindex="-1" selected=""
-                                        class="gvdRlX"></button>
-                                </li>
-                                <li class="bTwOnF"><button type="button" tabindex="-1" class="eOQwHZ"></button></li>
-                                <li class="bTwOnF"><button type="button" tabindex="-1" class="eOQwHZ"></button></li>
-                                <li class="bTwOnF"><button type="button" tabindex="-1" class="eOQwHZ"></button></li>
                             </ul>
                         </div>
                     </div>
@@ -114,54 +96,15 @@
                                 <%= selectedNotebook.price%></span>
 
                         </div>
-                        <!-- <div>
-                            <article class="jDEHKk">
-                                <div data-test-id="payment-tooltip" class="IAHDW">
-                                    <div class="paddingContainer">
-                                        <h1>¡Aprovechá nuestras promociones bancarias!</h1>
-                                        <div class="gnUhWq">
-                                            <div class="gGIukj">
-                                                <div class="content"><img
-                                                        src=""
-                                                        width="64" height="auto" alt="Opción de pago"></div>
-                                                <div class="interest">
-                                                    <p>18 cuotas de $ 2.975,20</p>
-                                                    <p class="interestDetail">Precio financiado: $ 53.553,64 - CFT
-                                                        25.78% - TEA 21.1%</p>
-                                                </div>
-                                            </div>
-                                            <div class="gGIukj">
-                                                <div class="content"><img
-                                                        src=""
-                                                        width="64" height="auto" alt="Opción de pago"></div>
-                                                <div class="interest">
-                                                    <p>12 cuotas de $ 4.218,59</p>
-                                                    <p class="interestDetail">Precio financiado: $ 50.623,04 - CFT
-                                                        25.19% - TEA 20.56%</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><a class="iLHYzA" role="button" data-test-id="button-open-modal-payment"
-                                        data-event="fvg.productDetail.click-view-payment-methods">Ver cuotas y todos los
-                                        medios de pago<svg xmlns="http://www.w3.org/2000/svg" width="13" height="22"
-                                            viewBox="0 0 13 22">
-                                            <path fill="none" fill-rule="evenodd" stroke="#000" stroke-width="2"
-                                                d="M1 1l10 10L1 21"></path>
-                                        </svg></a>
-                                </div>
-                            </article>
-                        </div> -->
+
                         <div class="dJGluu">
-                            <button>COMPRAR<span></span></button>
+                            <button class="shiny">COMPRAR<span></span></button>
                             <!-- <a data-event="fvg.productDetail.click-purchase-button" href="#"
                                 data-test-id="product-buy-button" class="dYHnXG">Comprar</a> -->
                         </div>
                         <div data-test-id="product-delivery" class="cZZyGm">
                             <div id="1" class="cceQAN"><svg class="KeIUP" id="truck" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 42 28">
-                                    <style>
-
-                                    </style>
                                     <path class="st0" d="M0-1h42v28H0V-1z"></path>
                                     <path class="st0" d="M-1-9h44v44H-1V-9z"></path>
                                     <path class="st1"
@@ -198,23 +141,11 @@
                                 </svg>
                                 <hgroup class="jJrDVk">
                                     <p class="title">Envío a domicilio</p><span class="linkDropdown">Calcular costo de
-                                        envio<svg class="fIPIYo" xmlns="http://www.w3.org/2000/svg" width="13"
-                                            height="22" viewBox="0 0 13 22">
-                                            <path fill="none" fill-rule="evenodd" stroke="#000" stroke-width="2"
-                                                d="M1 1l10 10L1 21"></path>
-                                        </svg></span>
-                                    <div class="HomeDeliveryOption__Dropdown-diq4w9-1 ezYFPz">
-                                        <div class="jtavYL">
-                                            <p>Ingresá código postal (sólo números)</p>
-                                            <form class="fiaaOi"><input type="number" value="" placeholder="Ej: 1414"
-                                                    class="hWAYQz"><button class="kwpAyN">Calcular</button>
-                                            </form>
-                                        </div>
-                                    </div>
+                                        envio</span>
                                 </hgroup>
                             </div>
-                            <div id="2" data-event="fvg.productDetail.click-view-pick-up-stores" class="cceQAN"><svg
-                                    class="GqHzf" id="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 32">
+                            <div id="2" data-event="fvg.productDetail.click-view-pick-up-stores" class="cceQAN">
+                                <svg class="GqHzf" id="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 32">
                                     <path
                                         d="M19 17H6.9c-.3 0-.5.2-.5.5v9.1c0 .3.2.5.5.5H19c.3 0 .5-.2.5-.5v-9.1c0-.3-.2-.5-.5-.5zm-.5 9.2H7.4V18h11.2v8.2h-.1z">
                                     </path>
@@ -226,13 +157,17 @@
                                     <path class="st0" d="M-4-6h44v44H-4V-6z"></path>
                                 </svg>
                                 <hgroup class="jJrDVk">
-                                    <p class="title">Retiro GRATIS en sucursal</p><span class="linkDropdown">Ver
+                                    <p class="title">Retiro GRATIS en sucursal</p>
+                                    <p type="button" data-toggle="modal" data-target="#myModal" class="linkDropdown">Ver
                                         sucursales disponibles<svg xmlns="http://www.w3.org/2000/svg" width="13"
                                             height="22" viewBox="0 0 13 22">
-                                            <path fill="none" fill-rule="evenodd" stroke="#000" stroke-width="2"
-                                                d="M1 1l10 10L1 21"></path>
-                                        </svg></span>
-                                    <p class="content link" data-test-id="button-open-modal-delivery-options"></p>
+                                        </svg></p>
+
+                                    <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" data-lat='10.85' data-lng='106.62'>
+                                            Location 2
+                                          </button> -->
+
+
                                 </hgroup>
                             </div>
                         </div>
@@ -442,9 +377,122 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 modal_body_content">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 modal_body_map">
+                            <div class="location-map" id="location-map">
+                                <div style="height: 500px;" id="map"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 modal_body_end">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <%- include('../partials/footer')%>
     <%- include('../partials/boostrapScripts')%>
 
+    <script>
+        // Note: This example requires that you consent to location sharing when
+        // prompted by your browser. If you see the error "The Geolocation service
+        // failed.", it means you probably did not give permission for the browser to
+        // locate you.
+        var map, infoWindow;
+        let test;
+        let test1;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14
+            });
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    test = position.coords.latitude;
+                    test1 = position.coords.longitude;
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Ubicacion actual');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+            var uluru = {
+                lat: -34.574794,
+                lng: -58.458112
+            };
+            var uluru2 = {
+                lat: -34.574794,
+                lng: -58.418112
+            };
+            var uluru3 = {
+                lat: -34.581794,
+                lng: -58.424112
+            };
+            var uluru4 = {
+                lat: -34.581794,
+                lng: -58.451112
+            };
+            // The marker, positioned at Uluru
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+            var marker = new google.maps.Marker({
+                position: uluru2,
+                map: map
+            });
+            var marker = new google.maps.Marker({
+                position: uluru3,
+                map: map
+            });
+            var marker = new google.maps.Marker({
+                position: uluru4,
+                map: map
+            });
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+    </script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-zFBsh1BraLg1v82tIDt8k9eEPQ3Iw7M&callback=initMap">
+    </script>
 </body>
 
 </html>

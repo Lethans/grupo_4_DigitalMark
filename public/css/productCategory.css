@@ -476,7 +476,7 @@ input[type="checkbox"]:focus {
   float: left;
   text-decoration: none;
   height: 50px;
-  background: orange;
+  background: var(--main-bg-color);
   box-sizing: content-box;
   text-align: center;
   padding: 30px 10px 0 60px;
@@ -484,7 +484,7 @@ input[type="checkbox"]:focus {
   margin: 0 10px 0 0;
 
   font-size: 20px;
-  color: var(--text-color);
+  color: var(--orange-color);
 }
 
 @media (max-width:600px) {
@@ -506,7 +506,7 @@ input[type="checkbox"]:focus {
   content: "";
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  border-left: 40px solid orange;
+  border-left: 40px solid var(--main-bg-color);
   position: absolute;
   right: -40px;
   top: 0;
@@ -548,15 +548,203 @@ input[type="checkbox"]:focus {
 }
 
 #crumbs ul li .breadLink:hover {
-  background: #357DFD;
-  color: #fff;
+  background: var(--orange-color);
+  color: var(--main-bg-color);
 }
 
 #crumbs ul li .breadLink:hover:after {
-  border-left-color: #357DFD;
-  color: #fff;
+  border-left-color: var(--orange-color);
+  color: var(--main-bg-color);
 }
 
 .hyperlink {
   color: var(--blue-hyper);
 }
+
+.hide {
+  display: none;
+}
+
+
+/* --------------------------------------.Tarjeta horizontal.--------------------------------- */
+
+.card__list {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 250px;
+  margin-bottom: 1.5rem;
+  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease-in;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+@media(max-width: 768px) {
+  .card {
+    flex-direction: column !important;
+    height: auto;
+  }
+}
+
+.card__img {
+  flex: 1 30%;
+  -webkit-flex: 1 30%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__img-preview {
+  display: block;
+  object-fit: cover;
+  margin: 0 auto;
+  min-width: 150px;
+  max-width: 100%;
+  min-height: 100%;
+  transition: all 0.5s ease 0s;
+}
+
+.card__img-preview:hover {
+  transform: scale(1.5);
+}
+
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+}
+
+.card__content {
+  flex: 1 70%;
+  -webkit-flex: 1 70%;
+  padding: 0.8rem;
+}
+
+.card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card__text {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.card__description {
+  font-size: 0.8rem;
+  margin: 0;
+  margin-top: 0.5rem;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  max-height: 2rem;
+  line-height: 1rem;
+}
+
+.card__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-content: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-top: 1px solid #efefef;
+  text-align: right;
+  padding-top: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.card__price {
+  color: #E35354;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* -----------------------------------.borrar.------------------------------------------ */
+
+.buttons {
+  white-space: nowrap;
+  min-height: 40px;
+  position: relative;
+  margin: 10px 0 10px 10px
+}
+
+.buttons a {
+  width: 50px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  text-decoration: none;
+  padding-top: 3px;
+  outline-width: 0px;
+  text-align: center;
+  line-height: 15px;
+  display: block;
+}
+
+.buttons a ion-icon {
+  /* color: var(--orange-neon); */
+}
+
+.unClickedIcon {
+  color: var(--orange-neon);
+}
+
+.clickedIcon {
+  color: #fff;
+}
+
+.unClickedBack {
+  background-color: var(--main-bg-color);
+}
+
+.clickedBack {
+  background-color: var(--orange-neon);
+}
+
+
+
+
+
+.buttons a:last-of-type {
+  border-radius: 0 7px 7px 0;
+}
+
+.buttons a:first-of-type {
+  border-radius: 7px 0 0 7px;
+  left: 0;
+}
+
+.buttons a:nth-of-type(2) {
+  left: 51px
+}
+
+
+
+
+
+
+/* peripherial stuff: text and body */
