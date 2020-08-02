@@ -69,23 +69,43 @@
             </i>
           </div>
 
-          <div class="account">
-            <a class="hover-toolbar" data-toggle="modal" data-target="#loginModal" href="">
-              <i class="icon-head">
-                <ion-icon name="person-outline"></ion-icon>
-              </i>
-            </a>
-          </div>
+            <% if(locals.usuario) { %>  
 
-          <div class="cart">
-            <a class="hover-toolbar" href="" data-toggle="modal" data-target="#product-create">
-              <i class="icon-bag">
-                <ion-icon class="wallet" name="wallet-outline"></ion-icon>
-              </i>
-              <span class="count">3</span>
-              <span class="subtotal">$289.68</span>
-            </a>
-          </div>
+              <div class="cart">
+                <a class="hover-toolbar" href="" data-toggle="modal" data-target="#product-create">
+                  <i class="icon-bag">
+                    <ion-icon class="wallet" name="wallet-outline"></ion-icon>
+                  </i>
+                  <span class="count">3</span>
+                  <span class="subtotal">$289.68</span>
+                </a>
+              </div>
+
+              <div class="cart">
+                <a class="nav-link" href="/logout"><ion-icon name="log-out-outline"></ion-icon></a>
+              </div>
+
+              <div style="float:right; margin-left: 20px;">
+                <img src="/img/users/<%=locals.usuario.avatar %>" width = '60' height="60" style= 'border-radius: 100%;'alt="50">
+              </div>
+
+            <% } else { %>  
+
+              <!--Cuando no estoy logueado debería ver esto-->
+
+              <div class="account">
+                <a class="hover-toolbar" href="/login">
+                  <i class="icon-head">
+                    <ion-icon name="person-outline"></ion-icon>
+                  </i>
+                </a>
+              </div>
+
+            <%}%>  
+
+
+
+
 
 
 

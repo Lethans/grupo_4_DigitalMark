@@ -4,7 +4,12 @@ const path = require('path');
 const methodOverride = require('method-override');
 const fs = require('fs');
 
+//Paquetes para trabajar session y cookies
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
+//Requerir el middleware que controla si el usuario está o no Logueado
+const acceso = require('./middlewares/acceso');
 
 //Archivos estaticos para express. asd
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
@@ -24,12 +29,26 @@ app.use(express.urlencoded({
 //Middleware para manejar los metodos PUT/DELETE
 app.use(methodOverride('_method'));
 
+// Middlewares de session
+app.use(session({
+    secret : 'topSecret',
+    resave: true,
+    saveUninitialized: true,
+}))
+
+//Middleware para activar cookies
+app.use(cookieParser());
+
+app.use(acceso);
+
 //Traigo el archivo de rutas y lo implemento
 const webRoutes = require('./router/web');
+const userRoutes = require('./router/user');
 const productRoutes = require('./router/products');
 const adminRoutes = require('./router/admin');
 
 app.use(webRoutes);
+app.use(userRoutes);
 app.use(productRoutes);
 app.use(adminRoutes);
 

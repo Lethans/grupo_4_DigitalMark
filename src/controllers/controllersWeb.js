@@ -31,4 +31,35 @@ module.exports = {
     error: function (req, res) {
         res.render(path.resolve(__dirname, '..', 'views', 'web', 'error'));
     },
+    login: function (req, res) {
+        
+        let selectedBrand;
+        marcas.forEach(marca => {
+            if (marca.nombre == req.params.id) {
+                selectedBrand = marca.nombre;
+            }
+        });
+        res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
+            selectedBrand,
+            notebooks,
+            marcas
+        });
+        
+    },
+   register: function (req, res) {
+        
+        let selectedBrand;
+        marcas.forEach(marca => {
+            if (marca.nombre == req.params.id) {
+                selectedBrand = marca.nombre;
+            }
+        });
+        res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'register'), {
+            selectedBrand,
+            notebooks,
+            marcas
+        });
+        
+    }
+
 }

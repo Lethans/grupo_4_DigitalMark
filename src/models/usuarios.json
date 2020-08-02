@@ -1,0 +1,20 @@
+[
+  {
+    "nombre": "Demian",
+    "apellido": "Walton",
+    "email": "demian@digitalmark.com.ar",
+    "password": "$2a$10$oGF4FWgSoD6CTRBasZCFNe8LYPtogOPDZBgN/hNaQb0N4UuO5gRbe",
+    "provincia": "02",
+    "avatar": "foto-1596396540786.jpg",
+    "role": 1
+  },
+  {
+    "nombre": "Franco",
+    "apellido": "colavitta",
+    "email": "franco@digitalmark.com.ar",
+    "password": "$2a$10$YqOzCcTQxR4iWx2pUbTls.EnZhWoeNrOJlmlMbcx8Kd1DhwhuC5Bq",
+    "provincia": "18",
+    "avatar": "foto-1596396976759.jpg",
+    "role": 1
+  }
+]

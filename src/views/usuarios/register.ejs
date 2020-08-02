@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Rompe si se saca de esta seccion -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+
+    <%- include('../partials/headHome')%>
+
+</head>
+
+<body>
+
+    <main class="container-fluid">
+        <div class="bg" id="top"></div>
+
+        <%- include('../partials/navBar')%>
+
+        <form action="/register" method="POST" enctype="multipart/form-data">
+
+            <div class="row col-12 col-md-12 col-lg-12" style="margin:0px">
+
+                <div class="form-group col-12" style="text-align:center">
+
+                    <div>
+                        <h5 class="modal-title p-login" id="exampleModalLabel" style="text-align:center">Registrate</h5>
+                        <p>
+                        <h6 class="modal-title p-login" id="exampleModalLabel" style="text-align:center">¿Ya tenés
+                            cuenta? <a href='/login' style="color: orange;">Ingresá</a></h6>
+                        </p>
+                    </div>
+
+                    <div><label class="datos">Nombre</label>
+                    </div>
+
+                    <div><input class="controls" type="text" name="first_name" placeholder="Como figura en tu documento"
+                            value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
+                    </div>
+
+                    <% if(typeof errors != 'undefined' && errors.first_name){%>
+                    <span class="text-danger"> <%= errors.first_name.msg %></span>
+                    <%}%>
+
+            <div><label class="datos">Apellido</label></div>
+
+            <div><input class="controls" type="text" name="last_name" placeholder="Como figura en tu documento"
+                    value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
+                </div>
+
+                <% if(typeof errors != 'undefined' && errors.last_name){%>
+                <span class="text-danger"> <%= errors.last_name.msg %></span>
+                <%}%>
+
+            <div><label class="datos">Email</label></div>
+
+            <div><input class="controls" type="email" name="email" placeholder="digitalmark@digitalmark.com"
+                    value="<%= typeof old != 'undefined' ? old.email : '' %>">
+            </div>
+
+            <% if(typeof errors != 'undefined' && errors.email){%>
+            <span class="text-danger"> <%= errors.email.msg %></span>
+            <%}%>
+
+            <div><label class="datos">Contraseña</label></div>
+
+            <div><input class="controls" type="password" name="password" placeholder="Usá entre 6 y 20 caracteres">
+            </div>
+
+            <% if(typeof errors != 'undefined' && errors.password){%>
+            <span class="text-danger"> <%= errors.password.msg %></span>
+            <%}%>
+
+
+            <div><label class="datos">Repetir contraseña</label></div>
+
+            <div><input class="controls" type="password" name="confirm_password" placeholder="*************"></div>
+
+            <% if(typeof errors != 'undefined' && errors.confirm_password){%>
+            <span class="text-danger"> <%= errors.confirm_password.msg %></span>
+            <%}%>
+
+                <div><label class="datos">Provincia</label></div>
+
+            <div class="form-group">
+                <select class="controls" id="provincia" name="provincia">
+                    <option disabled selected>Seleccione su provincia</option>
+                    <% provincias.forEach(prov => { %>
+            <option value="<%= typeof old != 'undefined' ? old.provincia : prov.id %>"><%= prov.nombre %>
+            </option>
+            <% }); %>
+            </select>
+            </div>
+
+            <div class="custom-file"><br>
+                <input type="file" name="avatar" placeholder="Cargá tu avatar" style="color: white;"></div>
+
+
+            <div><label class="terminos"><br><input type="checkbox"> Estoy de
+                    acuerdo con <a href="#" class="a-login" style="color: orange;">Términos y
+                        condiciones</a></label><br></div>
+
+            <div><input class="botons" type="submit" value="Registrar" style="background-color: orange;"></div>
+
+            </div>
+
+        </form>
+
+    </main>
+    <%- include('../partials/footer')%>
+    <%- include('../partials/boostrapScripts')%>
+
+</body>
+
+</html>
