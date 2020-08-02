@@ -27,28 +27,53 @@
 <div class="sticky-top">
   <header class="navbar">
 
-
     <div class="site-branding">
       <div class="inner dropdown">
 
         <a class="offcanvas-toggle menu-toggle dropdown-toggle" href="" role="button" id="dropdownMenuButton"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="ham"
-            src="/icons/hamburguesa.svg"></a>
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-        <!-- Site Logo--><a href="/" class="site-logo"><img src="/img/logo.png" alt="DigitalMark"></a>
+          <svg class="hamburguerSvg">
+            <defs>
+              <filter id="gooeyness">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
+                  result="gooeyness" />
+                <feComposite in="SourceGraphic" in2="gooeyness" operator="atop" />
+              </filter>
+            </defs>
+          </svg>
+          <div class="plates">
+            <div class="plate plate5" onclick="this.classList.toggle('active')">
+              <svg class="burger hamburguerSvg" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                <path class="line line1" d="M 30,35 H 70 " />
+                <path class="line line2" d="M 50,50 H 30 L 34,32" />
+                <path class="line line3" d="M 50,50 H 70 L 66,68" />
+                <path class="line line4" d="M 30,65 H 70 " />
+              </svg>
+              <svg class="x hamburguerSvg" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                <path class="line" d="M 34,32 L 66,68" />
+                <path class="line" d="M 66,32 L 34,68" />
+              </svg>
+            </div>
+          </div>
 
+
+        </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
           <ul class="hamburguer" type="none">
-            <li class="texto-ham"><a href="/administrar">ADMINISTRADOR</a></li>
-            <li class="texto-ham"><a href="/error">ERROR</a></li>
+            <li class="texto-ham"><a class="noAddsA" href="/administrar">ADMINISTRADOR</a></li>
+            <li class="texto-ham"><a class="noAddsA" href="/error">ERROR</a></li>
             <% for(let i= 0; i < marcas.length; i++){ %>
-            <li class="texto-ham"><a href="/categorias/<%=marcas[i].nombre%>"><%=marcas[i].nombre%></a></li>
+            <li class="texto-ham"><a class="noAddsA" href="/categorias/<%=marcas[i].nombre%>"><%=marcas[i].nombre%></a></li>
             <% } %>
           </ul>
         </div>
       </div>
     </div>
+
+    <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="logoHeader" src="/img/logo.png" alt="" width="191" height="52"></a></div>
 
 
     <!-- Main Navigation-->
@@ -64,7 +89,8 @@
                 </div> -->
 
           <div class="search hover-toolbar">
-            <i class="icon-search">
+            <i class="icon-search" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+              aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
               <ion-icon style="margin-top: 7px;" name="search-outline"></ion-icon>
             </i>
           </div>
@@ -113,8 +139,34 @@
       </div>
     </div>
   </header>
-</div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <input type="search" placeholder="Search here" autofocus="autofocus" class="mainSearch-input">
 
+    
+  </div>
+
+</div>
+<script>
+  const header = document.querySelector('header');
+
+  let oldScrollPosition = 0;
+  let isScrollingUp = false;
+  let isHeaderVisible = true;
+
+  window.addEventListener('scroll', event => {
+    isScrollingUp = oldScrollPosition > window.scrollY;
+    oldScrollPosition = window.scrollY;
+
+    if (!isScrollingUp && window.scrollY > 200 && isHeaderVisible) {
+      header.classList.add('invisible');
+      isHeaderVisible = false;
+    }
+    if (isScrollingUp && !isHeaderVisible) {
+      header.classList.remove('invisible');
+      isHeaderVisible = true;
+    }
+  })
+</script>
 <%- include('../partials/modalLogin')%>
 <%- include('../partials/modalRegister')%>
 

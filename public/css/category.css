@@ -470,8 +470,6 @@ label {
 }
 
 
-
-
 .hexagon-item:hover .icon i {
     color: orange;
     transition: 0.6s;
@@ -550,11 +548,21 @@ label {
 
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .col-lg-offset-2 {
+     /* .col-lg-offset-2 {
         margin-left: 0%;
     }
 
     .col-lg-8 {
+        width: 66.66666667%;
+        flex: 0 0 104%;
+        max-width: 104%;
+    } */
+    
+    .testtt {
+        margin-left: 0%;
+    }
+
+    .testtt {
         width: 66.66666667%;
         flex: 0 0 104%;
         max-width: 104%;
@@ -646,6 +654,5 @@ label {
         flex: 0 0 80%;
         max-width: 80%;
     }
-
-
 }
+

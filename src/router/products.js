@@ -9,4 +9,5 @@ router.get('/detalles/:id', controllersProducts.productsDetails);
 router.get('administrar/detalles/:id', controllersProducts.productsDetails);
 
 
+
 module.exports = router;

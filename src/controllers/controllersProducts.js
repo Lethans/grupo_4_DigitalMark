@@ -13,8 +13,9 @@ module.exports = {
                 selectedNotebook = notebook;
             }
         });
-        res.render(path.resolve(__dirname, '..', 'views', 'productos', 'productDetails'), {
-            selectedNotebook,marcas
+        res.render(path.resolve(__dirname, '..', 'views', 'productos', 'newProductDetails'), {
+            selectedNotebook,
+            marcas
         });
     },
 }

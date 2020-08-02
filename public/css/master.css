@@ -6,6 +6,9 @@
     --contrast-bg-color: #3c242a;
     --orange-color: #e78200;
     --orange-neon: #FF9900;
+    --red-stock: #cb3234;
+    --blue-hyper: #007bff;
+
 }
 
 .container-fluid {
@@ -271,7 +274,7 @@ a {
 /*Neon*/
 p.titulos {
     text-align: center;
-    font-size: 4em;
+    font-size: 3em;
     margin: 20px 0 20px 0;
 }
 
@@ -562,6 +565,38 @@ input[type="submit"]:hover {
     transform: scale(1.1)
 }
 
+.product-discount-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    position: absolute;
+    display: block;
+    padding: 4px 15px 4px 30px;
+    color: #fff;
+    top: 10px;
+    right: 0;
+    -webkit-clip-path: polygon(34% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(34% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.product-discount-label {
+    background-color: var(--orange-color);
+    left: auto;
+    right: 0
+}
+
+.product-stock-label {
+    color: #fff;
+    background-color: var(--red-stock);
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    display: block;
+    position: absolute;
+    top: 150px ;
+    left: 0
+}
+
+
 .product-grid6 .product-content {
     padding: 12px 12px 15px;
     transition: all .5s ease 0s
@@ -602,14 +637,14 @@ input[type="submit"]:hover {
     display: inline-block
 }
 
-.product-grid6 .price span.stock {
-    color: #cb3234;
-    font-size: 15px;
+/* span.stock  */
+.product-grid6 .price {
     font-weight: 400;
     margin-left: 7px;
     display: inline-block;
     text-decoration: none;
 }
+
 
 .product-grid6 .social {
     background-color: #fff;
@@ -695,8 +730,16 @@ input[type="submit"]:hover {
     }
 }
 
+@media (min-width:768px) and (max-width:1023px) {
+    .imageCardCarrusel {
+        height: 200px;
+    }
+}
+
+@media (min-width:1024px){
 .imageCardCarrusel {
     height: 250px;
+}
 }
 
 .pic-1 {

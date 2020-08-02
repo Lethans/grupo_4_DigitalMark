@@ -32,7 +32,7 @@
 
         <form action="/administrar/create" method="POST" enctype="multipart/form-data">
 
-            <div>
+            <div class="sticky-top">
                 <button type="submit" class="btn btn-primary"
                     style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;">Guardar</button>
                 <a href='/administrar'><button type="button" class="btn btn-primary"
@@ -51,6 +51,18 @@
                         <label for="exampleFormControlTextarea1">Nombre del producto</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
                             placeholder="Ingresá nombre del producto" name="nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Marca</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Ingresá marca" name="marca">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Modelo</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Ingresá modelo" name="model">
                     </div>
 
                     <div class="form-group">
@@ -74,15 +86,19 @@
                     <div class="form-group">
                         <label for="currency-field">Precio</label>
                         <input type="text" class="form-control" name="currency-field" id="currency-field"
-                            data-type="currency" placeholder="$1,000,000.00" name="precio">
+                            data-type="currency" placeholder="$1,000,000.00" name="price">
                     </div>
 
                     <div class="form-group">
-                        <label for="currency-field">Precio anterior</label>
+                        <label for="currency-field">Precio con descuento</label>
                         <input type="text" class="form-control" name="currency-field" id="currency-field"
                             data-type="currency" placeholder="$1,000,000.00" name="oldPrice">
                     </div>
-
+                    <div class="form-group">
+                        <label for="currency-field">Descuento</label>
+                        <input type="text" class="form-control" name="currency-field" id="currency-field"
+                            data-type="currency" placeholder="0%" name="descuento">
+                    </div>
                     <div class="form-group">
 
                         <div class="form-group">
@@ -90,7 +106,13 @@
                             <input type="number" class="form-control" id="exampleFormControlTextarea1"
                                 placeholder="Ingresá número" name="cuotas">
                         </div>
-
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"
+                                name="destacado">
+                            <label class="form-check-label" for="defaultCheck1">
+                                Destacado
+                            </label>
+                        </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Envío</label>
 
@@ -116,19 +138,8 @@
                 <!--Desarrollo ficha técnica-->
 
                 <div class="form-group col-4" style="background-color: rgb(36, 35, 35)">
-                    <h5 style="color: white; margin-top: 10px;">Especificaciones</h5>
+                    <h5 style="color: white; margin-top: 10px; text-align: center;">Procesador</h5>
 
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Marca</label>
-                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá marca" name="marca">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Modelo</label>
-                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Ingresá modelo" name="modelo">
-                    </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Procesador</label>
@@ -137,58 +148,160 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Modelo procesador</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Completar campo" name="modProcesador">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Velocidad procesador</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Completar campo" name="cpuSpeed">
+                    </div>
+
+                    <h5 style="color: white; margin-top: 10px; text-align: center;">Memoria</h5>
+
+
+                    <div class="form-group">
                         <label for="exampleFormControlTextarea1">Memoria Ram</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Completar campo" name="memoriaRam">
+                            placeholder="Completar campo" name="ram">
+                    </div>
+
+                    <h5 style="color: white; margin-top: 10px; text-align: center;">Disco Rigido</h5>
+
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Capacidad</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Almacenamiento" name="rigido">
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="ssd">
+                        <label class="form-check-label" for="defaultCheck1">
+                            SSD
+                        </label>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Disco Rígido</label>
-                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Completar campo" name="discoRigido">
+                        <label for="exampleFormControlTextarea1">Tipo disco</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" placeholder=""
+                            name="diskType">
                     </div>
+                    <h5 style="color: white; margin-top: 10px; text-align: center;">Pantalla</h5>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Pantalla</label>
+                        <label for="exampleFormControlTextarea1">Tamaño de la pantalla</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Completar campo" name="pantalla">
+                            placeholder="Completar campo" name="screenSize">
                     </div>
-
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Sistema Operativo</label>
+                        <label for="exampleFormControlTextarea1">Resolución</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Completar campo" name="sistemaOperativo">
+                            placeholder="Completar campo" name="resolution">
                     </div>
-
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Memoria Integrada</label>
+                        <label for="exampleFormControlTextarea1">Tipo de pantalla</label>
                         <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Completar campo" name="memoriaIntegrada">
+                            placeholder="Completar campo" name="typeScreen">
                     </div>
-
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Salida HDMI</label>
-                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Completar campo" name="salidaHdmi">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="touchScreen">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Touchscreen
+                        </label>
                     </div>
-
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Puerto de red</label>
-                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Completar campo" name="puertoRed">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Salida VGA</label>
-                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                            placeholder="Completar campo" name="salidaVga">
-                    </div>
-
                 </div>
 
                 <!--Desarrollo fotos-->
 
                 <div class="form-group col-4" style="background-color: rgb(36, 35, 35);">
+                    <h5 style="color: white; margin-top: 10px; text-align: center;">Sistema Operativo</h5>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Sistema Operativo</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Completar campo" name="system">
+                    </div>
+
+                    <h5 style="color: white; margin-top: 10px; text-align: center;">Conectividad</h5>
+
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Cantidad puertos USB</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Completar campo" name="usbQuantity">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="wifi">
+                        <label class="form-check-label" for="defaultCheck1">
+                            WIFI
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="bluetooth">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Bluetooth
+                        </label>
+                    </div>
+
+                    <h5 style="color: white; margin-top: 10px; text-align: center;">Extras</h5>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"
+                            name="numericKeyboard">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Teclado numerico
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="cdDvd">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Tiene CD / DVD
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="burnCd">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Graba CD
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="burnDvd">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Graba DVD
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="camara">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Camara
+                        </label>
+                    </div>
+
+                    <h5 style="color: white; margin-top: 10px; text-align: center;">Dimensiones</h5>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Tamaño</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Completar campo" name="size">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Peso</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Completar campo" name="weight">
+                    </div>
+
+                    <h5 style="color: white; margin-top: 10px; text-align: center;">Bateria</h5>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Capacidad bateria</label>
+                        <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
+                            placeholder="Completar campo" name="batery">
+                    </div>
+
                     <h5 style="color: white; margin-top: 10px;">Fotos</h5>
 
                     <label for="exampleFormControlTextarea1">Carga fotos del producto</label>
@@ -198,7 +311,12 @@
 
                         <!--Aquí solicito la imagen-->
                         <div class="custom-file">
-                            <input type="file" name="imagen">
+                            <input type="file" name="imagen" onchange="previewFile()">
+                            <br>
+                            <br>
+
+                            <img src="" height="200" alt="">
+
                             <!--<input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="imagen" required value=""> 
 
     <label class="custom-file-label" for="inputGroupFile01">Seleccione una imagen...</label>-->
@@ -227,3 +345,22 @@
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
 </script>
 <script src="js/bootstrap.min.js"></script>
+
+
+<script>
+    function previewFile() {
+        var preview = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    }
+</script>
