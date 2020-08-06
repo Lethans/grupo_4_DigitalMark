@@ -3,90 +3,92 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <!-- Rompe si se saca de esta seccion -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> 
+        <link rel="stylesheet" type="text/css" href='css/login.css'>
 
-    <%- include('../partials/headHome')%>
-
+        <title>Ingresá</title>
 </head>
 
 <body>
 
     <main class="container-fluid">
-        <div class="bg" id="top"></div>
-
         <%- include('../partials/navBar')%>
-
         <div class="signup-form col-12 col-md-12 col-lg-12" style="margin:0px">
+            <form action="/login" method="POST">
+                <div class="container">
+                    <div class="d-flex justify-content-center h-100">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Ingresar</h3>
+                                <div class="d-flex justify-content-end social_icon">
+                                    <span><i class="fab fa-facebook-square"></i></span>
+                                    <span><i class="fab fa-google-plus-square"></i></span>
+                                    <span><i class="fab fa-twitter-square"></i></span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="email" class="form-control" name="email" placeholder="Email"
+                                            value="<%=typeof old == 'undefined' ? '':old.email %>">>
 
-        <form action="/login" method="POST">
+                                        <% if(typeof errors != 'undefined' && errors.email){%>
+                                        <span class="text-danger"> <%= errors.email.msg %></span>
+                                        <%}%>
 
-                <div class="col-12" style="text-align:center">
-
-                    <div>
-                        <h5 class="modal-title p-login" id="exampleModalLabel" style="text-align:center">Ingresá a tu
-                            cuenta</h5>
-                            <p><h6 class="modal-title p-login" id="exampleModalLabel" style="text-align:center">¿No tenés cuenta?  <a href='/register' style="color: orange;">Registrate</a></h6></p>
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        </div>
+                                        <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                                    </div>
+                                    <% if(typeof errors != 'undefined' && errors.password){%>
+                                        <span class="text-danger"> <%=errors.password.msg %></span>
+                                        <%}%>
+                                    <div class="row align-items-center remember">
+                                        <input type="checkbox" name="recordarme">Recordarme
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Ingresar" class="btn float-right login_btn">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-center links">
+                                    No tenes cuenta?<a href="/register">Registrarse</a>
+                                </div>
+                                <div class="d-flex justify-content-center links">
+                                    <a href="#">Olvidaste la contraseña?</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <!--login-->
-
-                    <div><label class="datos">Email</label></div>
-
-                    <div class="form-group">
-                        <input type="email" class="controls" name="email" placeholder="Ingresá tu email" value="<%=typeof old == 'undefined' ? '':old.email %>">   
-                    </div>
-                    <% if(typeof errors != 'undefined' && errors.email){%>
-                        <span class="text-danger" > <%= errors.email.msg %></span>
-                      <%}%>
-
-                    <div><label class="datos">Contraseña</label></div>
-
-                    <div class="form-group">
-                            <input type="password" class="controls" name="password" placeholder="***********" >
-                           
-                    </div>
-                    <% if(typeof errors != 'undefined' && errors.password){%>
-                        <span class="text-danger" > <%=errors.password.msg %></span>
-                       <%}%>
-
-                    <div class="form-group">
-                        <input type="checkbox" name="recordarme"><label class="checkbox-inline" style="color: white;">Recordarme</label>
-                    </div>
-
-                    <div><label class="terminos"><a class="a-login" href="#" style="color: orange;">Olvidé mi
-                                contraseña</a></label></div>
-
-                    <div class="form-group "><input class="botons" type="submit" value="Ingresar" style="background-color: orange;"></div>
-
-
-                    <h4>¿Qué vas a poder hacer en tu cuenta? </h4>
-
-                    <p class="p-login">Consultar el estado de tus compras</p>
-                    <p class="p-login">Descargar las facturas.</p>
-                    <p class="p-login">Consultar manuales de los productos comprados.</p>
-                    <p class="p-login">Acceder al historial de productos vistos.</p>
-                    <p class="a-login"><a data-toggle="modal" data-target="#staticBackdrop" href="" style="color: orange;"> Ver
-                            políticas de
-                            privacidad</a></p>
-
                 </div>
-
-            </div>
-
-        </form>
-
+            </form>
+        </div>
     </main>
-    <%- include('../partials/footer')%>
-                <%- include('../partials/boostrapScripts')%>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> 
 </body>
 
 </html>

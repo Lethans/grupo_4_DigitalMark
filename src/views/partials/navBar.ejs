@@ -66,14 +66,16 @@
             <li class="texto-ham"><a class="noAddsA" href="/administrar">ADMINISTRADOR</a></li>
             <li class="texto-ham"><a class="noAddsA" href="/error">ERROR</a></li>
             <% for(let i= 0; i < marcas.length; i++){ %>
-            <li class="texto-ham"><a class="noAddsA" href="/categorias/<%=marcas[i].nombre%>"><%=marcas[i].nombre%></a></li>
+            <li class="texto-ham"><a class="noAddsA" href="/categorias/<%=marcas[i].nombre%>"><%=marcas[i].nombre%></a>
+            </li>
             <% } %>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="rd-navbar-brand"><a class="brand" href="index.html"><img class="logoHeader" src="/img/logo.png" alt="" width="191" height="52"></a></div>
+    <div class="rd-navbar-brand"><a class="brand" href="/"><img class="logoHeader" src="/img/logo.png" alt=""
+          width="191" height="60"></a></div>
 
 
     <!-- Main Navigation-->
@@ -95,39 +97,42 @@
             </i>
           </div>
 
-            <% if(locals.usuario) { %>  
+          <% if(locals.usuario) { %>
 
-              <div class="cart">
-                <a class="hover-toolbar" href="" data-toggle="modal" data-target="#product-create">
-                  <i class="icon-bag">
-                    <ion-icon class="wallet" name="wallet-outline"></ion-icon>
-                  </i>
-                  <span class="count">3</span>
-                  <span class="subtotal">$289.68</span>
-                </a>
-              </div>
+          <div class="cart">
+            <a class="hover-toolbar" href="" data-toggle="modal" data-target="#product-create">
+              <i class="icon-bag">
+                <ion-icon class="wallet" name="wallet-outline"></ion-icon>
+              </i>
+              <span class="count">3</span>
+              <span class="subtotal">$289.68</span>
+            </a>
+          </div>
 
-              <div class="cart">
-                <a class="nav-link" href="/logout"><ion-icon name="log-out-outline"></ion-icon></a>
-              </div>
+          <div class="cart">
+            <a class="nav-link" href="/logout">
+              <ion-icon name="log-out-outline"></ion-icon>
+            </a>
+          </div>
 
-              <div style="float:right; margin-left: 20px;">
-                <img src="/img/users/<%=locals.usuario.avatar %>" width = '60' height="60" style= 'border-radius: 100%;'alt="50">
-              </div>
+          <div style="float:right; margin-left: 20px;">
+            <img src="/img/users/<%=locals.usuario.avatar %>" width='60' height="60" style='border-radius: 100%;'
+              alt="50">
+          </div>
 
-            <% } else { %>  
+          <% } else { %>
 
-              <!--Cuando no estoy logueado debería ver esto-->
+          <!--Cuando no estoy logueado debería ver esto-->
 
-              <div class="account">
-                <a class="hover-toolbar" href="/login">
-                  <i class="icon-head">
-                    <ion-icon name="person-outline"></ion-icon>
-                  </i>
-                </a>
-              </div>
+          <div class="account">
+            <a class="hover-toolbar" href="/login">
+              <i class="icon-head">
+                <ion-icon name="person-outline"></ion-icon>
+              </i>
+            </a>
+          </div>
 
-            <%}%>  
+          <%}%>  
 
 
 
@@ -167,10 +172,8 @@
     }
   })
 </script>
-<%- include('../partials/modalLogin')%>
-<%- include('../partials/modalRegister')%>
 
-<%- include('../partials/modalCart')%>
+          <%- include('../partials/modalCart')%>
 
-<%- include('../partials/modalPrivacyPolicy')%>
-<%- include('../partials/modalTermsAndConditions')%>
+          <%- include('../partials/modalPrivacyPolicy')%>
+          <%- include('../partials/modalTermsAndConditions')%>

@@ -2,11 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-//Requiero el paquete para comparar las contraseñas  que tengo hash (Pueden instalar el paquete bcrypt o bcryptjs)
 const bcrypt = require('bcryptjs');
-//Requiero fs ya que debo leer el archivo json de usuarios y verificar si el usuario que se está reistrando existe o no
 const fs = require('fs');
-//Requiero Multer, ya que voy a permitir que el usuario que se registre suba su avatar
 const multer = require('multer');
 
 //Requiero el paquete expres-validator
@@ -17,11 +14,11 @@ const {
 } = require('express-validator');
 
 //Requerir el modulo de los controladores
-const controllersUser = require(path.resolve(__dirname, '../controllers/controllersUser'));
+const controllersUser = require(path.resolve(__dirname, '..','controllers','controllersUser'));
 
 //Aquí aperturo mi archivo de usuarios, ya que al registrarse un usuario es conveniente buscar que no exista una ya registrado con el mismo email o id o el campo que utlicen para identificar al usuario.
 
-let archivoUsuarios =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/usuarios.json')))
+let archivoUsuarios =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '..','models','usuarios.json')))
 
 
 //Aquí le incoporé lo referido a la carga de la imagen
@@ -82,10 +79,10 @@ router.post('/register', upload.single('avatar'),[
     check('email').isEmail().withMessage('Agregar un email válido'),
 
     //Aquí valido el Password   
-    check('password').isLength({min: 6 }).withMessage('Mínimo de 6 caractéres'),
+    check('password').isLength({min: 1 }).withMessage('Mínimo de 6 caractéres'),
     
     //Aquí valido la confimación del password dispuesto por el usuario
-    check('confirm_password').isLength({min: 6 }).withMessage('Mínimo de 6 caractéres'),
+    check('confirm_password').isLength({min: 1 }).withMessage('Mínimo de 6 caractéres'),
 
     //Aquí valido si las contraseñas son iguales o no
     //El ( value ) viene a ser el valor que viaje en el name del del input del campo 

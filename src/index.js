@@ -1,17 +1,17 @@
 const express = require('express');
+const methodOverride = require('method-override');
 const app = express();
 const path = require('path');
-const methodOverride = require('method-override');
-const fs = require('fs');
 
 //Paquetes para trabajar session y cookies
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
+
 //Requerir el middleware que controla si el usuario está o no Logueado
 const acceso = require('./middlewares/acceso');
 
-//Archivos estaticos para express. asd
+//Archivos estaticos para express
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 //Motor de plantillas
@@ -31,14 +31,13 @@ app.use(methodOverride('_method'));
 
 // Middlewares de session
 app.use(session({
-    secret : 'topSecret',
+    secret: 'topSecret',
     resave: true,
     saveUninitialized: true,
 }))
 
 //Middleware para activar cookies
 app.use(cookieParser());
-
 app.use(acceso);
 
 //Traigo el archivo de rutas y lo implemento
@@ -53,4 +52,4 @@ app.use(productRoutes);
 app.use(adminRoutes);
 
 
-app.listen(2000, 'localhost', () => console.log('Servidor corriendo en el puerto 2000'));
+app.listen(2001, 'localhost', () => console.log('Servidor corriendo en el puerto 2000'));
