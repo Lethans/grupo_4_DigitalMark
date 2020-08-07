@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 
 
 //Requerir el middleware que controla si el usuario está o no Logueado
-const acceso = require('./middlewares/acceso');
+const acceso = require(path.resolve(__dirname,'middlewares', 'acceso'));
 
 //Archivos estaticos para express
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
