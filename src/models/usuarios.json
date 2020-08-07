@@ -16,5 +16,14 @@
     "provincia": "18",
     "avatar": "foto-1596396976759.jpg",
     "role": 1
+  },
+  {
+    "nombre": "Franco",
+    "apellido": "Colavitta",
+    "email": "franco@digitalmark.com.ar",
+    "password": "$2a$10$57e2pv4lPC.U.Mrd2LdTB.qHI0Mo0zx9Oi7Qctln3VezI/a3Rvt4q",
+    "provincia": "02",
+    "avatar": "foto-1596678250159.jpg",
+    "role": 1
   }
 ]
