@@ -95,7 +95,9 @@ const controllersUser = {
       //return res.send(usuarioLogueado);
       //Como podemos modificar nuestros req.body
       delete usuarioLogueado.password;
-      req.session.usuario = usuarioLogueado; //Guardar del lado del servidor
+      req.session.usuario = usuarioLogueado;
+      req.session.loggedIn = true;
+      
       //Aquí voy a guardar las cookies del usuario que se loguea
       if (req.body.recordarme) {
         res.cookie('email', usuarioLogueado.email, {
