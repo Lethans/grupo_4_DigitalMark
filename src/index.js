@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 
 
 //Requerir el middleware que controla si el usuario está o no Logueado
-const acceso = require(path.resolve(__dirname,'middlewares', 'acceso'));
+const acceso = require(path.resolve(__dirname, 'middlewares', 'acceso'));
 
 //Archivos estaticos para express
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
@@ -36,6 +36,14 @@ app.use(session({
     saveUninitialized: true,
 }))
 
+var auth = function (req, res, next) {
+    if (req.session.usuario != null) {
+        return next();
+    } else {
+        return res.sendStatus(401);
+    }
+};
+
 //Middleware para activar cookies
 app.use(cookieParser());
 app.use(acceso);
@@ -49,7 +57,7 @@ const adminRoutes = require('./router/admin');
 app.use(webRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
-app.use(adminRoutes);
+app.use(auth, adminRoutes);
 
 
 app.listen(2001, 'localhost', () => console.log('Servidor corriendo en el puerto 2000'));
