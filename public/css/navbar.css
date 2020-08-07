@@ -12,6 +12,11 @@
 
 }
 
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
 
 .topbar {
     display: table;
@@ -143,8 +148,13 @@
     text-decoration: none
 }
 
+.hover-toolbar {
+    text-decoration: none;
+    color: inherit;
+}
+
 .hover-toolbar:hover {
-    color: #3c242a;
+    color: orange;
     text-emphasis: none;
     text-decoration: none;
 }
