@@ -24,7 +24,7 @@ body {
 
 a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 
@@ -592,7 +592,7 @@ input[type="submit"]:hover {
     padding: 2px 7px;
     display: block;
     position: absolute;
-    top: 150px ;
+    top: 150px;
     left: 0
 }
 
@@ -736,10 +736,10 @@ input[type="submit"]:hover {
     }
 }
 
-@media (min-width:1024px){
-.imageCardCarrusel {
-    height: 250px;
-}
+@media (min-width:1024px) {
+    .imageCardCarrusel {
+        height: 250px;
+    }
 }
 
 .pic-1 {
