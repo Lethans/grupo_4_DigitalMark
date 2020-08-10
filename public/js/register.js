@@ -98,7 +98,7 @@ function myValidation() {
             //return formulario.submit();
             setTimeout(function () {
                 proceed();
-            }, 1000)
+            }, 5000)
 
         }).catch((error) => {
             // Handle Errors here.
@@ -116,7 +116,8 @@ function myValidation() {
         });
 
     } else {
-        alert("Oops! Validation failed!");
+        var card = document.getElementById('formCard');
+        card.style.height = "620px";
         return;
     }
 }
@@ -405,4 +406,44 @@ function signOut() {
             text: "Error",
         })
     });
+}
+
+function onErrorName() {
+    var text = document.getElementById('userName');
+    var icon = document.getElementById('nameIcon');
+    text.classList.add('error_text');
+    icon.style.backgroundColor = "#ff6347";
+    icon.children[0].classList.add('error_icon');
+}
+
+function onErrorLastName() {
+    var text = document.getElementById('userLastName');
+    var icon = document.getElementById('lastNameIcon');
+    text.classList.add('error_text');
+    icon.style.backgroundColor = "#ff6347";
+    icon.children[0].classList.add('error_icon');
+}
+
+function onErrorEmail() {
+    var text = document.getElementById('userEmail');
+    var icon = document.getElementById('emailIcon');
+    text.classList.add('error_text');
+    icon.style.backgroundColor = "#ff6347";
+    icon.children[0].classList.add('error_icon');
+}
+
+function onErrorPassword() {
+    var text = document.getElementById('userPassword');
+    var icon = document.getElementById('first_eye');
+    text.classList.add('error_text');
+    icon.style.backgroundColor = "#ff6347";
+    icon.children[0].classList.add('error_icon');
+}
+
+function onErrorConfirmPassword() {
+    var text = document.getElementById('userConfirmPassword');
+    var icon = document.getElementById('second_eye');
+    text.classList.add('error_text');
+    icon.style.backgroundColor = "#ff6347";
+    icon.children[0].classList.add('error_icon');
 }

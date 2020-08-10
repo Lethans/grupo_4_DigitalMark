@@ -67,7 +67,7 @@
                         <form onsubmit="event.preventDefault(); myValidation();" id="registerForm" action="/register"
                             method="post" enctype="multipart/form-data">
 
-                            <div class="card">
+                            <div id="formCard" class="card">
                                 <div class="card-header">
                                     <h3>Registrarse</h3>
 
@@ -78,61 +78,49 @@
                                 </div>
                                 <div class="card-body bodyTop">
 
+                                    <% if(typeof errors != 'undefined'){%>
+                                    <script>
+                                        var card = document.getElementById('formCard');
+                                        card.style.height = "620px";
+                                    </script>
+                                    <%}%>
 
-                                    <% if(typeof errors != 'undefined' && errors.first_name){%>
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend ">
-                                            <span class="input-group-text" style="background-color: tomato;">
-                                                <i class="fas fa-user error_icon"></i></span>
-                                        </div>
-                                        <input type="text" name="first_name" class="form-control error_text"
-                                            placeholder="<%= errors.first_name.msg %>"
-                                            value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
-                                    </div>
-                                    <%}else{%>
                                     <small id="userNameError" style="display: none;"
-                                        class="form-text text-danger errorInput">This
+                                        class="form-text text-danger errorInput">
                                         Campo obligatorio</small>
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <span id="nameIcon" class="input-group-text"><i
+                                                    class="fas fa-user"></i></span>
                                         </div>
                                         <input id="userName" type="text" name="first_name" class="form-control"
-                                            placeholder="Nombre"
-                                            value="<%= typeof old != 'undefined' ? old.first_name : 'Dedo' %>">
-                                    </div>
+                                            placeholder="<%=typeof errors != 'undefined' && errors.first_name != null ? errors.first_name.msg : 'Nombre' %>"
+                                    value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
+                                </div>
+                                <% if(typeof errors != 'undefined' && errors.first_name){%>
+                                <script>
+                                    onErrorName();
+                                </script>
+                                <%}%>
 
-                                    <%}%>
-
-
-
-
-
-
-                                    <% if(typeof errors != 'undefined' && errors.last_name){%>
-                                    <div class="input-group form-group">
-                                        <div class="input-group-prepend ">
-                                            <span class="input-group-text" style="background-color: tomato;">
-                                                <i class="fas fa-user error_icon"></i></span>
-                                        </div>
-                                        <input type="text" name="last_name" class="form-control error_text"
-                                            placeholder="<%= errors.last_name.msg %>" value="">
-                                    </div>
-                                    <%}else{%>
+                                    
                                     <small id="userLastNameError" style="display: none;"
-                                        class="form-text text-danger errorInput">This
+                                        class="form-text text-danger errorInput">
                                         Campo obligatorio</small>
                                     <div class="input-group form-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            <span id="lastNameIcon" class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
                                         <input id="userLastName" type="text" name="last_name" class="form-control"
-                                            placeholder="Apellido"
-                                            value="<%= typeof old != 'undefined' ? old.last_name : 'Arma' %>">
-                                    </div>
-
-                                    <%}%>
-
+                                            placeholder="<%=typeof errors != 'undefined' && errors.last_name != null ? errors.last_name.msg : 'Apellido' %>"
+                                value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
+                            </div>
+                            <% if(typeof errors != 'undefined' && errors.last_name){%>
+                            <script>
+                                onErrorLastName();
+                            </script>
+                            <%}%>
+                                    
 
                                     <small id="userEmailError" style="display: none;"
                                         class="form-text text-danger errorInput">
@@ -143,106 +131,77 @@
                                         </div>
                                         <input id="userEmail" type="email" name="email" class="form-control"
                                             placeholder="<%=typeof errors != 'undefined' && errors.email != 'undefined' ? errors.email.msg : 'Email' %>"
-                                    value="">
+                            value="">
+                    </div>
+
+                    <% if(typeof errors != 'undefined' && errors.email){%>
+                    <script>
+                        onErrorEmail();
+                    </script>
+                    <%}%>
+
+
+                                
+                            <small id="userPasswordError" style="display: none;"
+                                class="form-text text-danger errorInput">Obligatorio mayuscula,minuscula/1
+                                numero</small>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span id="first_eye" class="input-group-text"><i
+                                            class="fas fa-eye-slash"></i></span>
                                 </div>
+                                <input id="userPassword" type="password" name="password"
+                                    class="form-control first_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password.msg : '6 Caracteres minimo' %>">
+                </div>
 
-                                <% if(typeof errors != 'undefined' && errors.email){%>
-                                <script>
-                                    var text = document.getElementById('userEmail');
-                                    var icon = document.getElementById('emailIcon');
-                                    text.classList.add('error_text');
-                                    icon.style.backgroundColor = "#ff6347";
-                                    icon.children[0].classList.add('error_icon');
-                                </script>
-                                <%}%>
-
-
-
-
-                                <% if(typeof errors != 'undefined' && errors.password){%>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend ">
-                                        <span id="first_eyeError" class="input-group-text"
-                                            style="background-color: tomato;">
-                                            <i class="fas fa-eye-slash error_icon"></i></span>
-                                    </div>
-                                    <input type="password" name="password"
-                                        class="form-control error_text first_password"
-                                        placeholder="<%= errors.password.msg %>">
-                                </div>
-                                <%}else{%>
-                                <small id="userPasswordError" style="display: none;"
-                                    class="form-text text-danger errorInput">Obligatorio mayuscula,minuscula/1
-                                    numero</small>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend">
-                                        <span id="first_eye" class="input-group-text"><i
-                                                class="fas fa-eye-slash"></i></span>
-                                    </div>
-                                    <input id="userPassword" type="password" name="password" value="Aa1234"
-                                        class="form-control first_password" placeholder="Minimo 6 caracteres">
-                                </div>
-
-                                <%}%>
+                <% if(typeof errors != 'undefined' && errors.password){%>
+                <script>
+                    onErrorPassword();
+                </script>
+                <%}%>
     
-
-
-
-                                        <% if(typeof errors != 'undefined' && errors.confirm_password){%>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend ">
-                                        <span id="second_eyeError" class="input-group-text"
-                                            style="background-color: tomato;">
-                                            <i class="fas fa-eye-slash error_icon"></i></span>
-                                    </div>
-                                    <input type="password" name="confirm_password"
-                                        class="form-control error_text second_password"
-                                        placeholder="<%= errors.confirm_password.msg %>">
-                                </div>
-                                <%}else{%>
-                                <small id="userConfirmPasswordError" style="display: none;"
-                                    class="form-text text-danger errorInput">This
-                                    Campo obligatorio</small>
-                                <small id="userConfirmPasswordError2" style="display: none;"
-                                    class="form-text text-danger errorInput">Las contraseñas no coinciden</small>
-                                <div class="input-group form-group">
-                                    <div class="input-group-prepend">
-                                        <span id="second_eye" class="input-group-text"><i
-                                                class="fas fa-eye-slash"></i></span>
-                                    </div>
-                                    <input id="userConfirmPassword" type="password" name="confirm_password"
-                                        value="Aa1234" class="form-control second_password"
-                                        placeholder="Confirme contraseña">
-                                </div>
-
-                                <%}%>
+                <small id="userConfirmPasswordError" style="display: none;"
+                    class="form-text text-danger errorInput">
+                    Campo obligatorio</small>
+                <small id="userConfirmPasswordError2" style="display: none;"
+                    class="form-text text-danger errorInput">Las contraseñas no coinciden</small>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span id="second_eye" class="input-group-text"><i class="fas fa-eye-slash"></i></span>
+                    </div>
+                    <input id="userConfirmPassword" type="password" name="confirm_password"
+                        class="form-control second_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password.msg : 'Confirme contraseña' %>">
+            </div>
+            <% if(typeof errors != 'undefined' && errors.confirm_password){%>
+            <script>
+                onErrorConfirmPassword();
+            </script>
+            <%}%>
                                     
-
-
 
 
                                 <div class="form-group">
                                     <select class="controls form-control country" id="provincia" name="provincia">
                                         <option disabled selected>Seleccione su provincia</option>
                                         <% provincias.forEach(prov => { %>
-                                <option value="<%= typeof old != 'undefined' ? old.provincia : prov.id %>">
-                                    <%= prov.nombre %>
-                                </option>
-                                <% }); %>
-                                </select>
-                            </div>
+            <option value="<%= typeof old != 'undefined' ? old.provincia : prov.id %>">
+                <%= prov.nombre %>
+            </option>
+            <% }); %>
+            </select>
+        </div>
 
 
-                            <div class="custom-file |   uploadFile">
-                                <input type="file" name="avatar" id="img" style="display:none;" />
-                                <label for="img" class="profile_pic">
-                                    <i class="far fa-images"></i>
-                                    Subi tu foto</label>
-                            </div>
-                            <% if(typeof errors != 'undefined' && errors.avatar){%>
-                            <p style="font-weight: bold;margin-top: 10px;" class="text-danger">
-                                <%= errors.avatar.msg %></p>
-                            <%}%>
+        <div class="custom-file |   uploadFile">
+            <input type="file" name="avatar" id="img" style="display:none;" />
+            <label for="img" class="profile_pic">
+                <i class="far fa-images"></i>
+                Subi tu foto</label>
+        </div>
+        <% if(typeof errors != 'undefined' && errors.avatar){%>
+        <p style="font-weight: bold;margin-top: 10px;" class="text-danger">
+            <%= errors.avatar.msg %></p>
+        <%}%>
 
 
                             </div>
