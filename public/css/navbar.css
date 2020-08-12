@@ -302,11 +302,6 @@ ul.hamburguer {
         display: none;
     }
 
-    a.site-logo {
-        width: 150px;
-        text-decoration: none;
-        padding: 5px 15px 0px 25px;
-    }
 
     .toolbar .cart {
         padding: 0%;
@@ -437,60 +432,7 @@ ul.hamburguer {
     justify-content: center;
 }
 
-/* ----------- Modal Login/Registro ------------ */
 
-.modal-content {
-    background: #24303c;
-}
-
-.modal-body {
-    text-align: center;
-    text-decoration: none;
-}
-
-
-.controls {
-    background-color: #E6E6E6;
-    font-size: 16px;
-    width: 400px;
-    height: 40px;
-    border: none;
-    font-family: calibri;
-    text-align: center;
-}
-
-.botons {
-    width: 300px;
-    height: 40px;
-    margin-top: 15px;
-    font-family: calibri;
-    font-style: normal;
-    font-size: 22px;
-    color: #FFFFFF;
-    background: #374CBB;
-    border: none;
-}
-
-.datos {
-    position: static;
-    font-size: 18px;
-    color: white;
-    margin-top: 5px;
-}
-
-.terminos {
-    width: 400px;
-    color: white;
-}
-
-
-.a-login {
-    color: blue;
-}
-
-.p-login {
-    color: white;
-}
 
 /* Header invisible cuando bajas */
 header {
@@ -568,7 +510,7 @@ svg.hamburguerSvg {
 
 .line {
     fill: none;
-    stroke: black;
+    stroke: white;
     stroke-width: 6px;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -652,53 +594,6 @@ svg.hamburguerSvg {
 }
 
 
-
-/* -------------------------------------------------.test.---------------------------------------------- */
-.rd-navbar-brand {
-    position: relative;
-    margin-left: 36px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: left;
-    font-size: 22px;
-    line-height: 46px;
-}
-
-@media (min-width: 768px) {
-    .rd-navbar-brand {
-        margin-left: 75px;
-    }
-}
-
-.rd-navbar-brand a {
-    display: block;
-}
-
-@media (min-width: 576px) {
-    .rd-navbar-fixed .rd-navbar-brand img {
-        max-width: 170px;
-    }
-}
-
-.rd-navbar-fixed .rd-navbar-brand img {
-    max-width: 120px;
-    max-height: 58px;
-    width: auto;
-    height: auto;
-}
-
-.logoHeader {
-    display: inline-block;
-    max-width: 100%;
-    max-width: 120px;
-    max-height: 58px;
-    width: auto;
-    height: auto;
-}
-
-
-
 /* ---------------Last navbar--------------- */
 
 .form-inline {
@@ -730,39 +625,14 @@ svg.hamburguerSvg {
     color: #555;
     padding-left: 0;
     margin-left: 70px;
-    padding-right: 50px;
+    padding-right: 0px;
+    margin-right: 0px;
     font-family: 'Merienda One', sans-serif;
 }
 
 .navbar .navbar-brand i {
     font-size: 20px;
     margin-right: 5px;
-}
-
-.search-box {
-    position: relative;
-}
-
-.search-box input {
-    box-shadow: none;
-    padding-right: 35px;
-    border-radius: 3px !important;
-}
-
-.search-box .input-group-addon {
-    min-width: 35px;
-    border: none;
-    background: transparent;
-    position: absolute;
-    right: 0;
-    z-index: 9;
-    padding: 7px;
-    height: 100%;
-}
-
-.search-box i {
-    color: #a0a5b1;
-    font-size: 19px;
 }
 
 .navbar .nav-item i {
@@ -840,6 +710,8 @@ svg.hamburguerSvg {
 
 .navbar-nav {
     padding-right: 15px;
+    flex-direction: row;
+
 }
 
 @media (min-width: 1200px) {

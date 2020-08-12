@@ -71,7 +71,7 @@
                                 <div class="card-header">
                                     <h3>Registrarse</h3>
 
-                                    <h6 class="modal-title p-login" style="text-align:center;padding: 0px;">¿Ya
+                                    <h6 class="modal-title p-login" style="text-align:center;padding: 0px;color: white;">¿Ya
                                         tenés
                                         cuenta? <a href='/login' style="color: orange;">Ingresá</a></h6>
 
@@ -151,7 +151,7 @@
                                             class="fas fa-eye-slash"></i></span>
                                 </div>
                                 <input id="userPassword" type="password" name="password"
-                                    class="form-control first_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password.msg : '6 Caracteres minimo' %>">
+                                    class="form-control first_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password.msg : 'Mays, mins, numero, 6 caracteres' %>">
                 </div>
 
                 <% if(typeof errors != 'undefined' && errors.password){%>
