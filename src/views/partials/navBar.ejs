@@ -25,105 +25,96 @@
 
 <!-- Navbar-->
 <div class="sticky-top">
-  <header class="navbar">
+  <header class="navbar" >
 
-    <div class="site-branding">
-      <div class="inner dropdown">
 
-        <a class="offcanvas-toggle menu-toggle dropdown-toggle" href="" role="button" id="dropdownMenuButton"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-          <svg class="hamburguerSvg">
-            <defs>
-              <filter id="gooeyness">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
-                  result="gooeyness" />
-                <feComposite in="SourceGraphic" in2="gooeyness" operator="atop" />
-              </filter>
-            </defs>
-          </svg>
-          <div class="plates">
-            <div class="plate plate5" onclick="this.classList.toggle('active')">
-              <svg class="burger hamburguerSvg" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-                <path class="line line1" d="M 30,35 H 70 " />
-                <path class="line line2" d="M 50,50 H 30 L 34,32" />
-                <path class="line line3" d="M 50,50 H 70 L 66,68" />
-                <path class="line line4" d="M 30,65 H 70 " />
-              </svg>
-              <svg class="x hamburguerSvg" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-                <path class="line" d="M 34,32 L 66,68" />
-                <path class="line" d="M 66,32 L 34,68" />
-              </svg>
+    <nav class="navbar navbar-expand-xl navbar-light bg-light"style="border-bottom: 1px solid #e1e7ec">
+
+      <div class="nav-item dropdown">
+        <div class="site-branding">
+
+          <a class="offcanvas-toggle menu-toggle dropdown-toggle" href="" role="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            <svg class="hamburguerSvg">
+              <defs>
+                <filter id="gooeyness">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
+                    result="gooeyness" />
+                  <feComposite in="SourceGraphic" in2="gooeyness" operator="atop" />
+                </filter>
+              </defs>
+            </svg>
+            <div class="plates">
+              <div class="plate plate5" onclick="this.classList.toggle('active')">
+                <svg class="burger hamburguerSvg" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                  <path class="line line1" d="M 30,35 H 70 " />
+                  <path class="line line2" d="M 50,50 H 30 L 34,32" />
+                  <path class="line line3" d="M 50,50 H 70 L 66,68" />
+                  <path class="line line4" d="M 30,65 H 70 " />
+                </svg>
+                <svg class="x hamburguerSvg" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                  <path class="line" d="M 34,32 L 66,68" />
+                  <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+              </div>
             </div>
+
+
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+            <ul class="hamburguer" type="none">
+              <li class="texto-ham"><a class="noAddsA" href="/administrar">ADMINISTRADOR</a></li>
+              <li class="texto-ham"><a class="noAddsA" href="/error">ERROR</a></li>
+              <% for(let i= 0; i < marcas.length; i++){ %>
+              <li class="texto-ham"><a class="noAddsA"
+                  href="/categorias/<%=marcas[i].nombre%>"><%=marcas[i].nombre%></a>
+              </li>
+              <% } %>
+            </ul>
           </div>
-
-
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-
-          <ul class="hamburguer" type="none">
-            <li class="texto-ham"><a class="noAddsA" href="/administrar">ADMINISTRADOR</a></li>
-            <li class="texto-ham"><a class="noAddsA" href="/error">ERROR</a></li>
-            <% for(let i= 0; i < marcas.length; i++){ %>
-            <li class="texto-ham"><a class="noAddsA" href="/categorias/<%=marcas[i].nombre%>"><%=marcas[i].nombre%></a>
-            </li>
-            <% } %>
-          </ul>
         </div>
       </div>
-    </div>
-
-    <div class="rd-navbar-brand"><a class="brand" href="/"><img class="logoHeader" src="/img/logo.png" alt=""
-          width="191" height="60"></a></div>
 
 
-    <!-- Main Navigation-->
-    <!-- Toolbar-->
-    <div class="toolbar">
-      <div class="inner">
-        <div class="tools">
+      <a href="/" class="navbar-brand">
+        <img style="max-height: 60px;" src="/img/logo.png">
+        <!-- <i class="fa fa-cube"></i>Brand<b>Name</b> -->
+      </a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collection of nav links, forms, and other content for toggling -->
+      <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 
-          <!-- <div class="search">
-                  <i class="icon-search">
-                    <ion-icon name="search-outline"></ion-icon>
-                  </i>
-                </div> -->
+
+        <div class="navbar-nav ml-auto">
 
           <div class="search ">
             <i class="icon-search " type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
               aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-              <ion-icon style="margin-top: 7px;color: white;" name="search-outline"></ion-icon>
+              <ion-icon style="margin-top: 4px;" name="search-outline"></ion-icon>
             </i>
           </div>
+          <!-- <a href="#" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span
+              class="badge">1</span></a> -->
 
           <% if(locals.usuario) { %>
-
-          <div class="cart">
-            <a class="hover-toolbar" href="" data-toggle="modal" data-target="#product-create">
-              <i class="icon-bag">
-                <ion-icon class="wallet" name="wallet-outline"></ion-icon>
-              </i>
-              <span class="count">3</span>
-              <span class="subtotal">$289.68</span>
-            </a>
+          <div class="nav-item dropdown">
+            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img
+                src="/img/users/<%=locals.usuario.avatar%>" class="avatar" alt="Avatar"><%=locals.usuario.nombre%><b
+                class="caret"></b></a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
+              <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></a>
+              <div class="dropdown-divider"></div>
+              <a href="/logout" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
+            </div>
           </div>
-
-          <div class="cart">
-            <a class="nav-link" href="/logout">
-              <ion-icon name="log-out-outline"></ion-icon>
-            </a>
-          </div>
-
-          <div style="float:right; margin-left: 20px;">
-            <img src="/img/users/<%=locals.usuario.avatar %>" width='60' height="60" style='border-radius: 100%;'
-              alt="50">
-          </div>
-
           <% } else { %>
-
-          <!--Cuando no estoy logueado debería ver esto-->
-
           <div class="account">
             <a class="hover-toolbar" href="/login">
               <i class="icon-head">
@@ -131,23 +122,18 @@
               </i>
             </a>
           </div>
-
           <%}%>  
-
-
-
-
-
-
-
         </div>
+
       </div>
-    </div>
+
+    </nav>
+
   </header>
   <div class="collapse navbar-collapse" id="navbarSupportedContent1">
     <input type="search" placeholder="Search here" autofocus="autofocus" class="mainSearch-input">
 
-    
+
   </div>
 
 </div>
@@ -173,7 +159,7 @@
   })
 </script>
 
-          <%- include('../partials/modalCart')%>
+<%- include('../partials/modalCart')%>
 
           <%- include('../partials/modalPrivacyPolicy')%>
           <%- include('../partials/modalTermsAndConditions')%>
