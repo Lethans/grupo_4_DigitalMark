@@ -1,6 +1,31 @@
+:root:root {
+  /* var() */
+  --main-bg-color: #24303C;
+  --contrast-bg-color: #3c242a;
+  --orange-color: #e78200;
+  --orange-neon: #FF9900;
+  --blue-hyper: #007bff;
+}
+
+/* BARRA DE SCROLL */
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--orange-color);
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
+
 body {
   background-color: #f5f5f5;
   text-decoration: none;
+}
+.container-fluid {
+  padding: 0;
+  margin: 0;
 }
 
 .list-group {
@@ -116,4 +141,13 @@ body {
   .card-header {
     background-color: #24303c;
   }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hyperlink {
+  color: var(--blue-hyper);
 }

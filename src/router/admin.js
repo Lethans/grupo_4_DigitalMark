@@ -6,15 +6,17 @@ const multer = require('multer');
 
 //Aquí dispongo lo referido al nombre del arhivo y a donde se va a guardar
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.resolve(__dirname, '..','..','public','images','notebooks'));
-    },
-    filename: function (req, file, cb) {
-      cb(null, 'reloj-'+Date.now() + path.extname(file.originalname));
-    }
-  })
-   
-const upload = multer({ storage })
+  destination: function (req, file, cb) {
+    cb(null, path.resolve(__dirname, '..', '..', 'public', 'img'));
+  },
+  filename: function (req, file, cb) {
+    cb(null, 'notebook_' + Date.now() + path.extname(file.originalname));
+  }
+})
+
+const upload = multer({
+  storage
+})
 
 const controllersAdmin = require(path.resolve(__dirname, '..', 'controllers', 'controllersAdmin'));
 

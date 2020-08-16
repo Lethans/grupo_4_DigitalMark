@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+:root {
+    /* var() */
+    --main-bg-color: #24303C;
+    --contrast-bg-color: #3c242a;
+    --orange-color: #e78200;
+    --orange-neon: #FF9900;
+    --red-stock: #cb3234;
+    --blue-hyper: #007bff;
+}
+
+html,
+body {
+    background-image: url('/img/registerBackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Numans', sans-serif;
+}
+
+.container {
+    align-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.bodyTop {
+    padding-top: 0px;
+}
+
+.uploadFile {
+    width: auto;
+}
+
+.errorInput {
+    line-height: initial;
+}
+
+.card {
+
+    height: 540px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+}
+
+.social_icon span:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    padding-left: 17px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember {
+    color: white;
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.login_btn {
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+.login_btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.links {
+    color: white;
+}
+
+.links a {
+    color: var(--blue-hyper);
+    margin-left: 4px;
+}
+
+.country {
+    width: 360px;
+    background-color: white;
+}
+
+.profile_pic {
+    color: white;
+    border: 2px solid #FFC312;
+    width: auto;
+    padding: 8px;
+    border-radius: 22px;
+}
+
+.error_icon {
+    color: white;
+}
+
+.error_text {
+    color: tomato;
+}
+
+
+.loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#loading {
+    display: none;
+}

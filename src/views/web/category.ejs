@@ -6,7 +6,7 @@
     <%- include('../partials/headContent')%>
     <link rel="stylesheet" href="/css/productCategory.css">
 
-    <title>DM - Categorías</title>
+    <title>DM - <%=selectedBrand%></title>
 </head>
 
 
@@ -15,120 +15,346 @@
 
     <!--<div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">-->
 
+    <main class="container-fluid">
+
 
         <div class="row">
+            <div class="col-md-3 col-sm-5">
+
+                <div class="row">
+                    <div id="crumbs">
+                        <ul class="breadUl">
+                            <li class="breadLi">
+                                <a style="text-decoration: none;" class="breadLink first_bread" href="/">
+                                    <span class="fa fa-home">
+                                        HOME</span></a>
+                            </li>
+                            <li class="breadLi"><a style="text-decoration: none;" class="breadLink" href="">
+                                    <i class="fa" aria-hidden="true">
+                                        <% if(selectedBrand == undefined){ %>
+                                        Marcas
+                                        <% }else{%>
+                                        <%= selectedBrand%>
+                                        <% }%></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="row">
             <div class="col">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Marcas</li>
+                        <li class="breadcrumb-item"><a class="hyperlink" href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <% if(selectedBrand == undefined){ %>
+                            Marcas
+                            <% }else{%>
+                            <%= selectedBrand%>
+                            <% }%>
+
+                        </li>
                     </ol>
                 </nav>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-sm-3">
-                <div class="card bg-light mb-3">
-                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Marcas
-                    </div>
-                    <ul class="list-group category_block">
-                        <% for(let i= 0; i < marcas.length; i++){ %>
-                        <li class="list-group-item"><a href="/categorias/<%=marcas[i].nombre%>"
-                                style="text-decoration: none;"><%=marcas[i].nombre%></a>
-                        </li>
-                        <% } %>
-                    </ul>
-                </div>
-                <!-- <div class="card bg-light mb-3">
-                    <div class="card-header bg-success text-white text-uppercase">Producto destacado</div>
-                    <div class="card-body">
-                        <img class="img-fluid" src="../img/notebook1.jpg" />
-                        <h5 class="card-title"><a href="/detalles" title="Ver producto"
-                                style="text-decoration: none;">Notebook</a></h5>
-                        <p class="card-text">HP 14-CK0061la Intel Celeron</p>
-                        <p class="bloc_left_price">
-                            <h4 class="price">$50.999</h4>
-                        </p>
-                    </div>
-                </div> -->
-            </div>
-            <div class="col">
-                <div class="row">
-                    <% if(selectedBrand == undefined){ %>
-                    <% for(let i= 0; i < notebooks.length; i++){ %>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <div class="card">
-                            <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="/detalles/<%= notebooks[i].id%>" title="Ver producto"
-                                        style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
-                                <p class="card-text"><%= notebooks[i].marca%></p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>
-                                            <h4 class="price"><%= notebooks[i].precio%></h4>
-                                        </p>
+        </div> -->
+
+
+
+                <div class="wrapper center-block hidden-xs">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading1">
+                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse1" aria-expanded="false"
+                                        aria-controls="collapse1"> Marcas</a> </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading1">
+                                <div class="panel-body">
+                                    <% for(let i= 0; i < marcas.length; i++){ %>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span
+                                                class="ml-10"><%=marcas[i].nombre%></span> </label>
                                     </div>
-                                    <div class="col">
-                                        <a href="" class="btn btn-success btn-block">Comprar</a>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading2">
+                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse2" aria-expanded="false"
+                                        aria-controls="collapse2"> Procesador </a> </h4>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading2">
+                                <div class="panel-body">
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Core i5</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Core i7</span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Core i9</span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading3">
+                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse3" aria-expanded="false"
+                                        aria-controls="collapse3"> Pantalla </a> </h4>
+                            </div>
+                            <div id="collapse3" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading3">
+                                <div class="panel-body">
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10"> > 12.9
+                                                Pulgadas</span>
+                                        </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">12 Pulgadas - 12.9
+                                                Pulgadas</span> </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">13 Pulgadas - 13.9
+                                                Pulgadas</span> </label> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="heading4">
+                                <h4 class="panel-title"> <a class="collapsed" role="button" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse4" aria-expanded="false"
+                                        aria-controls="collapse4"> Sistema Operativo </a> </h4>
+                            </div>
+                            <div id="collapse4" class="panel-collapse collapse" role="tabpanel"
+                                aria-labelledby="heading4">
+                                <div class="panel-body">
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Windows 7</span>
+                                        </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">windows 8</span>
+                                        </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">Windows 10</span>
+                                        </label> </div>
+                                    <div class="checkbox"> <label> <input type="checkbox" class="checkbox"
+                                                name="filter[]" value="12" /> <span class="ml-10">MAC OS</span> </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right refine"> <button class="btn btn-out btn-success btn-square"
+                            id="button-filter">Buscar</button> </div>
+                </div>
+            </div>
+
+
+            <div class="col">
+
+                <div class="row">
+                    <div class="col-10"> </div>
+                    <div class="col-2">
+                        <div class='buttons'>
+                            <a id="firsBack" class="first-view unClickedBack">
+                                <ion-icon class="unClickedIcon" id="firsIcon" size="large" name="list-outline"></ion-icon>
+                            </a>
+                            <a id="secondBack" class="second-view unClickedBack">
+                                <ion-icon class="unClickedIcon" id="secondIcon" size="large" name="grid-outline"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="boxes" class="row">
+                    <% if(selectedBrand == undefined){ %>
+                    <% for(let i= 0; i < notebooks.length; i++){ %>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <figure class="snip1218">
+                            <div class="image"><img src="../img/<%= notebooks[i].imagen%>" alt="sample70" />
+                                <p>
+                                    <%= notebooks[i].descripcionCorta%>
+                                </p>
+                            </div>
+                            <figcaption>
+                                <h5 class="nameID" id="<%= notebooks[i].nombre%>"><%= notebooks[i].nombre%></h5>
+                                <h6><%= notebooks[i].model%></h6>
+                                <h6><%= notebooks[i].price%></h6>
+                                <ul class="social">
+                                    <li><a href="/detalles/<%=notebooks[i].id%>" data-tip="Preview"><i
+                                                class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Especificaciones"><i class="fa fa-shopping-cart"></i></a>
+                                    </li>
+                                </ul>
+                            </figcaption>
+                        </figure>
                     </div>
                     <% } %>
                     <% }else{ %>
                     <% for(let i= 0; i < notebooks.length; i++){ %>
                     <% if(selectedBrand == notebooks[i].marca){ %>
                     <div class="col-12 col-md-6 col-lg-4">
+                        <figure class="snip1218">
+                            <div class="image"><img src="../img/<%= notebooks[i].imagen%>" alt="sample70" />
+                                <p>
+                                    <%= notebooks[i].descripcionCorta%>
+                                </p>
+                            </div>
+                            <figcaption>
+                                <h5 class="nameID" id="<%= notebooks[i].nombre%>"><%= notebooks[i].nombre%></h5>
+                                <h6><%= notebooks[i].model%></h6>
+                                <h6><%= notebooks[i].price%></h6>
+                                <ul class="social">
+                                    <li><a href="/detalles/<%=notebooks[i].id%>" data-tip="Preview"><i
+                                                class="fa fa-search"></i></a></li>
+                                    <li><a data-tip="Especificaciones"><i class="fa fa-shopping-cart"></i></a>
+                                    </li>
+                                </ul>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <% } %>
+                    <% } %>
+                    <% } %>
+                </div>
+
+                <div id="grido" class="hide gridCard">
+                    <% if(selectedBrand == undefined){ %>
+                    <% for(let i= 0; i < notebooks.length; i++){ %>
+
+                    <div class="card__box col-md-11 col-sm-12">
                         <div class="card">
-                            <img class="card-img-top" src="../img/<%= notebooks[i].imagen%>" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title"><a href="/detalles/<%= notebooks[i].id%>" title="Ver producto"
-                                        style="text-decoration: none;"><%= notebooks[i].nombre%></a></h4>
-                                <p class="card-text"><%= notebooks[i].marca%></p>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>
-                                            <h4 class="price"><%= notebooks[i].precio%></h4>
-                                        </p>
+                            <div class="card__img">
+                                <img class="card__img-preview" src="../img/<%= notebooks[i].imagen%>" alt="Image name">
+                            </div>
+                            <div class="card__content">
+                                <h4 class="card__title"><a
+                                        href="/detalles/<%=notebooks[i].id%>"><%= notebooks[i].nombre%></a></h4>
+                                <p class="card__text"><i class="fa"
+                                        aria-hidden="true"></i><%= notebooks[i].model%></p>
+                                <p class="card__description"><%= notebooks[i].descripcionLarga%></p>
+                                <div class="card__bottom">
+                                    <div class="options">
+                                        
+                                        <span class="date">
+                                            <i class="fa" aria-hidden="true"></i><%= notebooks[i].procesador%>
+                                        </span>
+                                        <span class="category"><i class="fa" aria-hidden="true"></i>
+                                            <%= notebooks[i].ram%></span>
                                     </div>
-                                    <div class="col">
-                                        <a href="" class="btn btn-success btn-block">Comprar</a>
+                                    <div class="card__price">
+                                        <%= notebooks[i].price%>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div><!-- /card__box -->
+
+                    <% } %>
+                    <% }else{ %>
+                    <% for(let i= 0; i < notebooks.length; i++){ %>
+                    <% if(selectedBrand == notebooks[i].marca){ %>
+
+                    <div class="card__box col-md-11 col-sm-12">
+                        <div class="card">
+                            <div class="card__img">
+                                <img class="card__img-preview" src="../img/<%= notebooks[i].imagen%>" alt="Image name">
+                                <div class="card-img-overlay"><span
+                                        class="badge badge-pill badge-danger">Portrait</span> </div>
+                            </div>
+                            <div class="card__content">
+                                <h4 class="card__title"><a
+                                        href="/detalles/<%=notebooks[i].id%>"><%= notebooks[i].nombre%></a></h4>
+                                <p class="card__text"><i class="fa fa-map-marker"
+                                        aria-hidden="true"></i><%= notebooks[i].model%></p>
+                                <p class="card__description"><%= notebooks[i].descripcionLarga%></p>
+                                <div class="card__bottom">
+                                    <div class="options">
+                                        <span class="date">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i> 14/02/2018
+                                        </span>
+                                        <span class="category"><i class="fa fa-tag" aria-hidden="true"></i>
+                                            Portrait</span>
+                                    </div>
+                                    <div class="card__price">
+                                        <%= notebooks[i].price%>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /card__box -->
                     <% } %>
                     <% } %>
                     <% } %>
-                    
-                    <div class="col-12">
-                        <nav aria-label="...">
-                            <ul class="pagination" style="padding-top: 20px;">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Próximo</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                </div>
+
+
+                <div class="col-12">
+                    <nav aria-label="...">
+                        <ul class="pagination" style="padding-top: 20px;">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Próximo</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
 
         </div>
 
+    </main>
     <%- include('../partials/footer')%>
     <%- include('../partials/boostrapScripts')%>
 
 </body>
+
+<script>
+    $('a').on('click', function () {
+        if ($(this).hasClass('first-view')) {
+            $('#grido').removeClass('hide');
+            $('#boxes').addClass('hide');
+
+            $('#firsIcon').removeClass('unClickedIcon');
+            $('#firsIcon').addClass('clickedIcon');
+            $('#secondIcon').removeClass('clickedIcon');
+            $('#secondIcon').addClass('unClickedIcon');
+
+            $('#firsBack').removeClass('unClickedBack');
+            $('#firsBack').addClass('clickedBack');
+            $('#secondBack').removeClass('clickedBack');
+            $('#secondBack').addClass('unClickedBack');
+
+
+        } else if ($(this).hasClass('second-view')) {
+            $('#boxes').removeClass('hide');
+            $('#grido').addClass('hide');
+
+            $('#firsIcon').removeClass('clickedIcon');
+            $('#firsIcon').addClass('unClickedIcon');
+            $('#secondIcon').removeClass('unClickedIcon');
+            $('#secondIcon').addClass('clickedIcon');
+
+            $('#firsBack').removeClass('clickedBack');
+            $('#firsBack').addClass('unClickedBack');
+            $('#secondBack').removeClass('unClickedBack');
+            $('#secondBack').addClass('clickedBack');
+        }
+    });
+</script>
 
 </html>

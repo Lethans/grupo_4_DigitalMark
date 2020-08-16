@@ -1,5 +1,23 @@
 /*                  Topbar                */
 
+
+:root {
+    /* var() */
+    --main-bg-color: #24303C;
+    --contrast-bg-color: #3c242a;
+    --orange-color: #e78200;
+    --orange-neon: #FF9900;
+    --red-stock: #cb3234;
+    --blue-hyper: #007bff;
+
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+
 .topbar {
     display: table;
     position: relative;
@@ -79,19 +97,19 @@
     position: relative;
     top: 0;
     left: 0;
+    padding: 5px 0 5px 0;
+    max-height: 70px;
     width: 100%;
-    min-height: 84px;
-    border-bottom: 2px solid #e1e7ec;
     background: rgb(36, 48, 60);
     background: linear-gradient(90deg, rgba(36, 48, 60, 1) 30%, rgba(60, 36, 48, 1) 66%);
-    z-index: 9000
+
 }
 
 .site-branding {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+    position: relative;
+    top: 11px;
+    right: 5px;
+    bottom: 0;
 }
 
 .toolbar {
@@ -117,126 +135,75 @@
 .cart {
     display: inline-block;
     position: relative;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     margin-left: 10px;
     transition: background-color .35s;
     border: 2px solid wheat;
     border-radius: 50%;
     color: white;
-    font-size: 17px;
+    font-size: 25px;
     cursor: pointer;
     vertical-align: middle;
     text-align: center;
     text-decoration: none
 }
 
-div.acount a i {
-    display: inline-block;
-    position: relative;
-    width: 44px;
-    height: 44px;
-    margin-left: 6px;
-    transition: background-color .35s;
-    border: 1px solid #e1e7ec;
-    border-radius: 50%;
-    color: #606975;
-    font-size: 17px;
-    cursor: pointer;
-    vertical-align: middle;
-    text-align: center;
+.hover-toolbar {
     text-decoration: none;
+    color: inherit;
 }
 
 .hover-toolbar:hover {
-    color: #3c242a;
+    color: orange;
     text-emphasis: none;
     text-decoration: none;
 }
 
-.toolbar .search>i {
-    line-height: 45px;
-}
 
-
-.toolbar .account .icon-head {
-    line-height: 45px;
+.hover-toolbar i {
+    line-height: 42px;
 }
 
 .icon-bag {
     line-height: 38px;
     display: inline-block;
-    line-height: 38px;
-
 }
 
+/* TEXTO BURGUER */
 ul.hamburguer {
     text-align: center;
-    padding-left: 15px;
+    padding: 0px;
 }
 
 
 .texto-ham {
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #444444;
     text-align: start;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: .05em;
+    padding: 5px 0 5px 10px;
     /* display: flex;
     flex-direction: column;
     justify-content: center;
     margin-right: 10px; */
 }
 
-.toolbar .search:hover,
-.toolbar .account:hover,
-.toolbar .cart:hover {
-    background-color: #f5f5f5
+.texto-ham:hover {
+    background-color: var(--blue-hyper);
+    padding-left: 20px;
+    color: white;
 }
 
-.site-logo,
-.offcanvas-toggle {
-    display: table-cell;
-    vertical-align: middle
+.noAddsA:hover {
+    text-decoration: none;
+    color: inherit;
 }
 
-.site-logo {
-    padding: 12px 0 12px 25px;
-    text-decoration: none
-}
-
-.site-logo>img {
-    display: block;
-    width: 100%
-}
-
-
-
-.offcanvas-toggle {
-    width: 74px;
-    transition: color .3s;
-    border-right: 1px solid #e1e7ec;
-    color: #606975;
-    font-size: 20px;
-    line-height: 1;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none
-}
-
-
-.offcanvas-menu ul li.has-children .sub-menu-toggle {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 25px;
-    width: 0;
-    height: 0;
-    margin-top: -5px;
-    border-top: .35em solid transparent;
-    border-bottom: .35em solid transparent;
-    border-left: .4em solid;
-}
-
+/* TEXTO BURGUER */
 
 .toolbar .cart {
     width: auto;
@@ -265,32 +232,17 @@ ul.hamburguer {
     padding: 1px 0 1px 12px;
     border-left: 1px solid #e1e7ec
 }
-.subtotal:hover{
+
+.subtotal:hover {
     border-left: 1px solid #3c242a
 }
 
-
-img,
-figure {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle
-}
-
-.ham {
-    max-width: 80%;
-    height: auto;
-    vertical-align: middle
-}
 
 .dropdown-toggle::after {
     display: none;
 }
 
-.inner-wrapper {
-    display: flex;
-    justify-content: center;
-}
+
 
 /* mobile sin agarrar tablets HEADER */
 @media (min-width: 320px) and (max-width: 767px) {
@@ -350,11 +302,6 @@ figure {
         display: none;
     }
 
-    a.site-logo {
-        width: 150px;
-        text-decoration: none;
-        padding: 5px 15px 0px 25px;
-    }
 
     .toolbar .cart {
         padding: 0%;
@@ -460,7 +407,7 @@ figure {
     .toolbar .search,
     .toolbar .account,
     .toolbar .cart {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .subtotal,
@@ -471,7 +418,7 @@ figure {
     .toolbar .search>i,
     .toolbar .account .icon-head,
     .toolbar .cart .icon-bag {
-        line-height: 48px;
+        line-height: 41px;
     }
 
     .toolbar .cart>.subtotal,
@@ -480,64 +427,307 @@ figure {
     }
 }
 
-/* ----------- Modal Login/Registro ------------ */
-
-.modal-content {
-    background: #24303c;
-}
-
-.modal-body {
-    text-align: center;
-    text-decoration: none;
+.inner-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 
-.controls {
-    background-color: #E6E6E6;
-    font-size: 16px;
-    width: 400px;
-    height: 40px;
+
+/* Header invisible cuando bajas */
+header {
+    width: 100%;
+    padding: 3rem 0;
+    position: sticky;
+    top: 0;
+    animation: fade-in .2;
+
+}
+
+header .invisible {
+    position: fixed;
+    top: -100%;
+    animation: fade-out 2s;
+
+}
+
+@keyframes fade-in {
+    from {
+        top: -100%;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        top: 0%;
+    }
+
+    to {
+        top: -100;
+    }
+}
+
+svg.hamburguerSvg {
+    height: 80px;
+    position: absolute;
+    width: 80px;
+    bottom: -5px;
+    left: -3px;
+}
+
+/* @media (max-width:768px) {
+    svg.hamburguerSvg {
+        top: -17px;
+        left: -17px;
+    }
+
+} */
+
+
+
+.plates {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 160px;
+}
+
+.plate {
+    height: 48px;
+}
+
+.burger {
+    filter: url(#gooeyness);
+}
+
+.x {
+    transform: scale(0);
+    transition: transform 400ms;
+}
+
+.line {
+    fill: none;
+    stroke: white;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform-origin: 50%;
+    transition: stroke-dasharray 500ms 200ms, stroke-dashoffset 500ms 200ms, transform 500ms 200ms;
+}
+
+.x .line {
+    stroke-width: 5.5px;
+}
+
+.active .x {
+    transform: scale(1);
+    transition: transform 400ms 350ms;
+}
+
+/* Den femte rätten */
+.plate5 .line {
+    transition: stroke-dasharray 400ms 100ms, stroke-dashoffset 400ms 100ms, transform 400ms 100ms;
+}
+
+.plate5 .line1 {
+    stroke-dasharray: 40 40;
+}
+
+.plate5 .line2 {
+    stroke-dasharray: 21 39;
+}
+
+.plate5 .line3 {
+    stroke-dasharray: 21 39;
+}
+
+.plate5 .line4 {
+    stroke-dasharray: 40 40;
+}
+
+.plate5 .x {
+    transition: transform 400ms 50ms;
+}
+
+.active.plate5 .line {
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms, transform 400ms;
+}
+
+.active.plate5 .line1 {
+    stroke-dasharray: 1 40;
+    stroke-dashoffset: -33px;
+}
+
+.active.plate5 .line2 {
+    stroke-dasharray: 5 39;
+    stroke-dashoffset: -37px;
+}
+
+.active.plate5 .line3 {
+    stroke-dasharray: 5 39;
+    stroke-dashoffset: -37px;
+}
+
+.active.plate5 .line4 {
+    stroke-dasharray: 1 40;
+    stroke-dashoffset: -33px;
+}
+
+.active.plate5 .x {
+    transition: transform 400ms 50ms;
+}
+
+.mainSearch-input {
     border: none;
-    font-family: calibri;
-    text-align: center;
+    background-color: wheat;
+    box-shadow: none;
+    margin-left: 20px;
+    width: 100%;
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 2em;
+    text-transform: capitalize;
 }
 
-.botons {
-    width: 300px;
-    height: 40px;
-    margin-top: 15px;
-    font-family: calibri;
-    font-style: normal;
-    font-size: 22px;
-    color: #FFFFFF;
-    background: #374CBB;
-    border: none;
+
+/* ---------------Last navbar--------------- */
+
+.form-inline {
+    display: inline-block;
 }
 
-.datos {
-    position: static;
+.navbar-header.col {
+    padding: 0 !important;
+}
+
+/* .navbar {
+    background: #fff;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-bottom: 1px solid #d6d6d6;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+} */
+
+.nav-link img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin: -8px 0;
+    float: left;
+    margin-right: 10px;
+}
+
+.navbar .navbar-brand {
+    color: #555;
+    padding-left: 0;
+    margin-left: 70px;
+    padding-right: 0px;
+    margin-right: 0px;
+    font-family: 'Merienda One', sans-serif;
+}
+
+.navbar .navbar-brand i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.navbar .nav-item i {
     font-size: 18px;
-    color: white;
-    margin-top: 5px;
 }
 
-h4 {
-    margin-top: 20px;
-    margin-bottom: 15px;
-    font-size: 22px;
-    color: white;
+.navbar .dropdown-item i {
+    font-size: 16px;
+    min-width: 22px;
 }
 
-.terminos {
-    width: 400px;
-    color: white;
+.navbar .nav-item.open>a {
+    background: none !important;
 }
 
-
-.a-login {
-    color: blue;
+.navbar .dropdown-menu {
+    border-radius: 1px;
+    border-color: #e5e5e5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
 }
 
-.p-login {
-    color: white;
+.navbar .dropdown-menu a {
+    color: #777;
+    padding: 8px 20px;
+    line-height: normal;
+}
+
+.navbar .dropdown-menu a:hover,
+.navbar .dropdown-menu a:active {
+    color: #333;
+}
+
+.navbar .dropdown-item .material-icons {
+    font-size: 21px;
+    line-height: 16px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.navbar .badge {
+    color: #fff;
+    background: #f44336;
+    font-size: 11px;
+    border-radius: 20px;
+    position: absolute;
+    min-width: 10px;
+    padding: 4px 6px 0;
+    min-height: 18px;
+    top: 5px;
+}
+
+.navbar a.notifications,
+.navbar a.messages {
+    position: relative;
+    margin-right: 10px;
+}
+
+.navbar a.messages {
+    margin-right: 20px;
+}
+
+.navbar a.notifications .badge {
+    margin-left: -8px;
+}
+
+.navbar a.messages .badge {
+    margin-left: -4px;
+}
+
+.navbar .active a,
+.navbar .active a:hover,
+.navbar .active a:focus {
+    background: transparent !important;
+}
+
+.navbar-nav {
+    padding-right: 15px;
+    flex-direction: row;
+
+}
+
+@media (min-width: 1200px) {
+    .form-inline .input-group {
+        width: 300px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .form-inline {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .input-group {
+        width: 100%;
+    }
 }

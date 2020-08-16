@@ -10,7 +10,8 @@ let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'm
 module.exports = {
     index: function (req, res) {
         res.render(path.resolve(__dirname, '..', 'views', 'web', 'index'), {
-            notebooks
+            notebooks,
+            marcas
         });
     },
     category: function (req, res) {
@@ -22,10 +23,43 @@ module.exports = {
             }
         });
         res.render(path.resolve(__dirname, '..', 'views', 'web', 'category'), {
-            selectedBrand,notebooks,marcas
+            selectedBrand,
+            notebooks,
+            marcas
         });
     },
     error: function (req, res) {
         res.render(path.resolve(__dirname, '..', 'views', 'web', 'error'));
     },
+    login: function (req, res) {
+        
+        let selectedBrand;
+        marcas.forEach(marca => {
+            if (marca.nombre == req.params.id) {
+                selectedBrand = marca.nombre;
+            }
+        });
+        res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
+            selectedBrand,
+            notebooks,
+            marcas
+        });
+        
+    },
+   register: function (req, res) {
+        
+        let selectedBrand;
+        marcas.forEach(marca => {
+            if (marca.nombre == req.params.id) {
+                selectedBrand = marca.nombre;
+            }
+        });
+        res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'register'), {
+            selectedBrand,
+            notebooks,
+            marcas
+        });
+        
+    }
+
 }

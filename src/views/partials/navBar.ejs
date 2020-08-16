@@ -1,6 +1,5 @@
-
-
 <!-- Topbar-->
+
 <div class="topbar">
 
   <div class="topbar-column">
@@ -26,84 +25,138 @@
 
 <!-- Navbar-->
 <div class="sticky-top">
-  <header class="navbar">
+  <header class="navbar" >
 
 
-    <div class="site-branding">
-      <div class="inner dropdown">
 
-        <a class="offcanvas-toggle menu-toggle dropdown-toggle" href="" role="button" id="dropdownMenuButton"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="ham"
-            src="/icons/hamburguesa.svg"></a>
+    <nav class="navbar navbar-expand-xl navbar-light bg-light"style="border-bottom: 1px solid #e1e7ec">
 
-        <!-- Site Logo--><a class="site-logo"><img src="/img/logo.png" alt="DigitalMark"></a>
+      <div class="nav-item dropdown">
+        <div class="site-branding">
 
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <a class="offcanvas-toggle menu-toggle dropdown-toggle" href="" role="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-          <ul class="hamburguer" type="none">
-            <li class="texto-ham"><a href="/administrar">ADMINISTRADOR</a></li>
-            <li class="texto-ham"><a href="/error">ERROR</a></li>
-            <li class="texto-ham"><a href="/categorias">Computadoras</a></li>
-            <li class="texto-ham"><a href="/categorias">Componentes</a></li>
-            <li class="texto-ham"><a href="/categorias">Notebooks</a></li>
-            <li class="texto-ham"><a href="/categorias">Monitores</a></li>
-            <li class="texto-ham"><a href="/categorias">Conectividad</a></li>
-            <li class="texto-ham"><a href="/categorias">Accesorios</a></li>
-            <li class="texto-ham"><a href="/categorias">Almacenamiento</a></li>
-          </ul>
+            <svg class="hamburguerSvg">
+              <defs>
+                <filter id="gooeyness">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
+                    result="gooeyness" />
+                  <feComposite in="SourceGraphic" in2="gooeyness" operator="atop" />
+                </filter>
+              </defs>
+            </svg>
+            <div class="plates">
+              <div class="plate plate5" onclick="this.classList.toggle('active')">
+                <svg class="burger hamburguerSvg" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                  <path class="line line1" d="M 30,35 H 70 " />
+                  <path class="line line2" d="M 50,50 H 30 L 34,32" />
+                  <path class="line line3" d="M 50,50 H 70 L 66,68" />
+                  <path class="line line4" d="M 30,65 H 70 " />
+                </svg>
+                <svg class="x hamburguerSvg" version="1.1" height="100" width="100" viewBox="0 0 100 100">
+                  <path class="line" d="M 34,32 L 66,68" />
+                  <path class="line" d="M 66,32 L 34,68" />
+                </svg>
+              </div>
+            </div>
+
+
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+            <ul class="hamburguer" type="none">
+              <li class="texto-ham"><a class="noAddsA" href="/administrar">ADMINISTRADOR</a></li>
+              <li class="texto-ham"><a class="noAddsA" href="/error">ERROR</a></li>
+              <% for(let i= 0; i < marcas.length; i++){ %>
+              <li class="texto-ham"><a class="noAddsA"
+                  href="/categorias/<%=marcas[i].nombre%>"><%=marcas[i].nombre%></a>
+              </li>
+              <% } %>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
 
 
-    <!-- Main Navigation-->
-    <!-- Toolbar-->
-    <div class="toolbar">
-      <div class="inner">
-        <div class="tools">
+      <a href="/" class="navbar-brand">
+        <img style="max-height: 60px;" src="/img/logo.png">
+        <!-- <i class="fa fa-cube"></i>Brand<b>Name</b> -->
+      </a>
 
-          <!-- <div class="search">
-                  <i class="icon-search">
-                    <ion-icon name="search-outline"></ion-icon>
-                  </i>
-                </div> -->
+      <!-- Collection of nav links, forms, and other content for toggling -->
 
-          <div class="search hover-toolbar">
-            <i class="icon-search">
-              <ion-icon style="margin-top: 7px;" name="search-outline"></ion-icon>
+
+        <div class="navbar-nav ml-auto">
+
+          <div class="search ">
+            <i class="icon-search " type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+              aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+              <ion-icon style="margin-top: 4px;" name="search-outline"></ion-icon>
             </i>
           </div>
+          <!-- <a href="#" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span
+              class="badge">1</span></a> -->
 
+          <% if(locals.usuario) { %>
+          <div class="nav-item dropdown">
+            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img
+                src="/img/users/<%=locals.usuario.avatar%>" class="avatar" alt="Avatar"><b
+                class="caret" style="color: white;"><%=locals.usuario.nombre%></b></a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
+              <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></a>
+              <div class="dropdown-divider"></div>
+              <a href="/logout" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
+            </div>
+          </div>
+          <% } else { %>
           <div class="account">
-            <a  class="hover-toolbar"data-toggle="modal" data-target="#loginModal" href="">
+            <a class="hover-toolbar" href="/login">
               <i class="icon-head">
                 <ion-icon name="person-outline"></ion-icon>
               </i>
             </a>
           </div>
-
-          <div class="cart">
-            <a class="hover-toolbar" href="" data-toggle="modal" data-target="#product-create">
-              <i class="icon-bag">
-                <ion-icon class="wallet" name="wallet-outline"></ion-icon>
-              </i>
-              <span class="count">3</span>
-              <span class="subtotal">$289.68</span>
-            </a>
-          </div>
-
-
-
+          <%}%>  
         </div>
-      </div>
-    </div>
-  </header>
-</div>
 
-<%- include('../partials/modalLogin')%>
-<%- include('../partials/modalRegister')%>
+      
+
+    </nav>
+
+  </header>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <input type="search" placeholder="Ingrese su busqueda" autofocus="autofocus" class="mainSearch-input">
+
+
+  </div>
+
+</div>
+<script>
+  const header = document.querySelector('header');
+
+  let oldScrollPosition = 0;
+  let isScrollingUp = false;
+  let isHeaderVisible = true;
+
+  window.addEventListener('scroll', event => {
+    isScrollingUp = oldScrollPosition > window.scrollY;
+    oldScrollPosition = window.scrollY;
+
+    if (!isScrollingUp && window.scrollY > 200 && isHeaderVisible) {
+      header.classList.add('invisible');
+      isHeaderVisible = false;
+    }
+    if (isScrollingUp && !isHeaderVisible) {
+      header.classList.remove('invisible');
+      isHeaderVisible = true;
+    }
+  })
+</script>
 
 <%- include('../partials/modalCart')%>
 
-<%- include('../partials/modalPrivacyPolicy')%>
-<%- include('../partials/modalTermsAndConditions')%>
+          <%- include('../partials/modalPrivacyPolicy')%>
+          <%- include('../partials/modalTermsAndConditions')%>

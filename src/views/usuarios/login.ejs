@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href='/css/login.css'>
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyC7s8oKCg9YTVrXZp8lRyqwTy9R7czeuUA",
+            authDomain: "digitalmark-b9e63.firebaseapp.com",
+            databaseURL: "https://digitalmark-b9e63.firebaseio.com",
+            projectId: "digitalmark-b9e63",
+            storageBucket: "digitalmark-b9e63.appspot.com",
+            messagingSenderId: "570014177591",
+            appId: "1:570014177591:web:11f0f388d9d5e07e26e2b2"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <!-- Custom JavaScript -->
+    <script src="/js/register.js"></script>
+
+    <title>Ingresá</title>
+</head>
+
+<body>
+
+    <main class="container-fluid">
+        <%- include('../partials/navBar')%>
+        <div class="signup-form col-12 col-md-12 col-lg-12" style="margin:0px">
+            <form action="/login" method="POST">
+                <div class="container">
+                    <div class="d-flex justify-content-center h-100">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Ingresar</h3>
+                                <div class="d-flex justify-content-end social_icon">
+                                    <span><i class="fab fa-facebook-square"></i></span>
+                                    <span><i onclick="googleSignIn()" class="fab fa-google-plus-square"></i></span>
+                                    <span><i class="fab fa-twitter-square"></i></span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form>
+
+
+                                    <% if(typeof errors != 'undefined' && errors.email){%>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend ">
+                                            <span class="input-group-text" style="background-color: tomato;">
+                                                <i class="fas fa-envelope error_icon"></i></span>
+                                        </div>
+                                        <input type="email" class="form-control" name="email"
+                                            placeholder="<%= errors.email.msg %>" value="">>
+                                    </div>
+                                    <%}else{%>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input id="userSIEmail" type="email" class="form-control" name="email"
+                                            placeholder="Email" value="<%=typeof old == 'undefined' ? '':old.email %>">>
+                                    </div>
+                                    <%}%>
+
+
+                                    <% if(typeof errors != 'undefined' && errors.password){%>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend ">
+                                            <span class="input-group-text" style="background-color: tomato;">
+                                                <i class="fas fa-key error_icon"></i></span>
+                                        </div>
+                                        <input type="password" class="form-control" name="password"
+                                            placeholder="<%= errors.password.msg %>" value="">
+                                    </div>
+                                    <%}else{%>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        </div>
+                                        <input id="userSIPassword" type="password" class="form-control" name="password"
+                                            placeholder="Contraseña">
+                                    </div>
+                                    <%}%>
+
+
+                                    <div class="row align-items-center remember">
+                                        <input type="checkbox" name="recordarme">Recordarme
+                                    </div>
+                                    <div class="form-group">
+                                        <input onclick="signIn()" type="submit" value="Ingresar" class="btn float-right login_btn">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-center links">
+                                    No tenes cuenta?<a href="/register">Registrarse</a>
+                                </div>
+                                <div class="d-flex justify-content-center links">
+                                    <a href="#">Olvidaste la contraseña?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> 
+</body>
+
+</html>
