@@ -13,6 +13,9 @@ const {
   body
 } = require('express-validator');
 
+const db = require('../database/models');
+const User = db.User;
+
 //Requerir el modulo de los controladores
 const controllersUser = require(path.resolve(__dirname, '..', 'controllers', 'controllersUser'));
 
@@ -77,10 +80,10 @@ router.post('/login', [
 
 router.post('/register', upload.single('avatar'), [
   //Aquí incoporé otras validaciones, para que las tengan de guía para sus proyectos  
-  check('first_name').isLength({
+  check('firstName').isLength({
     min: 1
   }).withMessage('Nombre no puede estar vacío'),
-  check('last_name').isLength({
+  check('lastName').isLength({
     min: 1
   }).withMessage('Apellido no puede estar vacío'),
   check('email').isEmail().withMessage('Agregar un email válido'),
@@ -109,7 +112,9 @@ router.post('/register', upload.single('avatar'), [
     }
   }).withMessage('Las contraseñas deben ser iguales'),
 
-  body('email').custom((value, {
+  body('email').custom(async value => Array.from(await User.findAll()).filter(usuario => usuario.email == value).length > 0 ? Promise.reject("Usuario Existente") : true),
+
+  /*body('email').custom((value, {
     req
   }) => {
     let exist = archivoUsuarios.find(usuario => usuario.email == req.body.email);
@@ -119,7 +124,7 @@ router.post('/register', upload.single('avatar'), [
     } else {
       return true // Si retorno un false si se muestra el error
     }
-  }).withMessage('Direccion ya registrada'),
+  }).withMessage('Direccion ya registrada'),*/
 
   //Aquí obligo a que el usuario seleccione su avatar
   body('avatar').custom((value, {

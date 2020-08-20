@@ -709,7 +709,7 @@ svg.hamburguerSvg {
 }
 
 .navbar-nav {
-    padding-right: 15px;
+    padding-right: 60px;
     flex-direction: row;
 
 }

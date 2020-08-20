@@ -6,61 +6,51 @@ const {
   validationResult,
 } = require('express-validator');
 
-let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'marcas.json')));
-let provincia = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'provincias.json')));
+const {
+  User,
+  Brand
+} = require('../database/models/');
 
-let provincias = provincia.sort(function (a, b) {
-  if (a.nombre > b.nombre) {
-    return 1;
-  }
-  if (a.nombre < b.nombre) {
-    return -1;
-  }
-  // a debe ser igual a b
-  return 0;
-});
+let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'marcas.json')));
+// let provincia = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'provincias.json')));
+
+// let provincias = provincia.sort(function (a, b) {
+//   if (a.nombre > b.nombre) {
+//     return 1;
+//   }
+//   if (a.nombre < b.nombre) {
+//     return -1;
+//   }
+// a debe ser igual a b
+//   return 0;
+// });
 
 const controllersUser = {
   login: function (req, res) {
-    return res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
-      provincias,
-      marcas
-    });
-
+    Brand.findAll()
+      .then(marcas => res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
+        marcas
+      }))
+      .catch(errors => res.send(errors));
   },
   register: function (req, res) {
-    res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'register'), {
-      provincias,
-      marcas
-    });
+    Brand.findAll()
+      .then(marcas => res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'register'), {
+        marcas
+      }))
+      .catch(errors => res.send(errors));
   },
   create: (req, res, next) => {
     let errors = validationResult(req);
-    if (errors.isEmpty()) {
-      let user = {
-        nombre: req.body.first_name,
-        apellido: req.body.last_name,
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 10),
-        provincia: req.body.provincia,
-        avatar: req.file ? req.file.filename : '',
-        role: 1
-      }
-      let archivoUsers = fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json'), {
-        encoding: 'utf-8'
-      });
-      let users;
-      if (archivoUsers == "") {
-        users = [];
-      } else {
-        users = JSON.parse(archivoUsers);
-      };
+    if (!errors.isEmpty()) {
+      Brand.findAll()
+        .then(marcas => res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'register'), {
+          errors: errors.mapped(),
+          marcas,
+          old: req.body
+        }))
+        .catch(errors => res.send(errors));
 
-      users.push(user);
-      usersJSON = JSON.stringify(users, null, 2);
-      fs.writeFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json'), usersJSON);
-      return res.redirect('/login');
-    } else {
       //return res.send(errors.mapped());
 
       //Aquí incoporé el old: req.body  --> Para poder enviar a la vista los datos que el usuario indique y no tienen errores entonces deben persistir lo que coloco el usuario
@@ -75,47 +65,106 @@ const controllersUser = {
 							<p class="text-danger"><%= typeof errors == 'undefined' ? '' : errors.username ? errors.username.msg : '' %></p>
 				</div> 
         */
+    } else {
+      // let user = {
+      //   firstName: req.body.firstName,
+      //   lastName: req.body.lastName,
+      //   email: req.body.email,
+      //   password: bcrypt.hashSync(req.body.password, 10),
+      //   avatar: req.file ? req.file.filename : '',
+      //   rolId: 1
+      // }
+      req.body.avatar = req.file ? req.file.filename : '';
+      req.body.password = bcrypt.hashSync(req.body.password, 10);
+      req.body.rolId = 1;
+
+      User.create(req.body)
+        .then(() => res.redirect('/login'))
+        .catch(error => console.log(error));
 
 
-      return res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'register'), {
-        errors: errors.mapped(),
-        provincias,
-        marcas,
-        old: req.body
-      });
+      // let archivoUsers = fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json'), {
+      //   encoding: 'utf-8'
+      // });
+      // let users;
+      // if (archivoUsers == "") {
+      //   users = [];
+      // } else {
+      //   users = JSON.parse(archivoUsers);
+      // };
+      // users.push(user);
+      // usersJSON = JSON.stringify(users, null, 2);
+      // fs.writeFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json'), usersJSON);
     }
   },
   ingresar: (req, res) => {
-    const errors = validationResult(req);
-    let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'marcas.json')));
+    // const errors = validationResult(req);
+    // let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'marcas.json')));
     //return res.send(errors.mapped());
-    if (errors.isEmpty()) {
-      let archivoUsuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')));
-      let usuarioLogueado = archivoUsuarios.find(usuario => usuario.email == req.body.email)
-      //return res.send(usuarioLogueado);
-      //Como podemos modificar nuestros req.body
-      delete usuarioLogueado.password;
-      req.session.usuario = usuarioLogueado;
-      req.session.loggedIn = true;
-      
-      //Aquí voy a guardar las cookies del usuario que se loguea
-      if (req.body.recordarme) {
-        res.cookie('email', usuarioLogueado.email, {
-          maxAge: 1000 * 60 * 60 * 24
-        })
-      }
-      return res.redirect('/'); //Aquí ustedes mandan al usuario para donde quieran (Perfil- home)
+    let errors = validationResult(req);
 
+    if (!errors.isEmpty()) {
+      console.log(errors.mapped())
+      Brand.findAll()
+        .then(marcas => res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
+          errors: errors.mapped(),
+          marcas,
+          old: req.body
+        }))
+        .catch(errors => res.send(errors));
+
+    } else {
+
+      User.findAll()
+        .then((users) => {
+
+          let usuarioLogueado;
+
+          usuarioLogueado = users.filter(function (user) {
+            return user.email == req.body.email &&
+              bcrypt.compareSync(req.body.password, user.password)
+          });
+
+
+          if (usuarioLogueado == "") {
+            return res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
+              errors: [{
+                msg: "Credenciales invalidas"
+              }]
+            });
+
+          } else {
+            //Aquí guardo en SESSION al usuario logueado
+            req.session.user = usuarioLogueado[0];
+            req.session.loggedIn = true;
+          }
+          if (req.body.recordarme) {
+            res.cookie('email', usuarioLogueado[0].email, {
+              maxAge: 1000 * 60 * 60 * 24
+            })
+          }
+          return res.redirect('/'); //Aquí ustedes mandan al usuario para donde quieran (Perfil- home)
+
+        })
     }
 
-    console.log(errors.mapped())
-    //Devolver a la vista los errores
-    res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
-      errors: errors.mapped(),
-      marcas,
-      old: req.body
-    });
+    //   let archivoUsuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')));
+    //   let usuarioLogueado = archivoUsuarios.find(usuario => usuario.email == req.body.email)
+    //   //return res.send(usuarioLogueado);
+    //   //Como podemos modificar nuestros req.body
+    //   delete usuarioLogueado.password;
+    //   req.session.user = usuarioLogueado;
+    //   req.session.loggedIn = true;
 
+    //   //Aquí voy a guardar las cookies del usuario que se loguea
+    //   if (req.body.recordarme) {
+    //     res.cookie('email', usuarioLogueado.email, {
+    //       maxAge: 1000 * 60 * 60 * 24
+    //     })
+    //   }
+    //   return res.redirect('/'); //Aquí ustedes mandan al usuario para donde quieran (Perfil- home)
+
+    // }
   },
   logout: (req, res) => {
     req.session.destroy();

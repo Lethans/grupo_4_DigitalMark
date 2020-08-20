@@ -8,9 +8,28 @@ const {
     Brand
 } = require('../database/models/');
 
+// const platos = Dish.findAll();
+// const categorias = Category.findAll();
+// Promise.all([platos,categorias])
+// .then(([platos,categorias]) =>{
+//     //return res.send(platos)
+//     res.render(path.resolve(__dirname , '..','views','productos','productos') , {platos,categorias});
 
 module.exports = {
     admin: function (req, res) {
+        const marcas = Brand.findAll();
+        const modelos = Model.findAll();
+        const notebooks = Product.findAll({
+            include: ['brand', 'model']
+        });
+        Promise.all([marcas, notebooks, modelos])
+            .then(([marcas, notebooks, modelos]) => res.render(path.resolve(__dirname, '..', 'views', 'admin', 'administrar'), {
+                notebooks,
+                marcas,
+                modelos
+            }))
+            .catch(errors => res.send(errors));
+
         //let notebooks = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json')));
         // const marcas = Brand.findAll();
         // const modelos = Model.findAll();
@@ -26,17 +45,7 @@ module.exports = {
         //     .catch(error =>
         //         res.send(error)
         //     )
-        const modelos = Model.findAll();
-        const productos = Product
-        .findAll({
-            where: {categoryId : req.query.categoria},
-            include: [{association: 'category'}]
-        })
-        Promise.all([platos,categorias])
-        .then(([platos,categorias]) =>
-            //return res.send(platoComida);
-            res.render(path.resolve(__dirname, '..','views','productos','productos'), {platos,categorias })
-        )   
+
 
     },
     create: (req, res) => {

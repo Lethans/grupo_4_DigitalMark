@@ -12,7 +12,8 @@ module.exports = (sequelize, DataTypes) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        logo: DataTypes.STRING
     };
 
     let config = {
@@ -28,10 +29,10 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: 'brandId'
             }
         )
-        Brand.hasMany(models.Component, {
-            as: 'components',
-            foreignKey: 'brandId',
-        })
+        // Brand.hasMany(models.Component, {
+        //     as: 'components',
+        //     foreignKey: 'brandId',
+        // })
     }
 
     return Brand;

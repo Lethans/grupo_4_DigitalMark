@@ -25,11 +25,11 @@
 
 <!-- Navbar-->
 <div class="sticky-top">
-  <header class="navbar" >
+  <header class="navbar">
 
 
 
-    <nav class="navbar navbar-expand-xl navbar-light bg-light"style="border-bottom: 1px solid #e1e7ec">
+    <nav class="navbar navbar-expand-xl navbar-light bg-light" style="border-bottom: 1px solid #e1e7ec">
 
       <div class="nav-item dropdown">
         <div class="site-branding">
@@ -70,8 +70,7 @@
               <li class="texto-ham"><a class="noAddsA" href="/administrar">ADMINISTRADOR</a></li>
               <li class="texto-ham"><a class="noAddsA" href="/error">ERROR</a></li>
               <% for(let i= 0; i < marcas.length; i++){ %>
-              <li class="texto-ham"><a class="noAddsA"
-                  href="/categorias/<%=marcas[i].nombre%>"><%=marcas[i].nombre%></a>
+              <li class="texto-ham"><a class="noAddsA" href="/categorias/<%=marcas[i].name%>"><%=marcas[i].name%></a>
               </li>
               <% } %>
             </ul>
@@ -88,38 +87,38 @@
       <!-- Collection of nav links, forms, and other content for toggling -->
 
 
-        <div class="navbar-nav ml-auto">
+      <div class="navbar-nav ml-auto">
 
-          <div class="search ">
-            <i class="icon-search " type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-              aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-              <ion-icon style="margin-top: 4px;" name="search-outline"></ion-icon>
-            </i>
-          </div>
-          <!-- <a href="#" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span
+        <div class="search ">
+          <i class="icon-search " type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+            <ion-icon style="margin-top: 4px;" name="search-outline"></ion-icon>
+          </i>
+        </div>
+        <!-- <a href="#" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span
               class="badge">1</span></a> -->
 
-          <% if(locals.usuario) { %>
-          <div class="nav-item dropdown">
-            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img
-                src="/img/users/<%=locals.usuario.avatar%>" class="avatar" alt="Avatar"><b
-                class="caret" style="color: white;"><%=locals.usuario.nombre%></b></a>
-            <div class="dropdown-menu">
-              <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
-              <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></a>
-              <div class="dropdown-divider"></div>
-              <a href="/logout" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
-            </div>
+        <% if(locals.user) { %>
+        <div class="nav-item dropdown">
+          <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img
+              src="/img/users/<%=locals.user.avatar%>" class="avatar" alt="Avatar"><b class="caret"
+              style="color: white;"><%=locals.user.firstName%></b></a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
+            <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a></a>
+            <div class="dropdown-divider"></div>
+            <a href="/logout" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></a>
           </div>
-          <% } else { %>
-          <div class="account">
-            <a class="hover-toolbar" href="/login">
-              <i class="icon-head">
-                <ion-icon name="person-outline"></ion-icon>
-              </i>
-            </a>
-          </div>
-          <%}%>  
+        </div>
+        <% } else { %>
+        <div class="account">
+          <a class="hover-toolbar" href="/login">
+            <i class="icon-head">
+              <ion-icon name="person-outline"></ion-icon>
+            </i>
+          </a>
+        </div>
+        <%}%>  
         </div>
 
       
@@ -157,6 +156,3 @@
 </script>
 
 <%- include('../partials/modalCart')%>
-
-          <%- include('../partials/modalPrivacyPolicy')%>
-          <%- include('../partials/modalTermsAndConditions')%>
