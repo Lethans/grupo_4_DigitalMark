@@ -46,10 +46,10 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'atributeId',
             otherKey: 'componentId'
         })
-        // Component.hasMany(models.Brand, {
-        //     as: 'brands',
-        //     foreignKey: 'brandId',
-        // })
+        Component.belongsTo(models.Brand, {
+            as: 'brands',
+            foreignKey: 'brandId',
+        })
         Component.belongsTo(models.Type, {
             as: 'type',
             foreignKey: 'typeId',

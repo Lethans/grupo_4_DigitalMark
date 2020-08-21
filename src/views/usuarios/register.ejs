@@ -54,15 +54,25 @@
 
         <%- include('../partials/navBar')%>
 
-
         <div class="row col-12 col-md-12 col-lg-12" style="margin:0px">
 
+
+
             <div class="form-group col-12" style="text-align:center">
+
 
                 <div class="container">
 
                     <div class="d-flex justify-content-center h-100">
-                        <div id="loading" class="loader"></div>
+
+                        <span id="loading" class="tests">
+                            <div class="LoaderBalls">
+                                <div class="LoaderBalls__item"></div>
+                                <div class="LoaderBalls__item"></div>
+                                <div class="LoaderBalls__item"></div>
+                            </div>
+                        </span>
+                        <!-- <div id="loading" class="loader"></div> -->
 
                         <form onsubmit="event.preventDefault(); myValidation();" id="registerForm" action="/register"
                             method="post" enctype="multipart/form-data">
@@ -152,7 +162,7 @@
                                             class="fas fa-eye-slash"></i></span>
                                 </div>
                                 <input id="userPassword" type="password" name="password"
-                                    class="form-control first_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password.msg : 'Mays, mins, numero, 6 caracteres' %>">
+                                    class="form-control first_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password : 'Mays, mins, numero, 6 caracteres' %>">
                 </div>
 
                 <% if(typeof errors != 'undefined' && errors.password){%>
