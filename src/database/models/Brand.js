@@ -29,10 +29,10 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: 'brandId'
             }
         )
-        // Brand.hasMany(models.Component, {
-        //     as: 'components',
-        //     foreignKey: 'brandId',
-        // })
+        Brand.hasMany(models.Component, {
+            as: 'components',
+            foreignKey: 'brandId',
+        })
     }
 
     return Brand;
