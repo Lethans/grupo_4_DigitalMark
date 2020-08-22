@@ -54,15 +54,25 @@
 
         <%- include('../partials/navBar')%>
 
-
         <div class="row col-12 col-md-12 col-lg-12" style="margin:0px">
 
+
+
             <div class="form-group col-12" style="text-align:center">
+
 
                 <div class="container">
 
                     <div class="d-flex justify-content-center h-100">
-                        <div id="loading" class="loader"></div>
+
+                        <span id="loading" class="tests">
+                            <div class="LoaderBalls">
+                                <div class="LoaderBalls__item"></div>
+                                <div class="LoaderBalls__item"></div>
+                                <div class="LoaderBalls__item"></div>
+                            </div>
+                        </span>
+                        <!-- <div id="loading" class="loader"></div> -->
 
                         <form onsubmit="event.preventDefault(); myValidation();" id="registerForm" action="/register"
                             method="post" enctype="multipart/form-data">
@@ -71,7 +81,8 @@
                                 <div class="card-header">
                                     <h3>Registrarse</h3>
 
-                                    <h6 class="modal-title p-login" style="text-align:center;padding: 0px;color: white;">¿Ya
+                                    <h6 class="modal-title p-login"
+                                        style="text-align:center;padding: 0px;color: white;">¿Ya
                                         tenés
                                         cuenta? <a href='/login' style="color: orange;">Ingresá</a></h6>
 
@@ -93,11 +104,11 @@
                                             <span id="nameIcon" class="input-group-text"><i
                                                     class="fas fa-user"></i></span>
                                         </div>
-                                        <input id="userName" type="text" name="first_name" class="form-control"
-                                            placeholder="<%=typeof errors != 'undefined' && errors.first_name != null ? errors.first_name.msg : 'Nombre' %>"
-                                    value="<%= typeof old != 'undefined' ? old.first_name : '' %>">
+                                        <input id="userName" type="text" name="firstName" class="form-control"
+                                            placeholder="<%=typeof errors != 'undefined' && errors.firstName != null ? errors.firstName.msg : 'Nombre' %>"
+                                    value="<%= typeof old != 'undefined' ? old.firstName : '' %>">
                                 </div>
-                                <% if(typeof errors != 'undefined' && errors.first_name){%>
+                                <% if(typeof errors != 'undefined' && errors.firstName){%>
                                 <script>
                                     onErrorName();
                                 </script>
@@ -111,11 +122,11 @@
                                         <div class="input-group-prepend">
                                             <span id="lastNameIcon" class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
-                                        <input id="userLastName" type="text" name="last_name" class="form-control"
-                                            placeholder="<%=typeof errors != 'undefined' && errors.last_name != null ? errors.last_name.msg : 'Apellido' %>"
-                                value="<%= typeof old != 'undefined' ? old.last_name : '' %>">
+                                        <input id="userLastName" type="text" name="lastName" class="form-control"
+                                            placeholder="<%=typeof errors != 'undefined' && errors.lastName != null ? errors.lastName.msg : 'Apellido' %>"
+                                value="<%= typeof old != 'undefined' ? old.lastName : '' %>">
                             </div>
-                            <% if(typeof errors != 'undefined' && errors.last_name){%>
+                            <% if(typeof errors != 'undefined' && errors.lastName){%>
                             <script>
                                 onErrorLastName();
                             </script>
@@ -151,7 +162,7 @@
                                             class="fas fa-eye-slash"></i></span>
                                 </div>
                                 <input id="userPassword" type="password" name="password"
-                                    class="form-control first_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password.msg : 'Mays, mins, numero, 6 caracteres' %>">
+                                    class="form-control first_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password : 'Mays, mins, numero, 6 caracteres' %>">
                 </div>
 
                 <% if(typeof errors != 'undefined' && errors.password){%>
@@ -177,31 +188,18 @@
                 onErrorConfirmPassword();
             </script>
             <%}%>
-                                    
+                                
 
-
-                                <div class="form-group">
-                                    <select class="controls form-control country" id="provincia" name="provincia">
-                                        <option disabled selected>Seleccione su provincia</option>
-                                        <% provincias.forEach(prov => { %>
-            <option value="<%= typeof old != 'undefined' ? old.provincia : prov.id %>">
-                <%= prov.nombre %>
-            </option>
-            <% }); %>
-            </select>
-        </div>
-
-
-        <div class="custom-file |   uploadFile">
+        <div class="custom-file uploadFile">
             <input type="file" name="avatar" id="img" style="display:none;" />
-            <label for="img" class="profile_pic">
+            <label for="img" class="profile_pic" style="cursor:pointer">
                 <i class="far fa-images"></i>
                 Subi tu foto</label>
         </div>
         <% if(typeof errors != 'undefined' && errors.avatar){%>
-        <p style="font-weight: bold;margin-top: 10px;" class="text-danger">
-            <%= errors.avatar.msg %></p>
-        <%}%>
+            <p style="font-weight: bold;margin-top: 10px;" class="text-danger">
+                <%= errors.avatar.msg %></p>
+            <%}%>
 
 
                             </div>

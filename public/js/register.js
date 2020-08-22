@@ -99,8 +99,8 @@ function myValidation() {
 
 
         firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).then((success) => {
-            document.getElementById("loading").style.display = "block";
             document.getElementById("registerForm").style.display = "none";
+            document.getElementById("loading").style.display = "flex";
             var user = firebase.auth().currentUser;
             var uid;
             if (user != null) {

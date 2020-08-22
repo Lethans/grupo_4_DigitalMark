@@ -48,7 +48,7 @@ const productRoutes = require('./router/products');
 const adminRoutes = require('./router/admin');
 
 // var auth = function (req, res, next) {
-//     if (req.session.usuario != null) {
+//     if (req.session.user != null) {
 //         return next();
 //     } else {
 //         return res.sendStatus(401);

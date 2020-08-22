@@ -63,7 +63,7 @@
 
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLongTitle">Crear Producto</h5>
-      <a href="#" style="float: right; text-decoration: none;">Usuario: <%=locals.usuario.nombre%>
+      <a href="#" style="float: right; text-decoration: none;">Usuario: <%=locals.user.nombre%>
     </div>
 
     <article>
@@ -89,7 +89,7 @@
             <th scope="col">Precio</th>
             <th scope="col">Con descuento</th>
             <th scope="col">Stock</th>
-            <th scope="col">Cuotas</th>
+            <!-- <th scope="col">Cuotas</th> -->
             <th scope="col">Destacado</th>
             <th scope="col">Ver</th>
             <th scope="col">Editar</th>
@@ -106,17 +106,52 @@
 
               <td><%=notebook.id%></td>
               <td contenteditable='true'>
-                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="nombre"
-                  placeholder="" value="<%=notebook.nombre%>">
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="name"
+                  placeholder="" value="<%=notebook.name%>">
               </td>
-              <td contenteditable='true'>
+
+              <!-- <td contenteditable='true'>
                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="model"
-                  placeholder="" value="<%=notebook.model%>">
+                  placeholder="" value="<%=notebook.model.name%>">
+              </td> -->
+
+              <td>
+                <div class="form-group">
+                  <select class="form-control clase1" id="exampleFormControlTextarea1" name="model">
+                    <option disabled>Seleccione el modelo</option>
+                    <option selected><%= notebook.model.name %></option>
+                    <% modelos.forEach(prov => { %>
+                    <% if (notebook.model.id != prov.id){ %>
+                    <option value="<%=prov.id %>">
+                      <%= prov.name %>
+                    </option>
+                    <% }}); %>
+                  </select>
+                </div>
               </td>
-              <td contenteditable='true'>
-                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="marca"
-                  placeholder="" value="<%=notebook.marca%>">
+
+
+              <!-- <td contenteditable='true'>
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="brand"
+                  placeholder="" value="<%=notebook.brand.name%>">
+              </td> -->
+
+
+              <td>
+                <div class="form-group">
+                  <select class="form-control clase1" id="exampleFormControlTextarea1" name="brand">
+                    <option disabled>Seleccione la marca</option>
+                    <option selected><%= notebook.brand.name %></option>
+                    <% marcas.forEach(prov => { %>
+                    <% if (notebook.brand.id != prov.id){ %>
+                    <option value="<%=prov.id %>">
+                      <%= prov.name %>
+                    </option>
+                    <% }}); %>
+                  </select>
+                </div>
               </td>
+
               <td contenteditable='true'>
                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="oldPrice"
                   placeholder="" value="<%=notebook.oldPrice%>">
@@ -129,14 +164,15 @@
                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
                   placeholder="" value="<%=notebook.stock%>">
               </td>
-              <td contenteditable='true'>
+              <!-- <td contenteditable='true'>
                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="cuotas"
                   placeholder="" value="<%=notebook.cuotas%>">
-              </td>
+              </td> -->
 
               <td>
                 <div style="text-align: center;" class="form-check">
-                  <input class="form-check-input" type="checkbox" id="defaultCheck1" name="destacado" <%= notebook.destacado != false ? 'checked' : '' ;%>>
+                  <input class="form-check-input" type="checkbox" id="defaultCheck1" name="destacado"
+                    <%= notebook.destacado != false ? 'checked' : '' ;%>>
                 </div>
               </td>
 
