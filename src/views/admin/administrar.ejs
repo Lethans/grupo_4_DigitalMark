@@ -63,7 +63,7 @@
 
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLongTitle">Crear Producto</h5>
-      <a href="#" style="float: right; text-decoration: none;">Usuario: <%=locals.user.nombre%>
+      <a href="#" style="float: right; text-decoration: none;">Usuario: <%=locals.user.name%>
     </div>
 
     <article>
@@ -144,7 +144,7 @@
                     <option selected><%= notebook.brand.name %></option>
                     <% marcas.forEach(prov => { %>
                     <% if (notebook.brand.id != prov.id){ %>
-                    <option value="<%=prov.id %>">
+                    <option value="<%=prov.id%>">
                       <%= prov.name %>
                     </option>
                     <% }}); %>
@@ -171,8 +171,8 @@
 
               <td>
                 <div style="text-align: center;" class="form-check">
-                  <input class="form-check-input" type="checkbox" id="defaultCheck1" name="destacado"
-                    <%= notebook.destacado != false ? 'checked' : '' ;%>>
+                  <input class="form-check-input" type="checkbox" id="defaultCheck1" name="outstanding"
+                    <%= notebook.outstanding != false ? 'checked' : '' ;%>>
                 </div>
               </td>
 
