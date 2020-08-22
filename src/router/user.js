@@ -21,7 +21,7 @@ const controllersUser = require(path.resolve(__dirname, '..', 'controllers', 'co
 
 //Aquí aperturo mi archivo de usuarios, ya que al registrarse un usuario es conveniente buscar que no exista una ya registrado con el mismo email o id o el campo que utlicen para identificar al usuario.
 
-let archivoUsuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
+//let archivoUsuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'usuarios.json')))
 
 
 //Aquí le incoporé lo referido a la carga de la imagen
@@ -49,31 +49,31 @@ router.post('/login', [
   check('email').isEmail().withMessage('Agregar email válido'),
   check('password').isLength({
     min: 6
-  }).withMessage('Mínimo de 6 caractéres'),
-  body('email').custom((value) => {
-    for (let i = 0; i < archivoUsuarios.length; i++) {
-      if (archivoUsuarios[i].email == value) {
-        return true
-      }
-    }
-    return false
-  }).withMessage('Usuario no registrado'),
+  }).withMessage('Mínimo de 6 caractéres')
+  // body('email').custom((value) => {
+  //   for (let i = 0; i < archivoUsuarios.length; i++) {
+  //     if (archivoUsuarios[i].email == value) {
+  //       return true
+  //     }
+  //   }
+  //   return false
+  // }).withMessage('Usuario no registrado'),
 
   //Aquí valido si la contraseña colocada es la misma a la que tenemos hasheada
-  body('password').custom((value, {
-    req
-  }) => {
-    for (let i = 0; i < archivoUsuarios.length; i++) {
-      if (archivoUsuarios[i].email == req.body.email) {
-        if (bcrypt.compareSync(value, archivoUsuarios[i].password)) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    }
+  // body('password').custom((value, {
+  //   req
+  // }) => {
+  //   for (let i = 0; i < archivoUsuarios.length; i++) {
+  //     if (archivoUsuarios[i].email == req.body.email) {
+  //       if (bcrypt.compareSync(value, archivoUsuarios[i].password)) {
+  //         return true;
+  //       } else {
+  //         return false;
+  //       }
+  //     }
+  //   }
 
-  }).withMessage('Contraseña incorrecta'),
+  // }).withMessage('Contraseña incorrecta')
 ], controllersUser.ingresar);
 
 //Aqui en esta ruta envio al controlador el avatar del usuario así como las respectivas validaciones
