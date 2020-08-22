@@ -28,7 +28,29 @@ module.exports = {
             .catch(errors => res.send(errors));
     },
     category: function (req, res) {
+        
+        const selectedBrand = "";
+        if (req.params.id != undefined) {
+            selectedBrand = Brand.findAll({
+                where: {
+                    id: req.params.id
+                }
+            });
+        }
+        const marcas = Brand.findAll();
+        const modelos = Model.findAll();
+        const notebooks = Product.findAll({
+            include: ['brand', 'model']
+        });
+        Promise.all([marcas, notebooks, modelos, selectedBrand])
+            .then(([marcas, notebooks, modelos, selectedBrand]) => res.render(path.resolve(__dirname, '..', 'views', 'web', 'category'), {
+                notebooks,
+                marcas,
+                modelos,
+                selectedBrand
 
+            }))
+            .catch(errors => res.send(errors));
         // const categorias = Category.findAll();
         // const platos = Dish
         // .findAll({
@@ -51,28 +73,12 @@ module.exports = {
         //     notebooks,
         //     marcas
         // });
-
-        const selectedBrand = Brand.findAll({
-            where: {
-                id: req.params.id
-            }
-        });
-        const marcas = Brand.findAll();
-        const modelos = Model.findAll();
-        const notebooks = Product.findAll({
-            include: ['brand', 'model']
-        });
-        Promise.all([marcas, notebooks, modelos, selectedBrand])
-            .then(([marcas, notebooks, modelos, selectedBrand]) => res.render(path.resolve(__dirname, '..', 'views', 'web', 'category'), {
-                notebooks,
-                marcas,
-                modelos,
-                selectedBrand
-            }))
-            .catch(errors => res.send(errors));
     },
     error: function (req, res) {
         res.render(path.resolve(__dirname, '..', 'views', 'web', 'error'));
+    },
+    test: function (req, res) {
+        res.sendFile(path.resolve(__dirname, '..', 'views', 'web', 'test.html'))
     }
     // login: function (req, res) {
 
