@@ -205,23 +205,57 @@ module.exports = {
         // });
     },
     update: (req, res) => {
-        Product.update({
-                name: req.body.nombre,
-                price: req.body.price,
-                description: req.body.description,
-                //resto de la s cosas
-                image: req.file ? req.file.filename : req.body.oldimagen
-                //req.body.oldimagen es un div oculto que apenas abre la pagina agarra la imagen del usuario
-                // if (req.file){
-                //     _body.image = req.file.filename
-                // }
-            }, {
+
+        const notebookEdit = req.body;
+        notebookEdit.name = req.body.name,
+            notebookEdit.modelId = req.body.modelId,
+            notebookEdit.brandId = req.body.brandId,
+            notebookEdit.price = req.body.price,
+            notebookEdit.oldPrice = req.body.oldPrice,
+            notebookEdit.stock = req.body.stock,
+            notebookEdit.outstanding = req.body.outstanding === 'on' ? 1 : 0;
+
+
+        const editedProduct = Product
+            .update(notebookEdit, {
                 where: {
                     id: req.params.id
                 }
-            })
-            .then(res.redirect('/administrar'))
-            .catch(error => res.send(error))
+            });
+
+        const allProducts = Product.findAll({
+            include: ['brand', 'model']
+        });
+
+        Promise
+            .all([editedProduct, allProducts])
+            .then(notebooks =>
+                res.redirect('/administrar'), {
+                    allProducts
+                }
+
+            )
+            .catch(err => {
+                error => res.send(error)
+            });
+
+
+        // Product.update({
+        //         name: req.body.nombre,
+        //         price: req.body.price,
+        //         description: req.body.description,
+        //         //resto de la s cosas
+        //         image: req.file ? req.file.filename : req.body.oldimagen
+        //         //req.body.oldimagen es un div oculto que apenas abre la pagina agarra la imagen del usuario
+        //         // if (req.file){
+        //         //     _body.image = req.file.filename
+        //         // }
+        //     }, {
+        //         where: {
+        //             id: req.params.id
+        //         }
+        //     })
+
 
         // let notebooks = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json')));
         // let notebookOriginal = notebooks.find(notebook => notebook.id == req.params.id);
@@ -273,6 +307,4 @@ module.exports = {
         // fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json'), notebooksActualizar);
         // res.redirect('/administrar');
     }
-
-
 }

@@ -5,6 +5,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <!-- Icono pagina -->
   <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
@@ -63,7 +64,7 @@
 
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLongTitle">Crear Producto</h5>
-      <a href="#" style="float: right; text-decoration: none;">Usuario: <%=locals.user.name%>
+      <a href="#" style="float: right; text-decoration: none;">Usuario: <%=locals.user.firstName%>
     </div>
 
     <article>
@@ -117,9 +118,9 @@
 
               <td>
                 <div class="form-group">
-                  <select class="form-control clase1" id="exampleFormControlTextarea1" name="model">
+                  <select class="form-control clase1" id="exampleFormControlTextarea1" name="modelId">
                     <option disabled>Seleccione el modelo</option>
-                    <option selected><%= notebook.model.name %></option>
+                    <option value="<%=notebook.model.id%>" selected><%= notebook.model.name %></option>
                     <% modelos.forEach(prov => { %>
                     <% if (notebook.model.id != prov.id){ %>
                     <option value="<%=prov.id %>">
@@ -139,9 +140,9 @@
 
               <td>
                 <div class="form-group">
-                  <select class="form-control clase1" id="exampleFormControlTextarea1" name="brand">
+                  <select class="form-control clase1" id="exampleFormControlTextarea1" name="brandId">
                     <option disabled>Seleccione la marca</option>
-                    <option selected><%= notebook.brand.name %></option>
+                    <option value="<%=notebook.brand.id%>" selected><%= notebook.brand.name %></option>
                     <% marcas.forEach(prov => { %>
                     <% if (notebook.brand.id != prov.id){ %>
                     <option value="<%=prov.id%>">
@@ -172,7 +173,7 @@
               <td>
                 <div style="text-align: center;" class="form-check">
                   <input class="form-check-input" type="checkbox" id="defaultCheck1" name="outstanding"
-                    <%= notebook.outstanding != false ? 'checked' : '' ;%>>
+                    <%= notebook.outstanding != 0 ? 'checked' : '' ;%>>
                 </div>
               </td>
 
