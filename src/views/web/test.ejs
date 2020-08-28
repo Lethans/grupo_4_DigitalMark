@@ -146,9 +146,9 @@
             margin-top: 35px;
         }
 
-        /* .page-header .admin-menu li:nth-last-child(2) {
+        .page-header .admin-menu li:nth-last-child(2) {
             margin-bottom: 35px;
-        } */
+        }
 
         .page-header .admin-menu li:last-child {
             margin-top: auto;
@@ -207,7 +207,7 @@
             left: var(--page-header-width);
             width: calc(100% - var(--page-header-width));
             min-height: 100vh;
-            padding: 30px 20px 30px 20px;
+            padding: 30px;
             color: var(--page-content-txtColor);
             background: var(--page-content-bgColor);
         }
@@ -756,164 +756,6 @@
         .third:hover {
             box-shadow: 0 0 10px 0 #FF9900 inset, 0 0 10px 4px #FF9900;
         }
-
-        .triangle {
-            position: relative;
-            background: #2c3e50;
-        }
-
-        .triangle::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 50px 50px 0 50px;
-            border-color: #2c3e50 transparent transparent transparent;
-            left: 50%;
-            transform: translateX(-50%) translateY(100%);
-        }
-
-        .file-upload {
-            background-color: #ffffff;
-            width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .file-upload-btn {
-            width: 100%;
-            margin: 0;
-            color: #fff;
-            background: #1FB264;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            border-bottom: 4px solid #15824B;
-            transition: all .2s ease;
-            outline: none;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .file-upload-btn:hover {
-            background: #1AA059;
-            color: #ffffff;
-            transition: all .2s ease;
-            cursor: pointer;
-        }
-
-        .file-upload-btn:active {
-            border: 0;
-            transition: all .2s ease;
-        }
-
-        .file-upload-content {
-            display: none;
-            text-align: center;
-        }
-
-        .file-upload-input {
-            position: absolute;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            outline: none;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .image-upload-wrap {
-            margin-top: 20px;
-            border: 4px dashed #1FB264;
-            position: relative;
-        }
-
-        .image-dropping,
-        .image-upload-wrap:hover {
-            background-color: #1FB264;
-            border: 4px dashed #ffffff;
-        }
-
-        .image-title-wrap {
-            padding: 0 15px 15px 15px;
-            color: #222;
-        }
-
-        .drag-text {
-            text-align: center;
-        }
-
-        .drag-text h3 {
-            font-weight: 100;
-            text-transform: uppercase;
-            color: #15824B;
-            padding: 60px 0;
-        }
-
-        .file-upload-image {
-            max-height: 200px;
-            max-width: 200px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .remove-image {
-            width: 200px;
-            margin: 0;
-            color: #fff;
-            background: #cd4535;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            border-bottom: 4px solid #b02818;
-            transition: all .2s ease;
-            outline: none;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        .remove-image:hover {
-            background: #c13b2a;
-            color: #ffffff;
-            transition: all .2s ease;
-            cursor: pointer;
-        }
-
-        .remove-image:active {
-            border: 0;
-            transition: all .2s ease;
-        }
-
-        .imagePreview {
-            width: 300px;
-            height: 200px;
-            border-radius: 10%;
-            border: 2px solid white;
-        }
-
-        .pointerElement {
-            cursor: pointer;
-            padding: 5px 0 5px 20px;
-        }
-
-        .pointerElement:hover,
-        .pointerElementfocus {
-            background: var(--page-header-bgColor-hover);
-            color: var(--blue);
-            outline: none;
-        }
-
-        .pointerElement:hover svg,
-        .pointerElement:focus svg {
-            fill: var(--blue);
-        }
-
-        .tableBody {
-            margin-top: 70px;
-        }
     </style>
 
 </head>
@@ -953,18 +795,10 @@
                     </a>
                 </li>
                 <li>
-                    <a id="componentsGeneralButton" class="generalCategory">
+                    <a id="componentsButton" class="generalCategory">
                         <ion-icon name="hardware-chip-outline"></ion-icon>
                         <span class="leftCategory">Componentes</span>
                     </a>
-                    <ul id="componentsListButton" style="display: none;padding: 0px;">
-                        <li class="pointerElement" id="brandsButton">Marcas</li>
-                        <li class="pointerElement" id="modelsButton">Modelos</li>
-                        <li class="pointerElement" id="categoryButton">Categorias</li>
-                        <li class="pointerElement" id="attributesButton">Atributos</li>
-                        <li class="pointerElement" id="imagesButton">Imagenes</li>
-                        <li class="pointerElement" id="componentsButton">Componentes</li>
-                    </ul>
                 </li>
                 <li>
                     <a id="usersButton" class="generalCategory">
@@ -988,6 +822,7 @@
                         <svg aria-hidden="true">
                             <use xlink:href="#collapse"></use>
                         </svg>
+                        <span>Collapse</span>
                     </button>
                 </li>
             </ul>
@@ -1225,12 +1060,12 @@
         </div>
       </section>
 
-      <section style="display: none;" id="productsContent" class="row">
+      <section id="productsContent" class="row">
         <!-- <article class="col-12">
                 <h2 class="display-12"></h2>
             </article> -->
 
-        <table class="table col-12 triangle">
+        <table class="table col-12">
           <thead>
             <tr>
               <th scope="col">Id</th>
@@ -1350,9 +1185,13 @@
                 </table>
         </section>
 
-        <section style="display: none;" id="brandsContent" class="row">
 
-            <table class="table col-12 triangle">
+        <section id="componentsContent" class="row">
+            <!-- <article class="col-12">
+                <h2 class="display-12"></h2>
+            </article> -->
+
+            <table class="table col-12">
                 <thead>
                     <h2>Marcas</h2>
                     <tr>
@@ -1367,13 +1206,11 @@
                         <form action="/administrar/createbrand" method="POST">
                             <td contenteditable="true">
                                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="brandName" placeholder="Ingrese el nombre" value=""
-                                    style="margin-top: 10px;" />
+                                    name="brandName" placeholder="Ingrese el nombre" value="" style="margin-top: 10px;" />
                             </td>
                             <td contenteditable="true">
                                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="brandLogo" placeholder="Ingrese el nombre del logo" value=""
-                                    style="margin-top: 10px;" />
+                                    name="brandLogo" placeholder="Ingrese el nombre del logo" value="" style="margin-top: 10px;" />
                             </td>
                             <td style="text-align: center;">
                                 <button class="btnEffect third" type="submit">Agregar</button>
@@ -1382,58 +1219,14 @@
                     </tr>
                 </tbody>
             </table>
-
-            <!-- DIVISION MARCAS -->
-
-            <table class="table col-12 tableBody">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Logo</th>
-                        <th scope="col">Borrar</th>
-                        <th scope="col">Actualizar</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% marcas.forEach(marca => { %>
-                    <tr>
-                        <form action="/administrar/edit/<%=marca.id%>?_method=PUT
-                            " method="POST">
-                            <td><%=marca.id%></td>
-                            <td contenteditable="true">
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="brandName" placeholder="" value="<%=marca.name%>" />
-                            </td>
-
-                            <td contenteditable='true'>
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="brandLogo" placeholder="" value="<%=marca.logo%>">
-                            </td>
-                            <td>
-                                <a href="/administrar/delete/COMPLETAR">
-                                    <ion-icon class="tacho" name="trash-outline"></ion-icon>
-                                </a>
-                            </td>
-                            <td style="text-align: center">
-                                <button class="btn btn-success actualizar" type="submit">
-                                    <ion-icon size="large" name="checkmark-outline"></ion-icon>
-                                </button>
-                            </td>
-                        </form>
-                    </tr>
-                    <% }); %>
-                </tbody>
-            </table>
         </section>
 
-        <section style="display: none;" id="modelsContent" class="row">
+        <section id="modelsContent" class="row">
             <!-- <article class="col-12">
                 <h2 class="display-12"></h2>
             </article> -->
 
-            <table class="table col-12 triangle">
+            <table class="table col-12">
                 <thead>
                     <h2>Modelos</h2>
                     <tr>
@@ -1444,11 +1237,10 @@
 
                 <tbody>
                     <tr>
-                        <form action="/administrar/createmodel" method="POST">
+                        <form action="/administrar/createbrand" method="POST">
                             <td contenteditable="true">
                                 <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="modelName" placeholder="Ingrese el nombre" value=""
-                                    style="margin-top: 10px;" />
+                                    name="brandName" placeholder="Ingrese el nombre" value="" style="margin-top: 10px;" />
                             </td>
                             <td style="text-align: center;">
                                 <button class="btnEffect third" type="submit">Agregar</button>
@@ -1457,518 +1249,37 @@
                     </tr>
                 </tbody>
             </table>
-
-            <!-- DIVISION MODELOS -->
-
-            <table class="table col-12 tableBody">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Borrar</th>
-                        <th scope="col">Actualizar</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% modelos.forEach(modelo => { %>
-                    <tr>
-                        <form action="/administrar/edit/<%=modelo.id%>?_method=PUT
-                            " method="POST">
-                            <td><%=modelo.id%></td>
-                            <td contenteditable="true">
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="brandName" placeholder="" value="<%=modelo.name%>" />
-                            </td>
-
-                            <td>
-                                <a href="/administrar/delete/COMPLETAR">
-                                    <ion-icon class="tacho" name="trash-outline"></ion-icon>
-                                </a>
-                            </td>
-                            <td style="text-align: center">
-                                <button class="btn btn-success actualizar" type="submit">
-                                    <ion-icon size="large" name="checkmark-outline"></ion-icon>
-                                </button>
-                            </td>
-                        </form>
-                    </tr>
-                    <% }); %>
-                </tbody>
-            </table>
         </section>
 
-        <section style="display: none;" id="categoryContent" class="row">
-            <!-- <article class="col-12">
-                <h2 class="display-12"></h2>
-            </article> -->
 
-            <table class="table col-12 triangle">
-                <thead>
-                    <h2>Categorias/Type</h2>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th style="text-align: center" scope="col"></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <form action="/administrar/createcategory" method="POST">
-                            <td contenteditable="true">
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="typeName" placeholder="Ingrese la categoria" value=""
-                                    style="margin-top: 10px;" />
-                            </td>
-                            <td style="text-align: center;">
-                                <button class="btnEffect third" type="submit">Agregar</button>
-                            </td>
-                        </form>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- DIVISION Categoria -->
-
-            <table class="table col-12 tableBody">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Borrar</th>
-                        <th scope="col">Actualizar</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% categorias.forEach(categoria => { %>
-                    <tr>
-                        <form action="/administrar/edit/<%=categoria.id%>?_method=PUT
-                            " method="POST">
-                            <td><%=categoria.id%></td>
-                            <td contenteditable="true">
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="categoryName" placeholder="" value="<%=categoria.name%>" />
-                            </td>
-
-                            <td>
-                                <a href="/administrar/delete/COMPLETAR">
-                                    <ion-icon class="tacho" name="trash-outline"></ion-icon>
-                                </a>
-                            </td>
-                            <td style="text-align: center">
-                                <button class="btn btn-success actualizar" type="submit">
-                                    <ion-icon size="large" name="checkmark-outline"></ion-icon>
-                                </button>
-                            </td>
-                        </form>
-                    </tr>
-                    <% }); %>
-                </tbody>
-            </table>
-        </section>
-
-        <section style="display: none;" id="atributesContent" class="row">
-
-            <table class="table col-12 triangle">
-                <thead>
-                    <h2>Atributos</h2>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th style="text-align: center" scope="col"></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <form action="/administrar/createatribute" method="POST">
-                            <td contenteditable="true">
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="atributeName" placeholder="Ingrese el atributo" value=""
-                                    style="margin-top: 10px;" />
-                            </td>
-                            <td style="text-align: center;">
-                                <button class="btnEffect third" type="submit">Agregar</button>
-                            </td>
-                        </form>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- DIVISION ATRIBUTOS -->
-
-            <table class="table col-12 tableBody">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Borrar</th>
-                        <th scope="col">Actualizar</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% atributos.forEach(atributo => { %>
-                    <tr>
-                        <form action="/administrar/edit/<%=atributo.id%>?_method=PUT
-                            " method="POST">
-                            <td><%=atributo.id%></td>
-                            <td contenteditable="true">
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="categoryName" placeholder="" value="<%=atributo.name%>" />
-                            </td>
-
-                            <td>
-                                <a href="/administrar/delete/COMPLETAR">
-                                    <ion-icon class="tacho" name="trash-outline"></ion-icon>
-                                </a>
-                            </td>
-                            <td style="text-align: center">
-                                <button class="btn btn-success actualizar" type="submit">
-                                    <ion-icon size="large" name="checkmark-outline"></ion-icon>
-                                </button>
-                            </td>
-                        </form>
-                    </tr>
-                    <% }); %>
-                </tbody>
-            </table>
-        </section>
-
-        <section style="display: none;" id="imagesContent" class="row">
-
-            <table class="table col-12 triangle">
-                <h2>Imagenes</h2>
-
-                <tbody>
-                    <tr>
-                        <form action="/administrar/createaimage" method="POST" enctype="multipart/form-data">
-                            <td>
-                                <div class="file-upload">
-                                    <button class="file-upload-btn" type="button"
-                                        onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-
-                                    <div class="image-upload-wrap">
-                                        <input class="file-upload-input" type='file' name="imagen"
-                                            onchange="readURL(this);" accept="image/*" />
-                                        <div class="drag-text">
-                                            <h3>Drag and drop a file or select add Image</h3>
-                                        </div>
-                                    </div>
-                                    <div class="file-upload-content">
-                                        <img class="file-upload-image" src="#" alt="your image" />
-                                        <div class="image-title-wrap">
-                                            <button type="button" onclick="removeUpload()" class="remove-image">Remove
-                                                <span class="image-title">Uploaded Image</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-
-                            <td style="text-align: center;">
-                                <button class="btnEffect third" type="submit">Agregar</button>
-                            </td>
-                        </form>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- DIVISION IMAGENES -->
-
-            <table class="table col-12 tableBody">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">visualización</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Borrar</th>
-                        <th scope="col">Actualizar</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% imagenes.forEach(imagen => { %>
-                    <tr>
-                        <form action="/administrar/edit/<%=imagen.id%>?_method=PUT
-                            " method="POST">
-                            <td><%=imagen.id%></td>
-                            <td><img class="imagePreview" src="/img/<%=imagen.filename%>" alt=""></td>
-                            <td contenteditable="true">
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="categoryName" placeholder="" value="<%=imagen.filename%>" />
-                            </td>
-
-                            <td>
-                                <a href="/administrar/delete/COMPLETAR">
-                                    <ion-icon class="tacho" name="trash-outline"></ion-icon>
-                                </a>
-                            </td>
-                            <td style="text-align: center">
-                                <button class="btn btn-success actualizar" type="submit">
-                                    <ion-icon size="large" name="checkmark-outline"></ion-icon>
-                                </button>
-                            </td>
-                        </form>
-                    </tr>
-                    <% }); %>
-                </tbody>
-            </table>
-        </section>
-
-        <section style="display: none;" id="componentsContent" class="row">
-
-            <table class="table col-12 triangle">
-                <h2>Componentes</h2>
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Categoria</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <form action="/administrar/createcomponent" method="POST">
-
-                            <td contenteditable="true">
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="value" placeholder="" value="" />
-                            </td>
-
-
-                            <td>
-                                <div class="form-group">
-                                    <select class="form-control clase1" id="exampleFormControlTextarea1" name="brandId">
-                                        <option disabled>Seleccione la marca</option>
-                                        <% marcas.forEach(marca => { %>
-                                        <option value="<%=marca.id %>"><%= marca.name %></option>
-                                        <% }); %>
-                                    </select>
-                                </div>
-                            </td>
-
-                            <td>
-                                <div class="form-group">
-                                    <select class="form-control clase1" id="exampleFormControlTextarea1" name="typeId">
-                                        <option disabled>Seleccione la categoria</option>
-                                        <% categorias.forEach(category => { %>
-                                        <option value="<%=category.id %>"><%= category.name %></option>
-                                        <% }); %>
-                                    </select>
-                                </div>
-                            </td>
-
-
-                            <td style="text-align: center;">
-                                <button class="btnEffect third" type="submit">Agregar</button>
-                            </td>
-                        </form>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- DIVISION COMPONENTES -->
-
-            <table class="table col-12 tableBody">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Borrar</th>
-                        <th scope="col">Actualizar</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% componentes.forEach(component => { %>
-                    <tr>
-                        <form action="/administrar/edit/<%=component.id%>?_method=PUT
-                                " method="POST">
-                            <td><%=component.id%></td>
-
-                            <td contenteditable="true">
-                                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1"
-                                    name="value" placeholder="" value="<%=component.value%>" />
-                            </td>
-
-                            <td>
-                                <div class="form-group">
-                                    <select class="form-control clase1" id="exampleFormControlTextarea1" name="brandId">
-                                        <option disabled>Seleccione la marca</option>
-                                        <option value="<%=component.brandId%>" selected>
-                                            <% marcas.forEach(prov => { %>
-                                            <% if (component.brandId == prov.id){ %>
-                                            <%= prov.name %>
-                                            <% }}); %>
-                                        </option>
-                                        <% marcas.forEach(prov => { %> <% if (component.brandId
-                      != prov.id){ %>
-                                        <option value="<%=prov.id %>"><%= prov.name %></option>
-                                        <% }}); %>
-                                    </select>
-                                </div>
-                            </td>
-
-                            <td>
-                                <div class="form-group">
-                                    <select class="form-control clase1" id="exampleFormControlTextarea1" name="typeId">
-                                        <option disabled>Seleccione la categoria</option>
-                                        <option value="<%=component.typeId.id%>" selected>
-                                            <%= component.type.name %>
-                                        </option>
-                                        <% categorias.forEach(prov => { %> <% if (component.type.id != prov.id){ %>
-                                        <option value="<%=prov.id %>"><%= prov.name %></option>
-                                        <% }}); %>
-                                    </select>
-                                </div>
-                            </td>
-
-                            <td>
-                                <a href="/administrar/delete/COMPLETAR">
-                                    <ion-icon class="tacho" name="trash-outline"></ion-icon>
-                                </a>
-                            </td>
-                            <td style="text-align: center">
-                                <button class="btn btn-success actualizar" type="submit">
-                                    <ion-icon size="large" name="checkmark-outline"></ion-icon>
-                                </button>
-                            </td>
-                        </form>
-                    </tr>
-                    <% }); %>
-                </tbody>
-            </table>
-        </section>
 
 
     </section>
 </body>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 <script>
-    //-----------Left Panel Buttons-----------
-    let generalButton = document.getElementById("generalButton");
-    let notebooksButton = document.getElementById("notebooksButton");
-    let componentsGeneralButton = document.getElementById("componentsGeneralButton");
-    let componentsList = document.getElementById("componentsListButton");
+    let general = document.getElementById("generalButton");
+    let notebooks = document.getElementById("notebooksButton");
+    let components = document.getElementById("componentsButton");
+    let users = document.getElementById("usersButton");
+    let profile = document.getElementById("profileButton");
 
-    let usersButton = document.getElementById("usersButton");
-    let profileButton = document.getElementById("profileButton");
-    //-----------Left Panel Sub Buttons-----------
-    let brandsButton = document.getElementById("brandsButton");
-    let modelsButton = document.getElementById("modelsButton");
-    let categoryButton = document.getElementById("categoryButton");
-    let attributesButton = document.getElementById("attributesButton");
-    let imagesButton = document.getElementById("imagesButton");
-    let componentsButton = document.getElementById("componentsButton");
-
-    //..........................Vistas.........................
     let contentGeneral = document.getElementById("generalContent");
     let contentProducts = document.getElementById("productsContent");
-    //-------------------------.SubItems.----------------------
-    let contentBrands = document.getElementById("brandsContent");
-    let contentModels = document.getElementById("modelsContent");
-    let contentCategories = document.getElementById("categoryContent");
-    let contentAtributes = document.getElementById("atributesContent");
-    let contentImages = document.getElementById("imagesContent");
-    let contentComponents = document.getElementById("componentsContent");
 
-    function hideAll(p) {
-        contentGeneral.style.display = "none";
+    function hideAll() {
         contentProducts.style.display = "none";
-        contentBrands.style.display = "none";
-        contentModels.style.display = "none";
-        contentCategories.style.display = "none";
-        contentAtributes.style.display = "none";
-        contentImages.style.display = "none";
-        contentComponents.style.display = "none";
+        contentUsers.style.display = "none";
     }
 
-    generalButton.addEventListener("click", function () {
-        contentGeneral.style.display = '';
-        contentProducts.style.display = "none";
-        contentBrands.style.display = "none";
-        contentModels.style.display = "none";
-        contentCategories.style.display = "none";
-        contentAtributes.style.display = "none";
-        contentImages.style.display = "none";
-        contentComponents.style.display = "none";
+    notebooks.addEventListener("click", function () {
+        hideAll();
     });
-    notebooksButton.addEventListener("click", function () {
-        contentGeneral.style.display = "none";
-        contentProducts.style.display = "";
-        contentBrands.style.display = "none";
-        contentModels.style.display = "none";
-        contentCategories.style.display = "none";
-        contentAtributes.style.display = "none";
-        contentImages.style.display = "none";
-        contentComponents.style.display = "none";
-    });
-    componentsGeneralButton.addEventListener("click", function () {
-        componentsList.style.display == "block" ? componentsList.style.display = "none" : componentsList.style
-            .display = "block"
-    });
-    brandsButton.addEventListener("click", function () {
-        contentGeneral.style.display = "none";
-        contentProducts.style.display = "none";
-        contentBrands.style.display = "";
-        contentModels.style.display = "none";
-        contentCategories.style.display = "none";
-        contentAtributes.style.display = "none";
-        contentImages.style.display = "none";
-        contentComponents.style.display = "none";
-    });
-    modelsButton.addEventListener("click", function () {
-        contentGeneral.style.display = "none";
-        contentProducts.style.display = "none";
-        contentBrands.style.display = "none";
-        contentModels.style.display = "";
-        contentCategories.style.display = "none";
-        contentAtributes.style.display = "none";
-        contentImages.style.display = "none";
-        contentComponents.style.display = "none";
-    });
-    categoryButton.addEventListener("click", function () {
-        contentGeneral.style.display = "none";
-        contentProducts.style.display = "none";
-        contentBrands.style.display = "none";
-        contentModels.style.display = "none";
-        contentCategories.style.display = "";
-        contentAtributes.style.display = "none";
-        contentImages.style.display = "none";
-        contentComponents.style.display = "none";
-    });
-    attributesButton.addEventListener("click", function () {
-        contentGeneral.style.display = "none";
-        contentProducts.style.display = "none";
-        contentBrands.style.display = "none";
-        contentModels.style.display = "none";
-        contentCategories.style.display = "none";
-        contentAtributes.style.display = "";
-        contentImages.style.display = "none";
-        contentComponents.style.display = "none";
-    });
-    imagesButton.addEventListener("click", function () {
-        contentGeneral.style.display = "none";
-        contentProducts.style.display = "none";
-        contentBrands.style.display = "none";
-        contentModels.style.display = "none";
-        contentCategories.style.display = "none";
-        contentAtributes.style.display = "none";
-        contentImages.style.display = "";
-        contentComponents.style.display = "none";
-    });
-    componentsButton.addEventListener("click", function () {
-        contentGeneral.style.display = "none";
-        contentProducts.style.display = "none";
-        contentBrands.style.display = "none";
-        contentModels.style.display = "none";
-        contentCategories.style.display = "none";
-        contentAtributes.style.display = "none";
-        contentImages.style.display = "none";
-        contentComponents.style.display = "";
+    products.addEventListener("click", function () {
+        // if (document.getElementById("usersContent").style.display == "none") {
+        // contentUsers.style.display = "flex";
+        // contentProducts.style.display = "flex";
+        alert("PRODUCTOS");
     });
 </script>
 <script>
@@ -2068,41 +1379,5 @@
     channelSales.animate(0.64);
     directSales.animate(0.34);
 </script>
-<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('.image-upload-wrap').hide();
-
-                $('.file-upload-image').attr('src', e.target.result);
-                $('.file-upload-content').show();
-
-                $('.image-title').html(input.files[0].name);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-
-        } else {
-            removeUpload();
-        }
-    }
-
-    function removeUpload() {
-        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-        $('.file-upload-content').hide();
-        $('.image-upload-wrap').show();
-    }
-    $('.image-upload-wrap').bind('dragover', function () {
-        $('.image-upload-wrap').addClass('image-dropping');
-    });
-    $('.image-upload-wrap').bind('dragleave', function () {
-        $('.image-upload-wrap').removeClass('image-dropping');
-    });
-</script>
-
 
 </html>

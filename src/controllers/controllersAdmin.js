@@ -5,7 +5,11 @@ const fs = require('fs');
 const {
     Product,
     Model,
-    Brand
+    Brand,
+    Type,
+    Atribute,
+    Image,
+    Component
 } = require('../database/models/');
 
 // const platos = Dish.findAll();
@@ -17,18 +21,43 @@ const {
 
 module.exports = {
     admin: function (req, res) {
-        const marcas = Brand.findAll();
-        const modelos = Model.findAll();
-        const notebooks = Product.findAll({
-            include: ['brand', 'model']
-        });
-        Promise.all([marcas, notebooks, modelos])
-            .then(([marcas, notebooks, modelos]) => res.render(path.resolve(__dirname, '..', 'views', 'admin', 'administrar'), {
-                notebooks,
-                marcas,
-                modelos
-            }))
-            .catch(errors => res.send(errors));
+        // const marcas = Brand.findAll();
+        // const modelos = Model.findAll();
+        // const notebooks = Product.findAll({
+        //     include: ['brand', 'model']
+        // });
+        // Promise.all([marcas, notebooks, modelos])
+        //     .then(([marcas, notebooks, modelos]) => res.render(path.resolve(__dirname, '..', 'views', 'admin', 'administrar'), {
+        //         notebooks,
+        //         marcas,
+        //         modelos
+        //     }))
+        //     .catch(errors => res.send(errors));
+
+            const marcas = Brand.findAll();
+            const modelos = Model.findAll();
+            const categorias = Type.findAll();
+            const atributos = Atribute.findAll();
+            const imagenes = Image.findAll();
+            const componentes = Component.findAll({
+                include: ['type']
+    
+            });
+            const notebooks = Product.findAll({
+                include: ['brand', 'model']
+            });
+            Promise.all([marcas, notebooks, modelos, categorias, atributos, imagenes, componentes])
+                .then(([marcas, notebooks, modelos, categorias, atributos, imagenes, componentes]) => res.render(path.resolve(__dirname, '..', 'views', 'admin', 'administrar'), {
+                    notebooks,
+                    marcas,
+                    modelos,
+                    categorias,
+                    atributos,
+                    imagenes,
+                    componentes
+                }))
+                .catch(errors => res.send(errors));
+
 
         //let notebooks = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json')));
         // const marcas = Brand.findAll();
@@ -148,6 +177,78 @@ module.exports = {
         // //Guardar o reemplazar nuestro archivo JSON
         // fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json'), nuevoProductoGuardar);
         // res.redirect('/administrar');
+    },
+    saveBrand: (req, res) => {
+        const _body = {
+            name: req.body.brandName,
+            logo: req.body.brandLogo
+        }
+        Brand.create(_body)
+            .then(res.redirect('/administrar'))
+            //.then(res.redirect('/administrar'))
+            .catch(error => {
+                res.send(error)
+            });
+    },
+    saveModel: (req, res) => {
+        const _body = {
+            name: req.body.modelName,
+        }
+        Model.create(_body)
+            .then(res.redirect('/administrar'))
+            //.then(res.redirect('/administrar'))
+            .catch(error => {
+                res.send(error)
+            });
+    },
+    saveCategory: (req, res) => {
+        const _body = {
+            name: req.body.typeName,
+        }
+        Type.create(_body)
+            .then(res.redirect('/administrar'))
+            //.then(res.redirect('/administrar'))
+            .catch(error => {
+                res.send(error)
+            });
+    },
+    saveAtribute: (req, res) => {
+        const _body = {
+            name: req.body.atributeName,
+        }
+        Atribute.create(_body)
+            .then(res.redirect('/administrar'))
+            //.then(res.redirect('/administrar'))
+            .catch(error => {
+                res.send(error)
+            });
+    },
+    saveImage: (req, res) => {
+        //if (req.file != undefined) {
+        const _body = {
+            filename: req.file.filename
+        }
+        console.log(_body)
+        Image.create(_body)
+            .then(res.redirect('/administrar'))
+            //.then(res.redirect('/administrar'))
+            .catch(error => {
+                res.send(error)
+            });
+        //}
+    },
+    saveComponent: (req, res) => {
+        const _body = {
+            value : req.body.value,
+            brandId: req.body.brandId,
+            typeId: req.body.typeId
+        }
+        Component.create(_body)
+            .then(res.redirect('/administrar'))
+            //.then(res.redirect('/administrar'))
+            .catch(error => {
+                res.send(error)
+            });
     },
     show: (req, res) => {
         Product.findByPk(req.params.id).then(notebook => {

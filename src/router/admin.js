@@ -23,6 +23,13 @@ const controllersAdmin = require(path.resolve(__dirname, '..', 'controllers', 'c
 //Rutas
 router.get('/administrar', controllersAdmin.admin);
 router.get("/administrar/create", controllersAdmin.create);
+router.post("/administrar/createbrand", controllersAdmin.saveBrand);
+router.post("/administrar/createmodel", controllersAdmin.saveModel);
+router.post("/administrar/createcategory", controllersAdmin.saveCategory);
+router.post("/administrar/createatribute", controllersAdmin.saveAtribute);
+router.post("/administrar/createaimage", upload.single('imagen'), controllersAdmin.saveImage);
+router.post("/administrar/createcomponent", controllersAdmin.saveComponent);
+
 //router.post("/administrar/create", controllersAdmin.save);
 router.post("/administrar/create", upload.single('imagen'), controllersAdmin.save);
 router.get('/administrar/detail/:id', controllersAdmin.show);
