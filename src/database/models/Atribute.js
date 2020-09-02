@@ -29,8 +29,8 @@ module.exports = (sequelize, DataTypes) => {
         Atribute.belongsToMany(models.Component, {
             as: 'components',
             through: 'atributecomponents',
-            foreignKey: 'componentsId',
-            otherKey: 'atributeId'
+            foreignKey: 'atributeId',
+            otherKey: 'componentsId'
         })
     }
 

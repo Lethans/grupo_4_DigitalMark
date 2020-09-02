@@ -78,14 +78,14 @@ module.exports = (sequelize, DataTypes) => {
         Product.belongsToMany(models.Component, {
             as: 'components',
             through: 'componentproducts',
-            foreignKey: 'componentId',
-            otherKey: 'productId'
+            foreignKey: 'productId',
+            otherKey: 'componentId'
         })
         Product.belongsToMany(models.Image, {
-            as: 'images',
+            as: 'image',
             through: 'imageproduct',
-            foreignKey: 'imageId',
-            otherKey: 'productId'
+            foreignKey: 'productId',
+            otherKey: 'imageId'
         })
     }
 

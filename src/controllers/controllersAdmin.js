@@ -9,7 +9,8 @@ const {
     Type,
     Atribute,
     Image,
-    Component
+    Component,
+    User
 } = require('../database/models/');
 
 // const platos = Dish.findAll();
@@ -34,29 +35,50 @@ module.exports = {
         //     }))
         //     .catch(errors => res.send(errors));
 
-            const marcas = Brand.findAll();
-            const modelos = Model.findAll();
-            const categorias = Type.findAll();
-            const atributos = Atribute.findAll();
-            const imagenes = Image.findAll();
-            const componentes = Component.findAll({
-                include: ['type']
-    
-            });
-            const notebooks = Product.findAll({
-                include: ['brand', 'model']
-            });
-            Promise.all([marcas, notebooks, modelos, categorias, atributos, imagenes, componentes])
-                .then(([marcas, notebooks, modelos, categorias, atributos, imagenes, componentes]) => res.render(path.resolve(__dirname, '..', 'views', 'admin', 'administrar'), {
-                    notebooks,
-                    marcas,
-                    modelos,
-                    categorias,
-                    atributos,
-                    imagenes,
-                    componentes
-                }))
-                .catch(errors => res.send(errors));
+        const marcas = Brand.findAll();
+        const modelos = Model.findAll();
+        const categorias = Type.findAll();
+        const atributos = Atribute.findAll();
+        const imagenes = Image.findAll();
+        // const usuarios = User.findAll({
+        //     include: {
+        //         all: true,
+        //         nested: true
+        //     }
+        // });
+        //const totalUsers = User.count();
+        // const notebooks = Product.findAll({
+        //     include: ['brand', 'model']
+        // });
+        const usuarios = User.findAll();
+        const componentes = Component.findAll({
+            include: {
+                all: true,
+                nested: true
+            }
+
+        });
+        const notebooks = Product.findAll({
+            include: {
+                all: true,
+                nested: true
+            },
+            order: [
+                ['brandId', 'ASC']
+            ]
+        });
+        Promise.all([marcas, notebooks, modelos, categorias, atributos, imagenes, componentes, usuarios])
+            .then(([marcas, notebooks, modelos, categorias, atributos, imagenes, componentes, usuarios]) => res.render(path.resolve(__dirname, '..', 'views', 'admin', 'administrar'), {
+                notebooks,
+                marcas,
+                modelos,
+                categorias,
+                atributos,
+                imagenes,
+                componentes,
+                usuarios
+            }))
+            .catch(errors => res.send(errors));
 
 
         //let notebooks = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json')));
@@ -239,7 +261,7 @@ module.exports = {
     },
     saveComponent: (req, res) => {
         const _body = {
-            value : req.body.value,
+            value: req.body.value,
             brandId: req.body.brandId,
             typeId: req.body.typeId
         }

@@ -15,20 +15,21 @@ const {
 module.exports = {
     index: function (req, res) {
         const marcas = Brand.findAll();
-        const modelos = Model.findAll();
         const notebooks = Product.findAll({
-            include: ['brand', 'model']
+            include: {
+                all: true,
+                nested: true,
+            }
         });
-        Promise.all([marcas, notebooks, modelos])
+        Promise.all([marcas, notebooks])
             .then(([marcas, notebooks, modelos]) => res.render(path.resolve(__dirname, '..', 'views', 'web', 'index'), {
                 notebooks,
-                marcas,
-                modelos
+                marcas
             }))
             .catch(errors => res.send(errors));
     },
     category: function (req, res) {
-        
+
         const selectedBrand = "";
         if (req.params.id != undefined) {
             selectedBrand = Brand.findAll({

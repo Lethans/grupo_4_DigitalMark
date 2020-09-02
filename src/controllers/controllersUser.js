@@ -11,7 +11,7 @@ const {
   Brand
 } = require('../database/models/');
 
-let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'marcas.json')));
+//let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'marcas.json')));
 // let provincia = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'models', 'provincias.json')));
 
 // let provincias = provincia.sort(function (a, b) {
@@ -135,6 +135,7 @@ const controllersUser = {
 
           } else {
             //Aquí guardo en SESSION al usuario logueado
+            delete usuarioLogueado[0].password;
             req.session.user = usuarioLogueado[0];
             req.session.loggedIn = true;
           }

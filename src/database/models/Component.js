@@ -37,14 +37,14 @@ module.exports = (sequelize, DataTypes) => {
         Component.belongsToMany(models.Product, {
             as: 'products',
             through: 'componentproducts',
-            foreignKey: 'productId',
-            otherKey: 'componentId'
+            foreignKey: 'componentId',
+            otherKey: 'productId'
         })
         Component.belongsToMany(models.Atribute, {
             as: 'atributes',
             through: 'atributecomponents',
-            foreignKey: 'atributeId',
-            otherKey: 'componentId'
+            foreignKey: 'componentId',
+            otherKey: 'atributeId'
         })
         Component.belongsTo(models.Brand, {
             as: 'brands',

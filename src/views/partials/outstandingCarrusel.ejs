@@ -12,9 +12,9 @@
 
             <div class="row">
                 <% for(let i= 0; i < notebooks.length; i++){ %>
-                <% if (notebooks[i].destacado == true ){totalOutstandingNotebooks += 1 } %>
+                <% if (notebooks[i].outstanding == true ){totalOutstandingNotebooks += 1 } %>
 
-                <% if (notebooks[i].destacado == true && fistSlide < 3){ %>
+                <% if (notebooks[i].outstanding == true && fistSlide < 3){ %>
                 <%  fistSlide += 1%>
                 <%  offersId.push(notebooks[i].id)%>
                 <div class="col-md-4 col-sm-6">
@@ -60,7 +60,7 @@
         <div class="carousel-item">
             <div class="row">
                 <% for(let i= 0; i < notebooks.length; i++){ %>
-                <% if (notebooks[i].destacado == true && totalSecondOfferNotebooks < 3 && !offersId.includes(notebooks[i].id) ){ %>
+                <% if (notebooks[i].outstanding == true && totalSecondOfferNotebooks < 3 && !offersId.includes(notebooks[i].id) ){ %>
                 <%  totalSecondOfferNotebooks += 1 %>
                 <div class="col-md-4 col-sm-6">
                     <div class="product-grid6">

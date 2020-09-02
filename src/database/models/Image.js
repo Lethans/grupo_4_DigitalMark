@@ -1,4 +1,4 @@
-module.exports = (sequelize,DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
 
     let alias = 'Image';
 
@@ -24,10 +24,11 @@ module.exports = (sequelize,DataTypes) => {
         Image.belongsToMany(models.Product, {
             as: 'products',
             through: 'imageproduct',
-            foreignKey: 'productsId',
-            otherKey: 'imageId'
+            foreignKey: 'imageId',
+            otherKey: 'productId'
         })
     }
+
 
     return Image;
 
