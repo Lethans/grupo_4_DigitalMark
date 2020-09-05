@@ -105,7 +105,6 @@ const controllersUser = {
 
 
     if (!errors.isEmpty()) {
-      console.log('--------------Errores---------------');
       console.log(errors.mapped())
       Brand.findAll()
         .then(marcas => res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
@@ -131,7 +130,6 @@ const controllersUser = {
           if (usuarioLogueado == "") {
             Brand.findAll()
               .then(marcas => {
-                console.log('--------------Errores1---------------');
                 return res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
                   marcas,
                   errors: [{

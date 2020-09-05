@@ -15,8 +15,6 @@ const {
 
 const db = require('../database/models');
 const User = db.User;
-
-//Requerir el modulo de los controladores
 const controllersUser = require(path.resolve(__dirname, '..', 'controllers', 'controllersUser'));
 
 //Aquí aperturo mi archivo de usuarios, ya que al registrarse un usuario es conveniente buscar que no exista una ya registrado con el mismo email o id o el campo que utlicen para identificar al usuario.
@@ -49,7 +47,25 @@ router.post('/login', [
   check('email').isEmail().withMessage('Agregar email válido'),
   check('password').isLength({
     min: 6
-  }).withMessage('Mínimo de 6 caractéres')
+  }).withMessage('Mínimo de 6 caractéres'),
+  body('email').custom((value, {
+    req
+  }) => {
+    return User.findOne({
+      where: {
+        email: value
+      }
+    }).then(user => {
+      if (user && bcrypt.compareSync(req.body.password, user.password)) {
+        return true;
+      } else {
+        return Promise.reject('Usuario no registrado');
+      }
+    });
+  }),
+
+
+
   // body('email').custom((value) => {
   //   for (let i = 0; i < archivoUsuarios.length; i++) {
   //     if (archivoUsuarios[i].email == value) {
