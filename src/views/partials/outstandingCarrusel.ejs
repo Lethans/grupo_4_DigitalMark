@@ -21,12 +21,12 @@
                     <div class="product-grid6">
                         <div class="product-image6">
                             <a href="/detalles/<%= notebooks[i].id%>" class="imageCardCarrusel">
-                                <img class="pic-1" src="../img/<%= notebooks[i].imagen%>">
+                                <img class="pic-1" src="../img/<%=notebooks[i].image[0].filename%>">
                             </a>
                         </div>
                         <div class="product-content">
-                            <h3 class="title"><a ><%= notebooks[i].name%></a></h3>
-                            <div class="price">
+                            <h3 class="title"><a><%= notebooks[i].name%></a></h3>
+                            <div class="price">$
                                 <%= notebooks[i].price%>
                             </div>
                         </div>
@@ -36,16 +36,16 @@
                             <li><a href="" data-tip="Añadir al Carrito"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                         <% if (notebooks[i].stock <= 3){ %>
-                            <span class="product-stock-label">
-                                <% if (notebooks[i].stock == 1){ %>
-                                Ultima unidad
-                                <% }else{ %>
-                                Ultimas <%= notebooks[i].stock%> unidades</span>
-                            <% } %>
-                            <% } %>
+                        <span class="product-stock-label">
+                            <% if (notebooks[i].stock == 1){ %>
+                            Ultima unidad
+                            <% }else{ %>
+                            Ultimas <%= notebooks[i].stock%> unidades</span>
+                        <% } %>
+                        <% } %>
                         <% if (notebooks[i].descuento != '0'){ %>
-                            <span class="product-discount-label">-<%= notebooks[i].descuento%>%</span>
-                            <% } %>
+                        <span class="product-discount-label">-<%= notebooks[i].descuento%>%</span>
+                        <% } %>
                     </div>
                 </div>
                 <% } %>
@@ -66,12 +66,12 @@
                     <div class="product-grid6">
                         <div class="product-image6">
                             <a href="/detalles/<%= notebooks[i].id%>" class="imageCardCarrusel">
-                                <img class="pic-1" src="../img/<%= notebooks[i].imagen%>">
+                                <img class="pic-1" src="../img/<%=notebooks[i].image[0].filename%>">
                             </a>
                         </div>
                         <div class="product-content">
-                            <h3 class="title"><a ><%= notebooks[i].name%></a></h3>
-                            <div class="price">
+                            <h3 class="title"><a><%= notebooks[i].name%></a></h3>
+                            <div class="price">$
                                 <%= notebooks[i].price%>
                             </div>
                         </div>
@@ -81,16 +81,16 @@
                             <li><a href="" data-tip="Añadir al Carrito"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                         <% if (notebooks[i].stock <= 3){ %>
-                            <span class="product-stock-label">
-                                <% if (notebooks[i].stock == 1){ %>
-                                Ultima unidad
-                                <% }else{ %>
-                                Ultimas <%= notebooks[i].stock%> unidades</span>
-                            <% } %>
-                            <% } %>
+                        <span class="product-stock-label">
+                            <% if (notebooks[i].stock == 1){ %>
+                            Ultima unidad
+                            <% }else{ %>
+                            Ultimas <%= notebooks[i].stock%> unidades</span>
+                        <% } %>
+                        <% } %>
                         <% if (notebooks[i].descuento != '0'){ %>
-                            <span class="product-discount-label">-<%= notebooks[i].descuento%>%</span>
-                            <% } %>
+                        <span class="product-discount-label">-<%= notebooks[i].descuento%>%</span>
+                        <% } %>
                     </div>
                 </div>
                 <% } %>

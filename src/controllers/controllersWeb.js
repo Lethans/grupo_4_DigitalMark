@@ -75,11 +75,10 @@ module.exports = {
         //     marcas
         // });
     },
-    error: function (req, res) {
-        res.render(path.resolve(__dirname, '..', 'views', 'web', 'error'));
-    },
     test: function (req, res) {
-        res.sendFile(path.resolve(__dirname, '..', 'views', 'web', 'test.html'))
+        //const test = getProduct.then(test => res.send(test));
+        res.render(path.resolve(__dirname, '..', 'views', 'web', 'test'))
+
     }
     // login: function (req, res) {
 

@@ -113,7 +113,7 @@
         </div>
   </section>
 
-  <section id="generalContent">
+  <section style="display: none;" id="generalContent">
         <section class="statis text-center">
           <div class="container-fluid">
             <div class="row">
@@ -150,7 +150,7 @@
     </section>
     <div id="chartContainer" style="height: 300px; width: 100%"></div>
 
-    <div class="mainChart">
+    <div class="mainChart" style="margin-top: 150px;">
       <h2 class="progressDash">Total Sales</h2>
 
       <div class="clearFix"></div>
@@ -254,7 +254,7 @@
     </div>
   </section>
 
-  <section style="display: none;" id="productsContent" class="row">
+  <section id="productsContent" class="row">
 
     <table class="table col-12 triangle">
       <thead>
@@ -285,127 +285,129 @@
       </tbody>
     </table>
 
-<!-- Productos cargados -->
+    <!-- Productos cargados -->
 
-    <table class="table col-12 tableBody">
-      <thead class="table-fix">
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Modelo</th>
-          <th scope="col">Marca</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Con descuento</th>
-          <th scope="col">Stock</th>
-          <th scope="col">Destacado</th>
-          <th scope="col">Ver</th>
-          <th scope="col">Editar</th>
-          <th scope="col">Borrar</th>
-          <th scope="col">Actualizar</th>
-        </tr>
-      </thead>
 
-      <tbody>
+    <div class="tbl-header tableBody">
+      <table>
+        <thead>
+          <tr>
+            <th onClick="sortTableNum(0)" class="id-column" id="classArrowId" scope="col">Id <ion-icon id="byArrowId"
+                name="arrow-down-outline"> </ion-icon>
+              <ion-icon id="arrowIconId" name="arrow-up-outline"> </ion-icon>
+            </th>
+            <th onclick="sortTable(1)" class="name-column" id="classArrowName" scope="col">Nombre
+              <ion-icon id="byArrowName" name="arrow-down-outline"> </ion-icon>
+              <ion-icon id="arrowIcon" name="arrow-up-outline"> </ion-icon>
+            </th>
+            <th class="model-column" scope="col">Modelo</th>
+            <th class="brand-column" scope="col">Marca</th>
+            <th class="price-column" scope="col">Precio</th>
+            <th class="offer-column" scope="col">En Oferta</th>
+            <th class="stock-column" scope="col">Stock</th>
+            <th class="check-outstanding" scope="col">Dest.</th>
+            <th class="see-column" scope="col">Ver</th>
+            <th class="edit-column" scope="col">Editar</th>
+            <th class="delete-column" scope="col">Borrar</th>
+            <th class="update-column" scope="col">Guardar</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table id="myTable2">
+        <tbody>
+          <% notebooks.forEach(notebook => { %>
+          <tr>
+            <form action="/administrar/edit/<%=notebook.id%>?_method=PUT
+                        " method="POST">
+              <td class="id-column"><%=notebook.id%></td>
+              <td contenteditable="true">
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="name"
+                  placeholder="" value="<%=notebook.name%>" />
+              </td>
 
-        <% notebooks.forEach(notebook => { %>
-        <tr>
-          <form action="/administrar/edit/<%=notebook.id%>?_method=PUT
-                      " method="POST">
-            <td><%=notebook.id%></td>
-            <td contenteditable="true">
-              <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="name" placeholder=""
-                value="<%=notebook.name%>" />
-            </td>
+              <td>
+                <div>
+                  <select class="form-control clase1" id="exampleFormControlTextarea1" name="modelId">
+                    <option disabled>Seleccione el modelo</option>
+                    <option value="<%=notebook.model.id%>" selected>
+                      <%= notebook.model.name %>
+                    </option>
+                    <% modelos.forEach(prov => { %> <% if (notebook.model.id
+                        != prov.id){ %>
+                    <option value="<%=prov.id %>"><%= prov.name %></option>
+                    <% }}); %>
+                  </select>
+                </div>
+              </td>
 
-            <!-- <td contenteditable='true'>
-                      <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="model"
-                        placeholder="" value="<%=notebook.model.name%>">
-                    </td> -->
+              <td class="brand-column">
+                <div>
+                  <select class="form-control clase1" id="exampleFormControlTextarea1" name="brandId">
+                    <option disabled>Seleccione la marca</option>
+                    <option value="<%=notebook.brand.id%>" selected>
+                      <%= notebook.brand.name %>
+                    </option>
+                    <% marcas.forEach(prov => { %> <% if (notebook.brand.id !=
+                        prov.id){ %>
+                    <option value="<%=prov.id%>"><%= prov.name %></option>
+                    <% }}); %>
+                  </select>
+                </div>
+              </td>
 
-            <td>
-              <div class="form-group">
-                <select class="form-control clase1" id="exampleFormControlTextarea1" name="modelId">
-                  <option disabled>Seleccione el modelo</option>
-                  <option value="<%=notebook.model.id%>" selected>
-                    <%= notebook.model.name %>
-                  </option>
-                  <% modelos.forEach(prov => { %> <% if (notebook.model.id
-                      != prov.id){ %>
-                  <option value="<%=prov.id %>"><%= prov.name %></option>
-                  <% }}); %>
-                </select>
-              </div>
-            </td>
+              <td class="price-column" contenteditable="true">
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="price"
+                  placeholder="" value="<%=notebook.price%>" />
+              </td>
 
-            <!-- <td contenteditable='true'>
-                      <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="brand"
-                        placeholder="" value="<%=notebook.brand.name%>">
-                    </td> -->
+              <td class="offer-column" contenteditable="true">
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="oldPrice"
+                  placeholder="" value="<%=notebook.oldPrice%>" />
+              </td>
 
-            <td>
-              <div class="form-group">
-                <select class="form-control clase1" id="exampleFormControlTextarea1" name="brandId">
-                  <option disabled>Seleccione la marca</option>
-                  <option value="<%=notebook.brand.id%>" selected>
-                    <%= notebook.brand.name %>
-                  </option>
-                  <% marcas.forEach(prov => { %> <% if (notebook.brand.id !=
-                      prov.id){ %>
-                  <option value="<%=prov.id%>"><%= prov.name %></option>
-                  <% }}); %>
-                </select>
-              </div>
-            </td>
+              <td class="stock-column" contenteditable="true">
+                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
+                  placeholder="" value="<%=notebook.stock%>" />
+              </td>
 
-            <td contenteditable="true">
-              <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="oldPrice"
-                placeholder="" value="<%=notebook.oldPrice%>" />
-            </td>
-            <td contenteditable="true">
-              <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="price"
-                placeholder="" value="<%=notebook.price%>" />
-            </td>
-            <td contenteditable="true">
-              <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
-                placeholder="" value="<%=notebook.stock%>" />
-            </td>
-            <!-- <td contenteditable='true'>
-                      <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="cuotas"
-                        placeholder="" value="<%=notebook.cuotas%>">
-                    </td> -->
+              <td class="check-outstanding">
+                <div class="form-check">
+                  <input style="position: inherit;" class="form-check-input" type="checkbox" id="defaultCheck1"
+                    name="outstanding" <%=
+                      notebook.outstanding != 0 ? 'checked' : '' ;%>>
+                </div>
+              </td>
 
-            <td>
-              <div style="text-align: center" class="form-check">
-                <input class="form-check-input" type="checkbox" id="defaultCheck1" name="outstanding" <%=
-                    notebook.outstanding != 0 ? 'checked' : '' ;%>>
-              </div>
-            </td>
+              <td class="see-column">
+                <a href="/detalles/<%= notebook.id%>">
+                  <ion-icon class="ver" name="eye-outline"></ion-icon>
+                </a>
+              </td>
+              <td class="edit-column">
+                <a href="/administrar/edit/<%= notebook.id%>">
+                  <ion-icon class="edit" name="pencil-outline"></ion-icon>
+                </a>
+              </td>
+              <td class="delete-column">
+                <a href="/administrar/delete/<%= notebook.id%>">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </a>
+              </td>
+              <td class="update-column">
+                <button class="btn btn-success actualizar" type="submit">
+                  <ion-icon size="large" name="checkmark-outline"></ion-icon>
+                </button>
+              </td>
+            </form>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
 
-            <td>
-              <a href="/detalles/<%= notebook.id%>">
-                <ion-icon class="ver" name="eye-outline"></ion-icon>
-              </a>
-            </td>
-            <td>
-              <a href="/administrar/edit/<%= notebook.id%>">
-                <ion-icon class="editar" name="pencil-outline"></ion-icon>
-              </a>
-            </td>
-            <td>
-              <a href="/administrar/delete/<%= notebook.id%>">
-                <ion-icon class="tacho" name="trash-outline"></ion-icon>
-              </a>
-            </td>
-            <td style="text-align: center">
-              <button class="btn btn-success actualizar" type="submit">
-                <ion-icon size="large" name="checkmark-outline"></ion-icon>
-              </button>
-            </td>
-          </form>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
+
   </section>
 
   <section style="display: none;" id="brandsContent" class="row">
@@ -913,7 +915,7 @@
 
       <tbody>
         <% usuarios.forEach(user => { %>
-          <% if (user.rolId == 1){ %>
+        <% if (user.rolId == 1){ %>
         <tr>
           <form action="/administrar/edit/<%=user.id%>?_method=PUT
                     " method="POST">
@@ -940,7 +942,7 @@
               </div>
             </td>
 
-           
+
             <td>
               <a href="/administrar/delete/<%= user.id%>">
                 <ion-icon class="tacho" name="trash-outline"></ion-icon>
@@ -957,12 +959,12 @@
       </tbody>
     </table>
 
-   <!-- USUARIOS -->
+    <!-- USUARIOS -->
 
-   <h2>USUARIOS</h2>
+    <h2>USUARIOS</h2>
     <table class="table col-12 tableBody">
       <thead>
-          <tr>
+        <tr>
           <th scope="col">Id</th>
           <th scope="col">Nombre</th>
           <th scope="col">Apellido</th>
@@ -971,12 +973,12 @@
           <th scope="col">Borrar</th>
           <th scope="col">Actualizar</th>
         </tr>
-        </thead>
+      </thead>
 
       <tbody>
-  
+
         <% usuarios.forEach(user => { %>
-          <% if (user.rolId != 1){ %>
+        <% if (user.rolId != 1){ %>
         <tr>
           <form action="/administrar/edit/<%=user.id%>?_method=PUT
                     " method="POST">
@@ -1020,11 +1022,137 @@
     </table>
   </section>
 
-
-
-  </section>
 </body>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script>
+  //Efecto flecha filtros.
+  document.getElementById("classArrow").addEventListener('click', function () {
+    document.getElementById("arrowIcon").getAttribute('name') == "arrow-up-outline" ?
+      document.getElementById("arrowIcon").setAttribute('name', "arrow-down-outline") :
+      document.getElementById("arrowIcon").setAttribute('name', "arrow-up-outline")
+    document.getElementById("byArrow").remove();
+  });
+  document.getElementById("classArrowId").addEventListener('click', function () {
+    document.getElementById("arrowIconId").getAttribute('name') == "arrow-up-outline" ?
+      document.getElementById("arrowIconId").setAttribute('name', "arrow-down-outline") :
+      document.getElementById("arrowIconId").setAttribute('name', "arrow-up-outline")
+    document.getElementById("byArrowId").remove();
+  });
+</script>
+
+<script>
+  function sortTableNum(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable2");
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+      // Start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /* Loop through all table rows (except the
+      first, which contains table headers): */
+      for (i = 0; i < (rows.length - 1); i++) {
+        // Start by saying there should be no switching:
+        shouldSwitch = false;
+        /* Get the two elements you want to compare,
+        one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        /* Check if the two rows should switch place,
+        based on the direction, asc or desc: */
+        if (dir == "asc") {
+          if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark that a switch has been done: */
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        // Each time a switch is done, increase this count by 1:
+        switchcount++;
+      } else {
+        /* If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again. */
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+
+  function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable2");
+    switching = true;
+
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+      // Start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /* Loop through all table rows (except the
+      first, which contains table headers): */
+      for (i = 0; i < (rows.length - 1); i++) {
+        console.log(rows.length);
+        // Start by saying there should be no switching:
+        shouldSwitch = false;
+        /* Get the two elements you want to compare,
+        one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        /* Check if the two rows should switch place,
+        based on the direction, asc or desc: */
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark that a switch has been done: */
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        // Each time a switch is done, increase this count by 1:
+        switchcount++;
+      } else {
+        /* If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again. */
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+</script>
 <script>
   //-----------Left Panel Buttons-----------
   let generalButton = document.getElementById("generalButton");
@@ -1176,5 +1304,12 @@
     contentComponents.style.display = "none";
     contentUsers.style.display = "";
   });
+
+  // $(window).on("load resize ", function () {
+  //   var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  //   $('.tbl-header').css({
+  //     'padding-right': scrollWidth
+  //   });
+  // }).resize();
 </script>
-<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>despues
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

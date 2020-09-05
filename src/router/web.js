@@ -8,7 +8,7 @@ const controllersWeb = require(path.resolve(__dirname, '..', 'controllers', 'con
 router.get('/', controllersWeb.index);
 router.get('/categorias', controllersWeb.category);
 router.get('/categorias/?:id', controllersWeb.category);
-router.get('/error', controllersWeb.error);
+router.get('/test', controllersWeb.test);
 
 
 module.exports = router;

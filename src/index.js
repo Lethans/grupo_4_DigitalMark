@@ -62,5 +62,7 @@ app.use(userRoutes);
 app.use(productRoutes);
 app.use(auth, adminRoutes);
 
-
+app.use(function (req, res) {
+    res.render(path.resolve(__dirname, 'views', 'web', 'error'))
+});
 app.listen(2001, 'localhost', () => console.log('Servidor corriendo en el puerto 2000'));

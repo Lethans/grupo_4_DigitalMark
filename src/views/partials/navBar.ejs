@@ -70,8 +70,10 @@
               <h5 class="titleHam">Categorias</h5>
             </div>
             <ul class="hamburguer" type="none">
+              <% if(locals.user) { %>
+              <% if(locals.user.rolId == 1) { %>
               <li class="texto-ham"><a class="noAddsA" href="/administrar">ADMINISTRADOR</a></li>
-              <li class="texto-ham"><a class="noAddsA" href="/error">ERROR</a></li>
+              <%}}%>
               <% for(let i= 0; i < marcas.length; i++){ %>
               <li class="texto-ham"><a class="noAddsA" href="/categorias/<%=marcas[i].name%>"><%=marcas[i].name%></a>
               </li>

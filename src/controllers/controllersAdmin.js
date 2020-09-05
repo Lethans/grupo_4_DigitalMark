@@ -64,7 +64,7 @@ module.exports = {
                 nested: true
             },
             order: [
-                ['brandId', 'ASC']
+                ['id', 'DESC']
             ]
         });
         Promise.all([marcas, notebooks, modelos, categorias, atributos, imagenes, componentes, usuarios])

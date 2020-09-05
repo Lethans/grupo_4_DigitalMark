@@ -76,7 +76,7 @@ const controllersUser = {
       // }
       req.body.avatar = req.file ? req.file.filename : '';
       req.body.password = bcrypt.hashSync(req.body.password, 10);
-      req.body.rolId = 1;
+      req.body.rolId = 0;
 
       User.create(req.body)
         .then(() => res.redirect('/login'))
@@ -103,7 +103,9 @@ const controllersUser = {
     //return res.send(errors.mapped());
     let errors = validationResult(req);
 
+
     if (!errors.isEmpty()) {
+      console.log('--------------Errores---------------');
       console.log(errors.mapped())
       Brand.findAll()
         .then(marcas => res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
@@ -127,24 +129,32 @@ const controllersUser = {
 
 
           if (usuarioLogueado == "") {
-            return res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
-              errors: [{
-                msg: "Credenciales invalidas"
-              }]
-            });
+            Brand.findAll()
+              .then(marcas => {
+                console.log('--------------Errores1---------------');
+                return res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'login'), {
+                  marcas,
+                  errors: [{
+                    msg: "Credenciales invalidas"
+                  }]
+                })
+              });
 
           } else {
             //Aquí guardo en SESSION al usuario logueado
             delete usuarioLogueado[0].password;
             req.session.user = usuarioLogueado[0];
             req.session.loggedIn = true;
+
+            if (req.body.recordarme) {
+              res.cookie('email', usuarioLogueado[0].email, {
+                maxAge: 1000 * 60 * 60 * 24
+              })
+            }
+
+            return res.redirect('/');
           }
-          if (req.body.recordarme) {
-            res.cookie('email', usuarioLogueado[0].email, {
-              maxAge: 1000 * 60 * 60 * 24
-            })
-          }
-          return res.redirect('/'); //Aquí ustedes mandan al usuario para donde quieran (Perfil- home)
+
 
         })
     }
