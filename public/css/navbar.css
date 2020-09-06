@@ -675,7 +675,6 @@ svg.hamburguerSvg {
 .navbar-nav {
     padding-right: 60px;
     flex-direction: row;
-
 }
 
 @media (min-width: 1200px) {
@@ -797,4 +796,18 @@ ul.hamburguer li.texto-ham a.noAddsA:hover {
 ul.hamburguer li.texto-ham a.noAddsA:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+}
+
+a.navbar-brand img {
+    max-height: 60px;
+}
+
+@media (max-width: 424px) {
+    a.navbar-brand img {
+        max-height: 35px
+    }
+
+    .navbar-nav {
+        padding-right: 0;
+    }
 }

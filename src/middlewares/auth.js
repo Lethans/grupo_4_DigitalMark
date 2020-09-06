@@ -1,10 +1,11 @@
 module.exports = (req, res, next) => {
-    if (req.session.loggedIn) {
-        next();
-    } else if (req.cookies.email) {
-        return next();
+    if (res.locals.user) {
+        if (res.locals.user.rolId > 0) {
+            next();
+        } else {
+            return res.sendStatus(401);
+        }
     } else {
-        //res.redirect('/login');
         return res.sendStatus(401);
     }
 }

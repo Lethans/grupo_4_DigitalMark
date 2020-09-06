@@ -19,22 +19,23 @@ const upload = multer({
 })
 
 const controllersAdmin = require(path.resolve(__dirname, '..', 'controllers', 'controllersAdmin'));
+const auth = require(path.resolve(__dirname, '..', 'middlewares', 'auth'));
 
 //Rutas
-router.get('/administrar', controllersAdmin.admin);
-router.get("/administrar/create", controllersAdmin.create);
-router.post("/administrar/createbrand", controllersAdmin.saveBrand);
-router.post("/administrar/createmodel", controllersAdmin.saveModel);
-router.post("/administrar/createcategory", controllersAdmin.saveCategory);
-router.post("/administrar/createatribute", controllersAdmin.saveAtribute);
-router.post("/administrar/createaimage", upload.single('imagen'), controllersAdmin.saveImage);
-router.post("/administrar/createcomponent", controllersAdmin.saveComponent);
+router.get('/administrar', auth, controllersAdmin.admin);
+router.get("/administrar/create", auth, controllersAdmin.create);
+router.post("/administrar/createbrand", auth, controllersAdmin.saveBrand);
+router.post("/administrar/createmodel", auth, controllersAdmin.saveModel);
+router.post("/administrar/createcategory", auth, controllersAdmin.saveCategory);
+router.post("/administrar/createatribute", auth, controllersAdmin.saveAtribute);
+router.post("/administrar/createaimage", auth, upload.single('imagen'), controllersAdmin.saveImage);
+router.post("/administrar/createcomponent", auth, controllersAdmin.saveComponent);
 
 //router.post("/administrar/create", controllersAdmin.save);
-router.post("/administrar/create", upload.single('imagen'), controllersAdmin.save);
-router.get('/administrar/detail/:id', controllersAdmin.show);
-router.get('/administrar/delete/:id', controllersAdmin.destroy);
-router.get('/administrar/edit/:id', controllersAdmin.edit);
-router.put('/administrar/edit/:id', upload.single('imagen'), controllersAdmin.update);
+router.post("/administrar/create", auth, upload.single('imagen'), controllersAdmin.save);
+router.get('/administrar/detail/:id', auth, controllersAdmin.show);
+router.get('/administrar/delete/:id', auth, controllersAdmin.destroy);
+router.get('/administrar/edit/:id', auth, controllersAdmin.edit);
+router.put('/administrar/edit/:id', auth, upload.single('imagen'), controllersAdmin.update);
 
 module.exports = router;

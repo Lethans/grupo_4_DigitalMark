@@ -22,7 +22,7 @@ module.exports = {
             }
         });
         Promise.all([marcas, notebooks])
-            .then(([marcas, notebooks, modelos]) => res.render(path.resolve(__dirname, '..', 'views', 'web', 'index'), {
+            .then(([marcas, notebooks]) => res.render(path.resolve(__dirname, '..', 'views', 'web', 'index'), {
                 notebooks,
                 marcas
             }))
@@ -30,28 +30,36 @@ module.exports = {
     },
     category: function (req, res) {
 
-        const selectedBrand = "";
-        if (req.params.id != undefined) {
-            selectedBrand = Brand.findAll({
+        const selectedBrandd =
+            Brand.findOne({
                 where: {
-                    id: req.params.id
-                }
-            });
-        }
-        const marcas = Brand.findAll();
-        const modelos = Model.findAll();
-        const notebooks = Product.findAll({
-            include: ['brand', 'model']
-        });
-        Promise.all([marcas, notebooks, modelos, selectedBrand])
-            .then(([marcas, notebooks, modelos, selectedBrand]) => res.render(path.resolve(__dirname, '..', 'views', 'web', 'category'), {
-                notebooks,
-                marcas,
-                modelos,
-                selectedBrand
+                    name: req.params.name
+                },
+            })
 
-            }))
+        const marcass = Brand.findAll();
+        const modeloss = Model.findAll();
+        const notebookss = Product.findAll({
+            include: {
+                all: true,
+                nested: true,
+            }
+        });
+
+        Promise.all([marcass, notebookss, modeloss, selectedBrandd])
+            .then(([marcas, notebooks, modelos, selectedBrand]) => {
+                if (selectedBrand == null) {
+                    selectedBrand = undefined
+                }
+                res.render(path.resolve(__dirname, '..', 'views', 'web', 'category'), {
+                    notebooks,
+                    marcas,
+                    modelos,
+                    selectedBrand
+                })
+            })
             .catch(errors => res.send(errors));
+
         // const categorias = Category.findAll();
         // const platos = Dish
         // .findAll({
@@ -60,7 +68,7 @@ module.exports = {
         // })
         // Promise.all([platos,categorias])
         // .then(([platos,categorias]) =>
-        //     //return res.send(platoComida);
+        //return res.send(platoComida);
         //     res.render(path.resolve(__dirname, '..','views','productos','productos'), {platos,categorias })
         // ) 
         //let selectedBrand;
