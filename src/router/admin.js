@@ -35,6 +35,12 @@ router.post("/administrar/createcomponent", auth, controllersAdmin.saveComponent
 router.post("/administrar/create", auth, upload.single('imagen'), controllersAdmin.save);
 router.get('/administrar/detail/:id', auth, controllersAdmin.show);
 router.get('/administrar/delete/:id', auth, controllersAdmin.destroy);
+router.get('/administrar/deleteBrand/:id', auth, controllersAdmin.destroyBrand);
+router.get('/administrar/deleteModel/:id', auth, controllersAdmin.destroyModel);
+router.get('/administrar/deleteCategory/:id', auth, controllersAdmin.destroyCategory);
+router.get('/administrar/deleteAttributes/:id', auth, controllersAdmin.destroyAttributes);
+router.get('/administrar/deleteImages/:id', auth, controllersAdmin.destroyImages);
+router.get('/administrar/deleteComponents/:id', auth, controllersAdmin.destroyComponents);
 router.get('/administrar/edit/:id', auth, controllersAdmin.edit);
 router.put('/administrar/edit/:id', auth, upload.single('imagen'), controllersAdmin.update);
 

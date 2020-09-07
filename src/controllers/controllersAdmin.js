@@ -312,6 +312,28 @@ module.exports = {
 
     },
     edit: (req, res) => {
+        // console.log(req.body);
+        // Product.update({
+        //         brandId: req.body.brand,
+        //         model: req.body.model,
+        //         color: req.body.color,
+        //         cc: req.body.cc,
+        //         brakes: req.body.brakes,
+        //         stock: req.body.stock,
+        //         iva: req.body.iva,
+        //         gross: req.body.gross,
+        //         coin: req.body.coin,
+        //         description: req.body.description,
+        //         specification: req.body.specification
+        //     }, {
+        //         where: {
+        //             id: req.params.id
+        //         }
+        //     }).then(res.redirect('/administrar'))
+        //     .catch(error => {
+        //         res.send(error)
+        //     });
+
         Product.findByPk(req.params.id).then(notebook => {
                 res.render(path.resolve(__dirname, '..', 'views', 'admin', 'edit'), {
                     notebook
@@ -328,7 +350,6 @@ module.exports = {
         // });
     },
     update: (req, res) => {
-
         const notebookEdit = req.body;
         notebookEdit.name = req.body.name,
             notebookEdit.modelId = req.body.modelId,
@@ -429,5 +450,59 @@ module.exports = {
         // //Guardar o reemplazar nuestro archivo JSON
         // fs.writeFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json'), notebooksActualizar);
         // res.redirect('/administrar');
+    },
+    destroyBrand: (req, res) => {
+        Brand.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(res.redirect('/administrar'))
+            .catch(error => res.send(error))
+    },
+    destroyModel: (req, res) => {
+        Model.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(res.redirect('/administrar'))
+            .catch(error => res.send(error))
+    },
+    destroyCategory: (req, res) => {
+        Type.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(res.redirect('/administrar'))
+            .catch(error => res.send(error))
+    },
+    destroyAttributes: (req, res) => {
+        Atribute.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(res.redirect('/administrar'))
+            .catch(error => res.send(error))
+    },
+    destroyImages: (req, res) => {
+        Image.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(res.redirect('/administrar'))
+            .catch(error => res.send(error))
+    },
+    destroyComponents: (req, res) => {
+        Component.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(res.redirect('/administrar'))
+            .catch(error => res.send(error))
     }
 }
