@@ -28,7 +28,7 @@ module.exports = {
             }))
             .catch(errors => res.send(errors));
     },
-    category: function (req, res) {
+    categoryFilter: function (req, res) {
 
         const selectedBrandd =
             Brand.findOne({
@@ -38,7 +38,7 @@ module.exports = {
             })
 
         const marcass = Brand.findAll();
-        const modeloss = Model.findAll();
+        // const modeloss = Model.findAll();
         const notebookss = Product.findAll({
             include: {
                 all: true,
@@ -46,15 +46,14 @@ module.exports = {
             }
         });
 
-        Promise.all([marcass, notebookss, modeloss, selectedBrandd])
-            .then(([marcas, notebooks, modelos, selectedBrand]) => {
+        Promise.all([marcass, notebookss, selectedBrandd])
+            .then(([marcas, notebooks, selectedBrand]) => {
                 if (selectedBrand == null) {
                     selectedBrand = undefined
                 }
                 res.render(path.resolve(__dirname, '..', 'views', 'web', 'category'), {
                     notebooks,
                     marcas,
-                    modelos,
                     selectedBrand
                 })
             })
@@ -82,6 +81,23 @@ module.exports = {
         //     notebooks,
         //     marcas
         // });
+    },
+    category: function (req, res) {
+        const marcas = Brand.findAll();
+        const notebooks = Product.findAll({
+            include: {
+                all: true,
+                nested: true,
+            }
+        });
+        const selectedBrand = undefined;
+        Promise.all([marcas, notebooks])
+            .then(([marcas, notebooks]) => res.render(path.resolve(__dirname, '..', 'views', 'web', 'category'), {
+                notebooks,
+                marcas,
+                selectedBrand
+            }))
+            .catch(errors => res.send(errors));
     },
     test: function (req, res) {
         //const test = getProduct.then(test => res.send(test));

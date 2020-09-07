@@ -7,7 +7,7 @@ const controllersWeb = require(path.resolve(__dirname, '..', 'controllers', 'con
 //Rutas
 router.get('/', controllersWeb.index);
 router.get('/categorias', controllersWeb.category);
-router.get('/categorias/?:name', controllersWeb.category);
+router.get('/categoria/?:name', controllersWeb.categoryFilter);
 router.get('/test', controllersWeb.test);
 
 

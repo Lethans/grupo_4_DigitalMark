@@ -31,7 +31,7 @@
                             </li>
                             <li class="breadLi"><a style="text-decoration: none;" class="breadLink" href="">
                                     <i class="fa" aria-hidden="true">
-                                        <% if(selectedBrand == null){ %>
+                                        <% if(selectedBrand == undefined){ %>
                                         Marcas
                                         <% }else{%>
                                         <%= selectedBrand.name%>
@@ -158,7 +158,7 @@
                 </div>
 
                 <div id="boxes" class="row">
-                    <% if(selectedBrand == null){ %>
+                    <% if(selectedBrand == undefined){ %>
                     <% for(let i= 0; i < notebooks.length; i++){ %>
                     <div class="col-12 col-md-6 col-lg-4">
                         <figure class="snip1218">
@@ -210,7 +210,7 @@
                 </div>
 
                 <div id="grido" class="hide gridCard">
-                    <% if(selectedBrand == null){ %>
+                    <% if(selectedBrand == undefined){ %>
                     <% for(let i= 0; i < notebooks.length; i++){ %>
 
                     <div class="card__box col-md-11 col-sm-12">
