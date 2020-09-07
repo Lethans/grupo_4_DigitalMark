@@ -127,7 +127,14 @@ router.post('/register', upload.single('avatar'), [
       return false // Si retorno un false si se muestra el error
     }
   }).withMessage('Las contraseñas deben ser iguales'),
-
+  body('avatar').custom((value, {
+    req
+  }) => {
+    if (req.file != undefined) {
+      return true
+    }
+    return false;
+  }).withMessage('Debe elegir su avatar en formato: .JPG ó JPEG ó PNG'),
   body('email').custom(async value => Array.from(await User.findAll()).filter(usuario => usuario.email == value).length > 0 ? Promise.reject("Usuario Existente") : true),
 
   /*body('email').custom((value, {
@@ -143,14 +150,7 @@ router.post('/register', upload.single('avatar'), [
   }).withMessage('Direccion ya registrada'),*/
 
   //Aquí obligo a que el usuario seleccione su avatar
-  body('avatar').custom((value, {
-    req
-  }) => {
-    if (req.file != undefined) {
-      return true
-    }
-    return false;
-  }).withMessage('Debe elegir su avatar en formato: .JPG ó JPEG ó PNG')
+
 ], controllersUser.create);
 
 //Esta es la ruta que se activa al momento que el usuario desea salir de la página

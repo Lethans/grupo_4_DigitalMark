@@ -105,7 +105,7 @@
                                                     class="fas fa-user"></i></span>
                                         </div>
                                         <input id="userName" type="text" name="firstName" class="form-control"
-                                            placeholder="<%=typeof errors != 'undefined' && errors.firstName != null ? errors.firstName.msg : 'Nombre' %>"
+                                            placeholder="<%=typeof errors != 'undefined' && errors.firstName != null ? errors.firstName : 'Nombre' %>"
                                     value="<%= typeof old != 'undefined' ? old.firstName : '' %>">
                                 </div>
                                 <% if(typeof errors != 'undefined' && errors.firstName){%>
@@ -123,7 +123,7 @@
                                             <span id="lastNameIcon" class="input-group-text"><i class="fas fa-user"></i></span>
                                         </div>
                                         <input id="userLastName" type="text" name="lastName" class="form-control"
-                                            placeholder="<%=typeof errors != 'undefined' && errors.lastName != null ? errors.lastName.msg : 'Apellido' %>"
+                                            placeholder="<%=typeof errors != 'undefined' && errors.lastName != null ? errors.lastName : 'Apellido' %>"
                                 value="<%= typeof old != 'undefined' ? old.lastName : '' %>">
                             </div>
                             <% if(typeof errors != 'undefined' && errors.lastName){%>
@@ -141,7 +141,7 @@
                                             <span id="emailIcon" class="input-group-text"><i class="fas fa-envelope"></i></span>
                                         </div>
                                         <input id="userEmail" type="email" name="email" class="form-control"
-                                            placeholder="<%=typeof errors != 'undefined' && errors.email != 'undefined' ? errors.email.msg : 'Email' %>"
+                                            placeholder="<%=typeof errors != 'undefined' && errors.email != undefined ? errors.email.msg : 'Email'%>"
                             value="">
                     </div>
 
@@ -161,8 +161,8 @@
                                     <span id="first_eye" class="input-group-text"><i
                                             class="fas fa-eye-slash"></i></span>
                                 </div>
-                                <input id="userPassword" type="password" name="password"
-                                    class="form-control first_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password : 'Mays, mins, numero, 6 caracteres' %>">
+                                <input id="userPassword" type="password" name="password" value=""
+                                    class="form-control first_password" placeholder="<%=typeof errors != 'undefined' && errors.password != undefined ? errors.password.msg : 'Mays, mins, numero, 6 caracteres' %>">
                 </div>
 
                 <% if(typeof errors != 'undefined' && errors.password){%>
@@ -181,7 +181,7 @@
                         <span id="second_eye" class="input-group-text"><i class="fas fa-eye-slash"></i></span>
                     </div>
                     <input id="userConfirmPassword" type="password" name="confirm_password"
-                        class="form-control second_password" placeholder="<%=typeof errors != 'undefined' && errors.password != 'undefined' ? errors.password.msg : 'Confirme contraseña' %>">
+                        class="form-control second_password" placeholder="<%=typeof errors != 'undefined' && errors.confirm_password != undefined ? errors.confirm_password.msg : 'Confirme contraseña' %>">
             </div>
             <% if(typeof errors != 'undefined' && errors.confirm_password){%>
             <script>
@@ -190,6 +190,9 @@
             <%}%>
                                 
 
+            <small id="avatarError" style="display: none;"
+                                        class="form-text text-danger errorInput">
+                                        Campo obligatorio</small>
         <div class="custom-file uploadFile">
             <input type="file" name="avatar" id="img" style="display:none;" />
             <label for="img" class="profile_pic" style="cursor:pointer">

@@ -72,6 +72,7 @@ function myValidation() {
     var userEmail = document.getElementById("userEmail").value;
     var userPassword = document.getElementById("userPassword").value;
     var userConfirmPassword = document.getElementById("userConfirmPassword").value;
+    var avatar = document.getElementById("img").value;
     var userFullNameFormate = /^([A-Za-z.\s_-])/;
     var userEmailFormate = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var userPasswordFormate = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
@@ -80,9 +81,9 @@ function myValidation() {
     var checkUserEmailValid = userEmail.match(userEmailFormate);
     var checkUserPasswordValid = userPassword.match(userPasswordFormate);
 
-    if (checkUserFullNameValid == null || userLastName === "" || checkUserEmailValid == null || checkUserPasswordValid == null || userPassword !== userConfirmPassword || userConfirmPassword === "") {
+    if (checkUserFullNameValid == null || userLastName === "" || checkUserEmailValid == null || checkUserPasswordValid == null || userPassword != userConfirmPassword || userConfirmPassword === "" || avatar === "") {
         validaciones = false;
-        checkUserName(), checkUserLastName(), checkUserEmail(), checkUserPassword(), checkUserConfirmPassword();
+        checkUserName(), checkUserLastName(), checkUserEmail(), checkUserPassword(), checkUserConfirmPassword(), checkAvatar();
     } else {
         validaciones = true;
         document.getElementById("userNameError").style.display = "none";
@@ -151,12 +152,21 @@ function checkUserName() {
     if (userSurname === "") {
         flag = true;
     }
-    if (flag) {
-        document.getElementById("userNameError").style.display = "block";
-    } else {
-        document.getElementById("userNameError").style.display = "none";
-    }
+
+    flag ? document.getElementById("userNameError").style.display = "block" : document.getElementById("userNameError").style.display = "none";
+
 }
+
+function checkAvatar() {
+    var avatar = document.getElementById("img").value;
+    var flag = false;
+    if (avatar == '') {
+        flag = true;
+    }
+    flag ? document.getElementById("avatarError").style.display = "block" : document.getElementById("avatarError").style.display = "none";
+
+}
+
 // xxxxxxxxxx User Surname Validation xxxxxxxxxx
 function checkUserLastName() {
     var userSurname = document.getElementById("userLastName").value;
@@ -164,44 +174,25 @@ function checkUserLastName() {
     if (userSurname === "") {
         flag = true;
     }
-    if (flag) {
-        document.getElementById("userLastNameError").style.display = "block";
-    } else {
-        document.getElementById("userLastNameError").style.display = "none";
-    }
+    flag ? document.getElementById("userLastNameError").style.display = "block" : document.getElementById("userLastNameError").style.display = "none";
+
 }
 // xxxxxxxxxx Email Validation xxxxxxxxxx
 function checkUserEmail() {
     var userEmail = document.getElementById("userEmail");
     var userEmailFormate = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var flag;
-    if (userEmail.value.match(userEmailFormate)) {
-        flag = false;
-    } else {
-        flag = true;
-    }
-    if (flag) {
-        document.getElementById("userEmailError").style.display = "block";
-    } else {
-        document.getElementById("userEmailError").style.display = "none";
-    }
+    userEmail.value.match(userEmailFormate) ? flag = false : flag = true;
+    flag ? document.getElementById("userEmailError").style.display = "block" : document.getElementById("userEmailError").style.display = "none";
+
 }
 // xxxxxxxxxx Password Validation xxxxxxxxxx
 function checkUserPassword() {
-    var userPassword = document.getElementById("userPassword");
-    var userPasswordFormate = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}/;
+    var userPassword = document.getElementById("userPassword").value;
+    var userPasswordFormate = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
     var flag;
-    if (userPassword.value.match(userPasswordFormate)) {
-        flag = false;
-    } else {
-        flag = true;
-    }
-    if (flag) {
-        document.getElementById("userPasswordError").style.display = "block";
-    } else {
-
-        document.getElementById("userPasswordError").style.display = "none";
-    }
+    userPassword.match(userPasswordFormate) ? flag = false : flag = true;
+    flag ? document.getElementById("userPasswordError").style.display = "block" : document.getElementById("userPasswordError").style.display = "none";
 }
 
 function checkUserConfirmPassword() {
@@ -209,36 +200,18 @@ function checkUserConfirmPassword() {
     var userConfirmPassword = document.getElementById("userConfirmPassword");
     var flag;
     var flag2;
-    if (userConfirmPassword === "") {
-        flag = false;
-    } else {
-        flag = true;
-    }
-    if (userPassword.value === userConfirmPassword.value) {
-        flag2 = false;
-    } else {
-        flag2 = true;
-    }
-    if (flag) {
-        document.getElementById("userConfirmPasswordError").style.display = "block";
-    } else {
-        document.getElementById("userConfirmPasswordError").style.display = "none";
-    }
-    if (flag2) {
-        document.getElementById("userConfirmPasswordError2").style.display = "block";
-    } else {
-        document.getElementById("userConfirmPasswordError2").style.display = "none";
-    }
+    userConfirmPassword == "" ? flag = true : flag = false;
+    userPassword.value === userConfirmPassword.value ? flag2 = false : flag2 = true;
+    flag ? document.getElementById("userConfirmPasswordError").style.display = "block" : document.getElementById("userConfirmPasswordError").style.display = "none";
+    flag2 ? document.getElementById("userConfirmPasswordError2").style.display = "block" : document.getElementById("userConfirmPasswordError2").style.display = "none";
+
 }
 // xxxxxxxxxx Check user bio characters. It'll use later xxxxxxxxxx
 function checkUserBio() {
     var userBio = document.getElementById("userBio").value;
     var flag = false;
-    if (flag) {
-        document.getElementById("userBioError").style.display = "block";
-    } else {
-        document.getElementById("userBioError").style.display = "none";
-    }
+    flag ? document.getElementById("userBioError").style.display = "block" : document.getElementById("userBioError").style.display = "none";
+
 }
 
 function proceed() {
@@ -254,16 +227,9 @@ function checkUserSIEmail() {
     var userSIEmail = document.getElementById("userSIEmail");
     var userSIEmailFormate = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var flag;
-    if (userSIEmail.value.match(userSIEmailFormate)) {
-        flag = false;
-    } else {
-        flag = true;
-    }
-    if (flag) {
-        document.getElementById("userSIEmailError").style.display = "block";
-    } else {
-        document.getElementById("userSIEmailError").style.display = "none";
-    }
+    userSIEmail.value.match(userSIEmailFormate) ? flag = false : flag = true;
+    flag ? document.getElementById("userSIEmailError").style.display = "block" : document.getElementById("userSIEmailError").style.display = "none";
+
 }
 // xxxxxxxxxx Sign In Password Validation xxxxxxxxxx
 function checkUserSIPassword() {
