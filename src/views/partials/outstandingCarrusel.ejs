@@ -36,15 +36,13 @@
                             <li><a href="" data-tip="Añadir al Carrito"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                         <% if (notebooks[i].stock <= 3){ %>
-                        <span class="product-stock-label">
-                            <% if (notebooks[i].stock == 1){ %>
-                            Ultima unidad
-                            <% }else{ %>
+                        <span class="product-stock-label"><% if (notebooks[i].stock == 1){ %>Ultima unidad
+                            <%}else{ %>
                             Ultimas <%= notebooks[i].stock%> unidades</span>
                         <% } %>
                         <% } %>
-                        <% if (notebooks[i].descuento != '0'){ %>
-                        <span class="product-discount-label">-<%= notebooks[i].descuento%>%</span>
+                        <% if (notebooks[i].discount != '0'){ %>
+                        <span class="product-discount-label">-<%=notebooks[i].discount%>%</span>
                         <% } %>
                     </div>
                 </div>
@@ -81,15 +79,12 @@
                             <li><a href="" data-tip="Añadir al Carrito"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                         <% if (notebooks[i].stock <= 3){ %>
-                        <span class="product-stock-label">
-                            <% if (notebooks[i].stock == 1){ %>
-                            Ultima unidad
-                            <% }else{ %>
+                        <span class="product-stock-label"><% if (notebooks[i].stock == 1){%>Ultima unidad<%}else{ %>
                             Ultimas <%= notebooks[i].stock%> unidades</span>
                         <% } %>
                         <% } %>
-                        <% if (notebooks[i].descuento != '0'){ %>
-                        <span class="product-discount-label">-<%= notebooks[i].descuento%>%</span>
+                        <% if (notebooks[i].discount != '0'){ %>
+                        <span class="product-discount-label">-<%=notebooks[i].discount%>%</span>
                         <% } %>
                     </div>
                 </div>

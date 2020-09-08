@@ -11,9 +11,13 @@ module.exports = {
         //let notebooks = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json')));
         //let marcas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'marcas.json')));
 
-        const selectedNotebook = Product.findAll({
+        const selectedNotebook = Product.findOne({
             where: {
                 id: req.params.id
+            },
+            include: {
+                all: true,
+                nested: true
             }
         });
         const marcas = Brand.findAll();

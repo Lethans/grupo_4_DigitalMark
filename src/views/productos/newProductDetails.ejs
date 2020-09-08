@@ -28,11 +28,11 @@
                                 HOME</span></a>
                     </li>
                     <li class="breadLi"><a style="text-decoration: none;" class="breadLink"
-                            href="/categoria/<%= selectedNotebook.marca%>">
+                            href="/categoria/<%= selectedNotebook.brandId%>">
                             <i class="fa" aria-hidden="true">
-                                <%= selectedNotebook.marca%></i></a></li>
+                                <%= selectedNotebook.brand.name%></i></a></li>
                     <li class="breadLi"><a style="text-decoration: none;" class="breadLink last_bread"><i class="fa"
-                                aria-hidden="true"></i><%= selectedNotebook.nombre%></i></a></li>
+                                aria-hidden="true"></i><%= selectedNotebook.name%></i></a></li>
 
                 </ul>
             </div>
@@ -45,7 +45,7 @@
                                 <div class="eYPzCj">
                                     <div class="imagenSeleccionada"
                                         style="cursor: crosshair; width: auto; height: auto; font-size: 0px; position: relative; user-select: none;">
-                                        <img src="/img/<%= selectedNotebook.imagen%>" alt="producto principal"
+                                        <img src="/img/<%=selectedNotebook.image[0].filename%>" alt="producto principal"
                                             class="imgSmall"
                                             style="width: 100%; height: auto; display: block; pointer-events: none;">
                                     </div>
@@ -56,19 +56,19 @@
                         <div class="kBjKPR">
                             <ul class="bvbhng">
                                 <li class="kmnLdc">
-                                    <img src="/img/<%= selectedNotebook.imagen%>" width="100" height="100"
+                                    <img src="/img/<%=selectedNotebook.image[0].filename%>%>" width="100" height="100"
                                         alt="Seleccionar foto del producto"
                                         style="cursor: pointer; border: 1px solid rgb(218, 218, 218);"></li>
                                 <li class="kmnLdc">
-                                    <img src="/img/<%= selectedNotebook.imagen%>" width="100" height="100"
+                                    <img src="/img/<%=selectedNotebook.image[0].filename%>%>" width="100" height="100"
                                         alt="Seleccionar foto del producto"
                                         style="cursor: pointer; border: 1px solid transparent;"></li>
                                 <li class="kmnLdc">
-                                    <img src="/img/<%= selectedNotebook.imagen%>" width="100" height="100"
+                                    <img src="/img/<%=selectedNotebook.image[0].filename%>%>" width="100" height="100"
                                         alt="Seleccionar foto del producto"
                                         style="cursor: pointer; border: 1px solid transparent;"></li>
                                 <li class="kmnLdc">
-                                    <img src="/img/<%= selectedNotebook.imagen%>" width="100" height="100"
+                                    <img src="/img/<%=selectedNotebook.image[0].filename%>%>" width="100" height="100"
                                         alt="Seleccionar foto del producto"
                                         style="cursor: pointer; border: 1px solid transparent;"></li>
                             </ul>
@@ -76,23 +76,23 @@
                     </div>
                     <div data-test-id="product-info" class="iXQPHx"><a
                             data-event="fvg.productDetail.click-top-brand-link"
-                            href="/categoria/<%= selectedNotebook.marca%>">
+                            href="/categoria/<%= selectedNotebook.brand.name%>">
                             <div class="SOAJX">
-                                <h2 class="brand-title"><%= selectedNotebook.marca%></h2>
+                                <h2 class="brand-title"><%= selectedNotebook.brand.name%></h2>
                             </div>
                         </a>
-                        <h1 class="hgskVG"><%= selectedNotebook.nombre%></h1>
+                        <h1 class="hgskVG"><%= selectedNotebook.name%></h1>
                         <div class="ebTKzB">
                             <% if (selectedNotebook.price != selectedNotebook.oldPrice){ %>
                             <div class="cQbOue">
-                                <span class="cjtKut"> <%= selectedNotebook.oldPrice%></span>
+                                <span class="cjtKut">$ <%= selectedNotebook.oldPrice%></span>
                                 <span style="height:0;width:4px"> </span>
-                                <% if (selectedNotebook.descuento != "0"){ %>
-                                <span class="eCOhTX"><%= selectedNotebook.descuento%></span>
+                                <% if (selectedNotebook.discount != "0"){ %>
+                                <span class="eCOhTX"><%= selectedNotebook.discount%></span>
                                 <% } %>
                             </div>
                             <% } %>
-                            <span class="jgVMrx">
+                            <span class="jgVMrx">$
                                 <%= selectedNotebook.price%></span>
 
                         </div>
@@ -175,13 +175,13 @@
                 </div>
             </div>
             <div data-test-id="product-extended-description" class="emyGfc">
-                <div class="KXQCQ"><a href="/categoria/<%= selectedNotebook.marca%>">
+                <div class="KXQCQ"><a href="/categoria/<%= selectedNotebook.brand.name%>">
                         <div class="LKvzQ SOAJX">
-                            <h2 class="brand-title"><%= selectedNotebook.marca%></h2>
+                            <h2 class="brand-title"><%= selectedNotebook.brand.name%></h2>
                         </div>
                     </a>
                     <h1 data-available="44999" class="dzSAdp">
-                        <%= selectedNotebook.nombre%></h1>
+                        <%= selectedNotebook.name%></h1>
 
                     <div class="bVxZEy">
                         <h1 class="iYjgEj">Especificaciones técnicas</h1>
@@ -326,7 +326,7 @@
                                 <div class="content">
                                     <div class="fPnaTX">
                                         <div class="specName">Modelo</div>
-                                        <div class="specValue"><%= selectedNotebook.model%></div>
+                                        <div class="specValue"><%= selectedNotebook.model.name%></div>
                                     </div>
                                 </div>
                             </li>
