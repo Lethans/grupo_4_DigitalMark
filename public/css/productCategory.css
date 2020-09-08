@@ -1,4 +1,4 @@
-:root:root {
+:root {
   /* var() */
   --main-bg-color: #24303C;
   --contrast-bg-color: #3c242a;
@@ -705,9 +705,6 @@ input[type="checkbox"]:focus {
   display: block;
 }
 
-.buttons a ion-icon {
-  /* color: var(--orange-neon); */
-}
 
 .unClickedIcon {
   color: var(--orange-neon);

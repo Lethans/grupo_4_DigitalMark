@@ -7,8 +7,10 @@
     <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/productDetailsNew.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>DM - <%= selectedNotebook.nombre%></title>
+    <title>DM - <%= selectedNotebook.name%></title>
 
 </head>
 
@@ -19,23 +21,26 @@
     <div class="kQdamq">
 
         <div>
-            <!-- aca va el txt  -->
-            <div id="crumbs">
-                <ul class="breadUl">
-                    <li class="breadLi">
-                        <a style="text-decoration: none;" class="breadLink first_bread" href="/">
-                            <span class="fa fa-home">
-                                HOME</span></a>
-                    </li>
-                    <li class="breadLi"><a style="text-decoration: none;" class="breadLink"
-                            href="/categoria/<%= selectedNotebook.brandId%>">
-                            <i class="fa" aria-hidden="true">
-                                <%= selectedNotebook.brand.name%></i></a></li>
-                    <li class="breadLi"><a style="text-decoration: none;" class="breadLink last_bread"><i class="fa"
-                                aria-hidden="true"></i><%= selectedNotebook.name%></i></a></li>
 
-                </ul>
+            <div class="row">
+                <div id="crumbs">
+                    <ul class="breadUl">
+                        <li class="breadLi">
+                            <a style="text-decoration: none;" class="breadLink first_bread" href="/">
+                                <span class="fa fa-home">
+                                    HOME</span></a>
+                        </li>
+                        <li class="breadLi"><a style="text-decoration: none;" class="breadLink"
+                                href="/categoria/<%= selectedNotebook.brandId%>">
+                                <i class="fa" aria-hidden="true">
+                                    <%= selectedNotebook.brand.name%></i></a></li>
+                        <li class="breadLi"><a style="text-decoration: none;color: #007bff;"
+                                class="breadLink last_bread"><i class="fa"
+                                    aria-hidden="true"></i><%= selectedNotebook.name%></i></a></li>
+                    </ul>
+                </div>
             </div>
+
 
             <div class="ekzajL">
                 <div class="kuFxHP">

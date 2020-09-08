@@ -2138,3 +2138,113 @@ a {
 .shiny:hover span {
     transform: rotate(110deg) translateX(-80px) translateY(-140px);
 }
+
+/* ----------------------------------.bread .------------------------------------ */
+
+.breadUl {
+    list-style: none;
+
+}
+
+#crumbs {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.breadLi {
+    display: inline;
+}
+
+.breadLink {
+    display: block;
+    float: left;
+    text-decoration: none;
+    height: 50px;
+    background: var(--main-bg-color);
+    box-sizing: content-box;
+    text-align: center;
+    padding: 30px 10px 0 60px;
+    position: relative;
+    margin: 0 10px 0 0;
+    font-size: 20px;
+    color: var(--orange-color);
+}
+
+@media (max-width:600px) {
+    .breadLink {
+        padding: 30px 0px 0 50px;
+        font-size: 11px;
+    }
+
+    .first_bread {
+        padding-left: 10px;
+    }
+
+    .last_bread {
+        padding-right: 10px;
+    }
+}
+
+.breadLink:after {
+    content: "";
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid var(--main-bg-color);
+    position: absolute;
+    right: -40px;
+    top: 0;
+    z-index: 1;
+}
+
+.breadLink:before {
+    content: "";
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 40px solid #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#crumbs ul li:first-child .breadLink {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#crumbs ul li:first-child .breadLink:before {
+    display: none;
+}
+
+@media (min-width:601px) {
+    #crumbs ul li:last-child .breadLink {
+        padding-right: 40px;
+    }
+}
+
+#crumbs ul li:last-child .breadLink {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#crumbs ul li:last-child .breadLink:after {
+    display: none;
+}
+
+#crumbs ul li .breadLink:hover {
+    background: var(--orange-color);
+    color: var(--main-bg-color);
+}
+
+#crumbs ul li .breadLink:hover:after {
+    border-left-color: var(--orange-color);
+    color: var(--main-bg-color);
+}
+
+.hyperlink {
+    color: var(--blue-hyper);
+}
+
+.hide {
+    display: none;
+}
