@@ -716,12 +716,14 @@ overflow: auto;
      transition: all .2s ease;
  }
 
- .file-upload-content {
+ .file-upload-content,
+ .file-upload-content2 {
      display: none;
      text-align: center;
  }
 
- .file-upload-input {
+ .file-upload-input,
+ .file-upload-input2 {
      position: absolute;
      margin: 0;
      padding: 0;
@@ -732,14 +734,16 @@ overflow: auto;
      cursor: pointer;
  }
 
- .image-upload-wrap {
+ .image-upload-wrap,
+ .image-upload-wrap2 {
      margin-top: 20px;
      border: 4px dashed #1FB264;
      position: relative;
  }
 
  .image-dropping,
- .image-upload-wrap:hover {
+ .image-upload-wrap:hover,
+ .image-upload-wrap2:hover {
      background-color: #1FB264;
      border: 4px dashed #ffffff;
  }
@@ -760,7 +764,8 @@ overflow: auto;
      padding: 60px 0;
  }
 
- .file-upload-image {
+ .file-upload-image,
+ .file-upload-image2 {
      max-height: 200px;
      max-width: 200px;
      margin: auto;
@@ -988,6 +993,6 @@ overflow: auto;
      border-right: solid 1px rgba(255, 255, 255, 0.1);
  }
 
- .tacho{
+ .tacho {
      font-size: 30px;
  }

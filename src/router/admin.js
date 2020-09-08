@@ -32,7 +32,7 @@ router.post("/administrar/createaimage", auth, upload.single('imagen'), controll
 router.post("/administrar/createcomponent", auth, controllersAdmin.saveComponent);
 
 //router.post("/administrar/create", controllersAdmin.save);
-router.post("/administrar/create", auth, upload.single('imagen'), controllersAdmin.save);
+router.post("/administrar/create", auth, upload.any(), controllersAdmin.save);
 router.get('/administrar/detail/:id', auth, controllersAdmin.show);
 router.get('/administrar/delete/:id', auth, controllersAdmin.destroy);
 router.get('/administrar/deleteBrand/:id', auth, controllersAdmin.destroyBrand);

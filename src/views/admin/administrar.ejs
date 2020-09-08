@@ -255,34 +255,170 @@
   </section>
 
   <section id="productsContent" class="row">
+    <form action="/administrar/create" method="POST" enctype="multipart/form-data">
 
-    <table class="table col-12 triangle">
-      <thead>
-        <h2>Marcas</h2>
+      <table class="table col-12">
+        <thead>
+          <h2>Notebook</h2>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Marca</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="text" class="form-control clase1" name="notebookName" placeholder="Ingrese el nombre"
+                value="" style="margin-top: 10px;" />
+            </td>
+            <td>
+              <input type="text" class="form-control clase1" name="notebookModel" placeholder="Ingrese el modelo"
+                value="" style="margin-top: 10px;" />
+            </td>
+            <td>
+              <input type="text" class="form-control clase1" name="notebookBrand" placeholder="Ingrese la marca"
+                value="" style="margin-top: 10px;" />
+            </td>
+          </tr>
+        </tbody>
         <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Logo</th>
-          <th style="text-align: center" scope="col">Actualizar</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Precio en oferta</th>
         </tr>
-      </thead>
+        <tbody>
+          <tr>
+            <td>
+              <br>
+              <textarea rows="7" cols="50" name="notebookDescription"
+                placeholder="Ingrese la descripción aquí..."></textarea>
+              <br>
+            </td>
+            <td>
+              <input type="number" class="form-control clase1" name="notebookOldPrice" placeholder="Ingrese el precio"
+                value="" style="margin-top: 10px;" />
+            </td>
+            <td>
+              <input type="number" class="form-control clase1" name="notebookPrice"
+                placeholder="Ingrese el precio en oferta" value="" style="margin-top: 10px;" />
+            </td>
+          </tr>
+        </tbody>
 
-      <tbody>
+
         <tr>
-          <form action="/administrar/createbrand" method="POST">
-            <td contenteditable="true">
-              <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="brandName"
-                placeholder="Ingrese el nombre" value="" style="margin-top: 10px;" />
-            </td>
-            <td contenteditable="true">
-              <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="brandLogo"
-                placeholder="Ingrese el nombre del logo" value="" style="margin-top: 10px;" />
-            </td>
-            <td style="text-align: center;">
-              <button class="btnEffect third" type="submit">Agregar</button>
-            </td>
-          </form>
+          <th scope="col">Descuento</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Destacado</th>
         </tr>
-      </tbody>
+        <tbody>
+          <tr>
+            <td>
+              <input type="number" class="form-control clase1" name="notebookDiscount"
+                placeholder="Ingrese el descuento" value="" style="margin-top: 10px;" />
+            </td>
+            <td>
+              <input type="number" class="form-control clase1" name="notebookStock" placeholder="Ingrese stock" value=""
+                style="margin-top: 10px;" />
+            </td>
+
+            <td>
+              <input style="margin-left: 25px;margin-top: 20px;height: 15px;width: 15px;" class="form-check-input"
+                type="checkbox" value="" name="notebookOutstanding">
+            </td>
+          </tr>
+        </tbody>
+
+        <tbody>
+          <td style="width: 400px;">
+            <div class="file-upload">
+              <button class="file-upload-btn" type="button"
+                onclick="$('.file-upload-input').trigger( 'click' )">Seleccione la imagen</button>
+
+              <div class="image-upload-wrap">
+                <input class="file-upload-input" type='file' name="image" onchange="readURL(this);" accept="image/*" />
+                <div class="drag-text">
+                  <h3>Arrastre y suelte el la imagen o seleccione desde su pc</h3>
+                </div>
+              </div>
+              <div class="file-upload-content">
+                <img class="file-upload-image" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                  <button type="button" onclick="removeUpload()" class="remove-image">Remove
+                    <span class="image-title">Uploaded Image</span></button>
+                </div>
+              </div>
+            </div>
+          </td>
+
+          <td style="width: 400px;padding-left: 250px;">
+            <div class="file-upload">
+              <button class="file-upload-btn" type="button"
+                onclick="$('.file-upload-input2').trigger( 'click' )">Seleccione la imagen</button>
+
+              <div class="image-upload-wrap2">
+                <input class="file-upload-input2" type='file' name="image2" onchange="readURLTwo(this);"
+                  accept="image/*" />
+                <div class="drag-text">
+                  <h3>Arrastre y suelte el la imagen o seleccione desde su pc</h3>
+                </div>
+              </div>
+              <div class="file-upload-content2">
+                <img class="file-upload-image2" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                  <button type="button" onclick="removeUploadTwo()" class="remove-image">Remove
+                    <span class="image-title2">Uploaded Image</span></button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tbody>
+      </table>
+
+      <table class="table col-12 triangle">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Caracteristicas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input type="text" class="form-control clase1" name="notebookComponentName"
+                placeholder="Ingrese el nombre del componente" value="" style="margin-top: 10px;" />
+            </td>
+
+            <td>
+              <input type="text" class="form-control clase1" name="notebookComponentCategory"
+                placeholder="Ingrese la categoria del componente" value="" style="margin-top: 10px;" />
+            </td>
+
+            <td>
+              <input type="text" class="form-control clase1" name="notebookComponentBrand"
+                placeholder="Ingrese la marca del componente" value="" style="margin-top: 10px;" />
+            </td>
+
+            <td>
+              <input type="text" class="form-control clase1" name="notebookComponentattributes1"
+                placeholder="Ingrese el valor" value="" style="margin-top: 10px;" />
+              <input type="text" class="form-control clase1" name="notebookComponentattributes2"
+                placeholder="Ingrese el valor" value="" style="margin-top: 10px;" />
+              <input type="text" class="form-control clase1" name="notebookComponentattributes3"
+                placeholder="Ingrese el valor" value="" style="margin-top: 10px;" />
+            </td>
+          </tr>
+        </tbody>
+
+
+
+        <td style="text-align: end;">
+          <button class="btnEffect third" type="submit">Agregar</button>
+        </td>
+    </form>
     </table>
 
     <!-- Productos cargados -->
@@ -358,17 +494,17 @@
               </td>
 
               <td class="price-column" contenteditable="true">
-                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="price"
-                  placeholder="" value="<%=notebook.price%>" />
-              </td>
-
-              <td class="offer-column" contenteditable="true">
-                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="oldPrice"
+                <input type="number" class="form-control clase1" id="exampleFormControlTextarea1" name="oldPrice"
                   placeholder="" value="<%=notebook.oldPrice%>" />
               </td>
 
+              <td class="offer-column" contenteditable="true">
+                <input type="number" class="form-control clase1" id="exampleFormControlTextarea1" name="price"
+                  placeholder="" value="<%=notebook.price%>" />
+              </td>
+
               <td class="stock-column" contenteditable="true">
-                <input type="text" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
+                <input type="number" class="form-control clase1" id="exampleFormControlTextarea1" name="stock"
                   placeholder="" value="<%=notebook.stock%>" />
               </td>
 

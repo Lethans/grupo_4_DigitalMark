@@ -42,6 +42,7 @@ const controllersUser = {
   },
   create: (req, res, next) => {
     let errors = validationResult(req);
+    console.log(errors.mapped());
     if (!errors.isEmpty()) {
       Brand.findAll()
         .then(marcas => res.render(path.resolve(__dirname, '..', 'views', 'usuarios', 'register'), {
@@ -125,7 +126,7 @@ const controllersUser = {
             return user.email == req.body.email &&
               bcrypt.compareSync(req.body.password, user.password)
           });
-
+          console.log(usuarioLogueado[0]);
 
           if (usuarioLogueado == "") {
             Brand.findAll()
