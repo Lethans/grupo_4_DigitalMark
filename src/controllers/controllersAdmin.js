@@ -10,7 +10,10 @@ const {
     Atribute,
     Image,
     Component,
-    User
+    User,
+    ImageProduct,
+    AtributeComponent,
+    ComponentProduct
 } = require('../database/models/');
 
 // const platos = Dish.findAll();
@@ -118,17 +121,145 @@ module.exports = {
             })
             .catch(error => res.send(error))
     },
-    save: (req, res) => {
-        const _body = {
-            name: req.body.nombre,
-            image: req.file.filename
-        }
+    save: async (req, res) => {
+        console.log(req.body);
+
+        let newNotebook;
+        let newComponent;
+        // let attributesId = [];
+        // let imagesId = [];
+
+        let newBrand = Brand.create({
+            name: req.body.notebookBrand
+        });
+
+        let newModel = Model.create({
+            name: req.body.notebookModel
+        });
+
+        let firstImage = Image.create({
+            filename: req.files[0].filename
+        });
+
+        let secondImage = Image.create({
+            filename: req.files[1].filename
+        });
+
+        let attr1 = Atribute.create({
+            name: req.body.notebookComponentattributes1
+        });
+        let attr2 = Atribute.create({
+            name: req.body.notebookComponentattributes2
+        });
+        let attr3 = Atribute.create({
+            name: req.body.notebookComponentattributes3
+        });
+        let newCategory = Type.create({
+            name: req.body.notebookComponentCategory
+        });
+
+        let newComponentBrand = Brand.create({
+            name: req.body.notebookComponentBrand
+        });
+
+
+
+
+        Promise.all([newBrand, newModel, firstImage, secondImage, attr1, attr2, attr3, newCategory, newComponentBrand]).then(([productBrand, Productmodel, firstImg, secondImg, attr1, attr2, attr3, category, componentBrand]) => {
+            newComponent = Component.create({
+                    value: req.body.notebookComponentName,
+                    brandId: componentBrand.id,
+                    typeId: category.id,
+                }),
+                newNotebook = Product.create({
+                    name: req.body.notebookName,
+                    brandId: productBrand.id,
+                    modelId: Productmodel.id,
+                    description: req.body.notebookDescription,
+                    oldPrice: req.body.notebookOldPrice,
+                    price: req.body.notebookPrice,
+                    discount: req.body.notebookDiscount,
+                    stock: req.body.notebookStock,
+                    outstanding: req.body.notebookOutstanding != undefined ? 1 : 0
+                }).then(product => {
+                    ImageProduct.create({
+                            productId: product.id,
+                            imageId: firstImg.id
+                        }),
+                        ImageProduct.create({
+                            productId: product.id,
+                            imageId: secondImg.id
+                        })
+                })
+        }).then(res.redirect('/administrar')).catch(error => log("ERROR " + error))
+
+
+
+        //     req.files.forEach(async image => {
+        //             await Image.create({
+        //                 filename: image.filename,
+        //             })
+        //             imagesId.push(imagen.id);
+        //         }),
+        //         newNotebook = Product.create({
+        //             name: req.body.notebookName,
+        //             brandId: marca.id,
+        //             modelId: modelo.id,
+        //             description: req.body.notebookDescription,
+        //             oldPrice: req.body.notebookOldPrice,
+        //             price: req.body.notebookPrice,
+        //             discount: req.body.notebookDiscount,
+        //             stock: req.body.notebookStock,
+        //             outstanding: req.body.notebookOutstanding != undefined ? 1 : 0
+        //         }),
+        //         newComponent = Component.create({
+        //             value: req.body.notebookComponentName,
+        //             brandId: compBrand.id,
+        //             typeId: category.id
+        //         }),
+        //         attributesId.push(attr1.id)
+        //     attributesId.push(attr2.id)
+        //     attributesId.push(attr3.id)
+        // }).then(([a, b, c]) =>
+        //     console.log(a),
+        //     console.log(b),
+        //     console.log(c),
+        //     imagesId.forEach(async id => {
+        //         ImageProduct.create({
+        //             productId: newNotebook.id,
+        //             imageId: id
+        //         })
+        //     }));
+
+        //.....................................................................................
+
+        //let newFirstImage = await Image.create(req.body.image);
+        //let newSecondImage = await Image.create(req.body.image2);
+
+        // Image.bulkCreate([{
+        //     filename: req.files.fieldname.image
+        // }, {
+        //     filename: req.files.fieldname.image2
+        // }]).then(res.redirect('/administrar')).catch(error => log("ERROR " + error))
+
+
+        //  ImageProduct.create({
+        //      productId: nuevaMoto.id,
+        //      imageId: imageId
+        //  }).then(res.redirect('/administrar')).catch(error => log("ERROR " + error))
+
+
+        // Product,
+        // Brand,
+        // Type,
+        // Atribute,
+        // Image,
+        // Component,
+        // const _body = {
+        //     name: req.body.nombre,
+        //     image: req.file.filename
+        // }
         //req.body
-        Product.create(_body)
-            .then(res.redirect('/administrar'))
-            .catch(error => {
-                res.send(error)
-            });
         //let notebooks = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'notebooks.json')));
         //res.send(req.body);
         //console.log(req.body);
