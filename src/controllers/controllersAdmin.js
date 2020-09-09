@@ -166,32 +166,49 @@ module.exports = {
 
 
         Promise.all([newBrand, newModel, firstImage, secondImage, attr1, attr2, attr3, newCategory, newComponentBrand]).then(([productBrand, Productmodel, firstImg, secondImg, attr1, attr2, attr3, category, componentBrand]) => {
-            newComponent = Component.create({
-                    value: req.body.notebookComponentName,
-                    brandId: componentBrand.id,
-                    typeId: category.id,
-                }),
-                newNotebook = Product.create({
-                    name: req.body.notebookName,
-                    brandId: productBrand.id,
-                    modelId: Productmodel.id,
-                    description: req.body.notebookDescription,
-                    oldPrice: req.body.notebookOldPrice,
-                    price: req.body.notebookPrice,
-                    discount: req.body.notebookDiscount,
-                    stock: req.body.notebookStock,
-                    outstanding: req.body.notebookOutstanding != undefined ? 1 : 0
-                }).then(product => {
-                    ImageProduct.create({
-                            productId: product.id,
-                            imageId: firstImg.id
-                        }),
+                newComponent = Component.create({
+                        value: req.body.notebookComponentName,
+                        brandId: componentBrand.id,
+                        typeId: category.id,
+                    }).then(component => {
+                        AtributeComponent.create({
+                                componentId: component.id,
+                                atributeId: attr1.id
+                            }),
+                            AtributeComponent.create({
+                                componentId: component.id,
+                                atributeId: attr2.id
+                            }),
+                            AtributeComponent.create({
+                                componentId: component.id,
+                                atributeId: attr3.id
+                            })
+                    }),
+                    newNotebook = Product.create({
+                        name: req.body.notebookName,
+                        brandId: productBrand.id,
+                        modelId: Productmodel.id,
+                        description: req.body.notebookDescription,
+                        oldPrice: req.body.notebookOldPrice,
+                        price: req.body.notebookPrice,
+                        discount: req.body.notebookDiscount,
+                        stock: req.body.notebookStock,
+                        outstanding: req.body.notebookOutstanding != undefined ? 1 : 0
+                    }).then(product => {
                         ImageProduct.create({
-                            productId: product.id,
-                            imageId: secondImg.id
-                        })
-                })
-        }).then(res.redirect('/administrar')).catch(error => log("ERROR " + error))
+                                productId: product.id,
+                                imageId: firstImg.id
+                            }),
+                            ImageProduct.create({
+                                productId: product.id,
+                                imageId: secondImg.id
+                            })
+                    })
+            })
+            .then(end => {
+                res.redirect('/administrar')
+            })
+            .catch(error => log("ERROR " + error))
 
 
 
