@@ -547,14 +547,15 @@ svg.hamburguerSvg {
 
 .mainSearch-input {
     border: none;
-    background-color: wheat;
+    background-color: var(--main-bg-color);
+    color: var(--orange-neon);
     box-shadow: none;
     margin-left: 20px;
     width: 100%;
     display: block;
     padding: 0;
     margin: 0;
-    font-size: 2em;
+    font-size: 1.5em;
     text-transform: capitalize;
 }
 
